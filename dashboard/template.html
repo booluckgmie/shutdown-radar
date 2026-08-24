@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infrastructure Disruption Tracker</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<style>
+  :root{
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --grid:           #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --cause-conflict:    #b8253f;
+    --cause-disaster:    #eb6834;
+    --cause-shutdown:    #4a3aa7;
+    --cause-unexplained: #898781;
+    --seq-1: #cde2fb; --seq-4: #3987e5; --seq-7: #0d366b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])){
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page-plane:     #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --grid:           #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --cause-conflict:    #a8305a;
+      --cause-disaster:    #d95926;
+      --cause-shutdown:    #9085e9;
+      --cause-unexplained: #898781;
+      --seq-1: #184f95; --seq-4: #3987e5; --seq-7: #cde2fb;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page-plane:     #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --grid:           #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --cause-conflict:    #a8305a;
+    --cause-disaster:    #d95926;
+    --cause-shutdown:    #9085e9;
+    --cause-unexplained: #898781;
+    --seq-1: #184f95; --seq-4: #3987e5; --seq-7: #cde2fb;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--page-plane); color:var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size:14px; line-height:1.45;
+  }
+  a{color:inherit}
+  .wrap{max-width:1320px;margin:0 auto;padding:20px 20px 64px}
+  header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  h1{font-size:22px;margin:0 0 4px}
+  .subtitle{color:var(--text-secondary);margin:0;max-width:70ch}
+  .top-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12px;color:var(--text-muted)}
+  .theme-btn{
+    background:var(--surface-1);border:1px solid var(--border);color:var(--text-primary);
+    border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;
+  }
+  .banner{
+    border:1px solid var(--border);border-left:3px solid var(--cause-shutdown);
+    background:var(--surface-1);border-radius:8px;padding:10px 14px;margin:0 0 18px;
+    font-size:12.5px;color:var(--text-secondary);
+  }
+  .banner strong{color:var(--text-primary)}
+  .card{
+    background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
+    padding:16px;
+  }
+  .card h2{font-size:13px;margin:0 0 12px;color:var(--text-secondary);font-weight:600;
+    text-transform:uppercase;letter-spacing:.03em}
+  .card .card-note{font-size:11.5px;color:var(--text-muted);margin-top:8px}
+
+  /* filters */
+  .filters{
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;
+    background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
+    padding:12px 16px;margin-bottom:16px;
+  }
+  .filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .filter-label{font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em;margin-right:2px}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);
+    border-radius:999px;padding:4px 10px 4px 8px;cursor:pointer;user-select:none;font-size:12.5px;
+    background:var(--page-plane);
+  }
+  .chip input{accent-color:currentColor;margin:0}
+  .chip .swatch{width:10px;height:10px;border-radius:3px;flex:none}
+  .chip.off{opacity:.45}
+  select, .btn{
+    font-size:12.5px;border:1px solid var(--border);border-radius:6px;background:var(--page-plane);
+    color:var(--text-primary);padding:5px 8px;
+  }
+  .btn{cursor:pointer}
+  .btn:hover{background:var(--surface-1)}
+
+  /* KPIs */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+  @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi .label{font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}
+  .kpi .value{font-size:26px;font-weight:600;margin-top:4px}
+  .kpi .value small{font-size:13px;font-weight:500;color:var(--text-secondary)}
+
+  /* map */
+  .map-card{margin-bottom:16px;padding:0;overflow:hidden}
+  .map-card .map-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 0}
+  #map{height:480px;width:100%;margin-top:12px;background:var(--grid)}
+  .legend-row{display:flex;gap:16px;flex-wrap:wrap;padding:10px 16px 14px;font-size:12px;color:var(--text-secondary)}
+  .legend-row .item{display:flex;align-items:center;gap:6px}
+  .legend-row .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .leaflet-popup-content{font-family:inherit;font-size:12.5px}
+  .leaflet-popup-content .pop-title{font-weight:600;margin-bottom:4px}
+  .leaflet-popup-content .pop-row{display:flex;justify-content:space-between;gap:10px}
+  .leaflet-popup-content .pop-row b{font-variant-numeric:tabular-nums}
+
+  /* charts grid */
+  .charts-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-bottom:16px}
+  @media (max-width:900px){.charts-grid{grid-template-columns:1fr}}
+  .full-span{grid-column:1/-1}
+  svg text{fill:var(--text-secondary);font-size:11px}
+  svg .axis-line{stroke:var(--baseline);stroke-width:1}
+  svg .grid-line{stroke:var(--grid);stroke-width:1}
+  svg .bar-label{fill:var(--text-primary);font-size:11px}
+  .bar-hit{cursor:pointer}
+  .tooltip-fixed{
+    position:fixed;pointer-events:none;background:var(--surface-1);border:1px solid var(--border);
+    border-radius:6px;padding:6px 9px;font-size:12px;box-shadow:0 4px 16px rgba(0,0,0,.18);
+    z-index:1000;display:none;max-width:240px;
+  }
+  .tooltip-fixed .t-val{font-weight:600}
+
+  /* resilience table */
+  table.data-table{width:100%;border-collapse:collapse;font-size:12.5px}
+  table.data-table th{
+    text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-muted);
+    border-bottom:1px solid var(--grid);padding:6px 8px;font-weight:600;
+  }
+  table.data-table td{padding:6px 8px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums}
+  table.data-table tr:last-child td{border-bottom:none}
+  table.data-table .causepips{display:flex;gap:2px}
+  table.data-table .pip{width:7px;height:7px;border-radius:2px}
+
+  /* insights */
+  .insights ul{margin:0;padding-left:18px}
+  .insights li{margin-bottom:8px;color:var(--text-secondary)}
+  .insights li b{color:var(--text-primary)}
+  .insights li .tag{
+    display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;
+    color:var(--text-muted);border:1px solid var(--border);border-radius:4px;padding:0 4px;margin-right:6px;
+  }
+
+  details.table-toggle{margin-top:16px}
+  details.table-toggle summary{cursor:pointer;font-size:12.5px;color:var(--text-secondary);padding:4px 0}
+  .table-scroll{overflow-x:auto;margin-top:10px}
+
+  footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--border);font-size:11.5px;color:var(--text-muted)}
+  footer p{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Infrastructure Disruption Tracker</h1>
+      <p class="subtitle">Correlating internet outages with natural disasters, armed conflict, and government shutdowns — internet connectivity loss treated as a real-time proxy for physical infrastructure disruption.</p>
+    </div>
+    <div class="top-meta">
+      <button class="theme-btn" id="themeToggle" type="button">Toggle theme</button>
+      <span>Generated __GENERATED_AT__</span>
+    </div>
+  </header>
+
+  <div class="banner" id="provenanceBanner"><!-- filled by JS --></div>
+
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Cause</span>
+      <label class="chip" data-cause="conflict"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-conflict)"></span>Conflict</label>
+      <label class="chip" data-cause="disaster"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-disaster)"></span>Disaster</label>
+      <label class="chip" data-cause="shutdown"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-shutdown)"></span>Shutdown</label>
+      <label class="chip" data-cause="unexplained"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-unexplained)"></span>Unexplained</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Time range</span>
+      <select id="rangeSelect">
+        <option value="7">Last 7 days</option>
+        <option value="30">Last 30 days</option>
+        <option value="90" selected>Last 90 days</option>
+        <option value="all">All available</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Min confidence</span>
+      <select id="confSelect">
+        <option value="low" selected>Low & up</option>
+        <option value="medium">Medium & up</option>
+        <option value="high">High only</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Source</span>
+      <select id="sourceSelect">
+        <option value="all" selected>Structured + semantic</option>
+        <option value="structured">Structured only</option>
+      </select>
+    </div>
+    <button class="btn" id="resetBtn" type="button">Reset filters</button>
+  </div>
+
+  <div class="kpis" id="kpiRow"></div>
+
+  <div class="card map-card">
+    <div class="map-head">
+      <h2 style="margin:0">Outage map — bubble size = downtime, color = dominant cause</h2>
+    </div>
+    <div id="map"></div>
+    <div class="legend-row">
+      <span class="item"><span class="dot" style="background:var(--cause-conflict)"></span>Conflict</span>
+      <span class="item"><span class="dot" style="background:var(--cause-disaster)"></span>Disaster</span>
+      <span class="item"><span class="dot" style="background:var(--cause-shutdown)"></span>Shutdown</span>
+      <span class="item"><span class="dot" style="background:var(--cause-unexplained)"></span>Unexplained</span>
+      <span class="item" style="color:var(--text-muted)">Bubble radius scales with cumulative downtime-hours in view</span>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="card">
+      <h2>Weekly outage frequency by cause</h2>
+      <svg id="timelineChart" width="100%" height="220" role="img" aria-label="Weekly outage counts stacked by cause"></svg>
+    </div>
+    <div class="card">
+      <h2>Cause breakdown (events in view)</h2>
+      <svg id="causeChart" width="100%" height="220" role="img" aria-label="Event count by cause"></svg>
+    </div>
+    <div class="card">
+      <h2>Avg. recovery time by cause (hrs)</h2>
+      <svg id="durationChart" width="100%" height="200" role="img" aria-label="Average duration in hours by cause"></svg>
+      <p class="card-note">Only resolved events (known end time) count toward recovery time.</p>
+    </div>
+    <div class="card">
+      <h2>Fragility ranking — top countries</h2>
+      <div id="resilienceTable"></div>
+      <p class="card-note">Ranked by cumulative downtime-hours in the current filter/time window.</p>
+    </div>
+  </div>
+
+  <div class="card insights full-span" style="margin-bottom:16px">
+    <h2>Auto-generated insights</h2>
+    <ul id="insightsList"></ul>
+  </div>
+
+  <details class="table-toggle">
+    <summary>View underlying event data as a table</summary>
+    <div class="table-scroll" id="rawTableWrap"></div>
+  </details>
+
+  <footer>
+    <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas) detect connectivity loss with no cause attached. Phase 2 joins each outage to GDACS/ACLED/#KeepItOn records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
+    <p><b>Limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See README for the full write-up.</p>
+  </footer>
+</div>
+
+<div class="tooltip-fixed" id="tooltip"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+const DATA = __DATA_JSON__;
+const META = __META_JSON__;
+</script>
+<script src="app.js.inline"></script>
+</body>
+</html>

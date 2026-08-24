@@ -1,0 +1,524 @@
+(function () {
+  "use strict";
+
+  var CAUSES = ["conflict", "disaster", "shutdown", "unexplained"];
+  var CAUSE_LABEL = { conflict: "Conflict", disaster: "Disaster", shutdown: "Shutdown", unexplained: "Unexplained" };
+  var CAUSE_PRIORITY = { conflict: 0, shutdown: 1, disaster: 2, unexplained: 3 };
+  var CONF_RANK = { low: 0, medium: 1, high: 2 };
+
+  function causeColor(cause) {
+    return getComputedStyle(document.documentElement).getPropertyValue("--cause-" + cause).trim();
+  }
+
+  // ---------- theme ----------
+  var themeBtn = document.getElementById("themeToggle");
+  function applyTheme(t) {
+    if (t) document.documentElement.setAttribute("data-theme", t);
+    else document.documentElement.removeAttribute("data-theme");
+  }
+  (function initTheme() {
+    try {
+      var saved = localStorage.getItem("radar-theme");
+      if (saved) applyTheme(saved);
+    } catch (e) { /* localStorage unavailable, fall back to system theme */ }
+  })();
+  themeBtn.addEventListener("click", function () {
+    var current = document.documentElement.getAttribute("data-theme");
+    var next = current === "dark" ? "light" : (current === "light" ? null : "dark");
+    applyTheme(next);
+    try { localStorage.setItem("radar-theme", next || ""); } catch (e) {}
+  });
+
+  // ---------- provenance banner ----------
+  (function banner() {
+    var el = document.getElementById("provenanceBanner");
+    var isSeed = DATA.events.length > 0 && DATA.events.every(function (e) { return /\(seed\)$/.test(e.source_name); });
+    if (isSeed) {
+      el.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
+    } else {
+      var sources = Array.from(new Set(DATA.events.map(function (e) { return e.source_name; }))).sort();
+      el.innerHTML = "<strong>Live pipeline data.</strong> " + DATA.meta.total_events + " events from " + sources.length + " source feeds. Generated " + fmtDateTime(DATA.generated_at) + ".";
+    }
+  })();
+
+  // ---------- helpers ----------
+  function parseDate(s) { return s ? new Date(s) : null; }
+  function fmtDateTime(s) { var d = parseDate(s); return d ? d.toISOString().slice(0, 16).replace("T", " ") + " UTC" : "–"; }
+  function fmtDate(s) { var d = parseDate(s); return d ? d.toISOString().slice(0, 10) : "–"; }
+  function fmtHours(h) { if (h == null) return "–"; if (h < 1) return (h * 60).toFixed(0) + "m"; if (h < 48) return h.toFixed(1) + "h"; return (h / 24).toFixed(1) + "d"; }
+  function fmtNum(n) { return n.toLocaleString("en-US"); }
+  function isoWeekKey(d) {
+    var date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var day = (date.getUTCDay() + 6) % 7; // Mon=0
+    date.setUTCDate(date.getUTCDate() - day);
+    return date.toISOString().slice(0, 10);
+  }
+
+  // ---------- filter state ----------
+  var state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all" };
+
+  function withinRange(event) {
+    if (state.rangeDays === "all") return true;
+    var start = parseDate(event.timestamp_start);
+    if (!start) return false;
+    var cutoff = new Date(Date.now() - state.rangeDays * 86400000);
+    return start >= cutoff;
+  }
+
+  function applyFilters() {
+    return DATA.events.filter(function (e) {
+      if (!state.causes.has(e.cause)) return false;
+      if (CONF_RANK[e.confidence] < CONF_RANK[state.minConf]) return false;
+      if (state.sourceOnly === "structured" && e.source_type !== "structured") return false;
+      if (!withinRange(e)) return false;
+      return true;
+    });
+  }
+
+  // ---------- tooltip ----------
+  var tooltipEl = document.getElementById("tooltip");
+  function showTooltip(html, x, y) {
+    tooltipEl.innerHTML = html;
+    tooltipEl.style.display = "block";
+    var pad = 14;
+    var w = tooltipEl.offsetWidth, h = tooltipEl.offsetHeight;
+    var left = Math.min(x + pad, window.innerWidth - w - pad);
+    var top = Math.min(y + pad, window.innerHeight - h - pad);
+    tooltipEl.style.left = left + "px";
+    tooltipEl.style.top = top + "px";
+  }
+  function hideTooltip() { tooltipEl.style.display = "none"; }
+
+  // ---------- map ----------
+  // Leaflet loads from a CDN; if that's blocked (offline viewing, locked-down
+  // network) the rest of the dashboard must still work, so this is fully
+  // guarded and every renderMap call becomes a no-op rather than a hard crash.
+  var map = null, markerLayer = null;
+  try {
+    if (typeof L !== "undefined") {
+      map = L.map("map", { scrollWheelZoom: false, worldCopyJump: true }).setView([15, 10], 2);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+        maxZoom: 18,
+      }).addTo(map);
+      markerLayer = L.layerGroup().addTo(map);
+    } else {
+      throw new Error("Leaflet not loaded");
+    }
+  } catch (e) {
+    var mapEl = document.getElementById("map");
+    mapEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:12.5px;padding:20px;text-align:center">Map basemap unavailable offline (Leaflet/OpenStreetMap tiles need network access). Every other panel below still reflects the live filters.</div>';
+  }
+
+  function radiusScale(downtimeHours, count) {
+    var v = downtimeHours > 0 ? downtimeHours : count * 6;
+    return Math.max(7, Math.min(42, 6 + Math.sqrt(v) * 2.4));
+  }
+
+  function renderMap(filtered) {
+    if (!markerLayer) return;
+    markerLayer.clearLayers();
+    var byCountry = {};
+    filtered.forEach(function (e) {
+      var key = e.country || "Unknown";
+      if (!byCountry[key]) byCountry[key] = { events: [], latSum: 0, lonSum: 0 };
+      var g = byCountry[key];
+      g.events.push(e);
+      g.latSum += e.lat; g.lonSum += e.lon;
+    });
+
+    Object.keys(byCountry).forEach(function (country) {
+      var g = byCountry[country];
+      var n = g.events.length;
+      var lat = g.latSum / n, lon = g.lonSum / n;
+
+      var counts = {}, downtime = 0, mostRecent = null, resolvedHours = [];
+      g.events.forEach(function (e) {
+        counts[e.cause] = (counts[e.cause] || 0) + 1;
+        if (e.duration_hours) downtime += e.duration_hours;
+        if (e.timestamp_end && e.duration_hours) resolvedHours.push(e.duration_hours);
+        if (!mostRecent || e.timestamp_start > mostRecent) mostRecent = e.timestamp_start;
+      });
+      var dominant = CAUSES.slice().sort(function (a, b) {
+        return (counts[b] || 0) - (counts[a] || 0) || CAUSE_PRIORITY[a] - CAUSE_PRIORITY[b];
+      })[0];
+      var avgRecovery = resolvedHours.length ? resolvedHours.reduce(function (a, b) { return a + b; }, 0) / resolvedHours.length : null;
+
+      var marker = L.circleMarker([lat, lon], {
+        radius: radiusScale(downtime, n),
+        color: causeColor(dominant),
+        weight: 2,
+        fillColor: causeColor(dominant),
+        fillOpacity: 0.55,
+      }).addTo(markerLayer);
+
+      var breakdown = CAUSES.filter(function (c) { return counts[c]; })
+        .map(function (c) { return '<div class="pop-row"><span>' + CAUSE_LABEL[c] + '</span><b>' + counts[c] + "</b></div>"; })
+        .join("");
+      var popupHtml = '<div class="pop-title">' + escapeHtml(country) + "</div>" +
+        '<div class="pop-row"><span>Events in view</span><b>' + n + "</b></div>" +
+        '<div class="pop-row"><span>Cumulative downtime</span><b>' + fmtHours(downtime) + "</b></div>" +
+        '<div class="pop-row"><span>Avg recovery time</span><b>' + fmtHours(avgRecovery) + "</b></div>" +
+        '<div class="pop-row"><span>Most recent</span><b>' + fmtDate(mostRecent) + "</b></div><hr style='border:none;border-top:1px solid var(--border);margin:6px 0'/>" + breakdown;
+      marker.bindPopup(popupHtml);
+    });
+  }
+
+  function escapeHtml(s) {
+    var d = document.createElement("div");
+    d.textContent = s == null ? "" : String(s);
+    return d.innerHTML;
+  }
+
+  // ---------- SVG chart helpers ----------
+  var SVG_NS = "http://www.w3.org/2000/svg";
+  function svgEl(tag, attrs) {
+    var el = document.createElementNS(SVG_NS, tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+  function clearSvg(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+  function chartWidth(svg) { return svg.parentElement.clientWidth - 32; }
+
+  // ---------- cause breakdown chart (horizontal bars) ----------
+  function renderCauseChart(filtered) {
+    var svg = document.getElementById("causeChart");
+    clearSvg(svg);
+    var w = chartWidth(svg), h = 210;
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+
+    var counts = {}; CAUSES.forEach(function (c) { counts[c] = 0; });
+    filtered.forEach(function (e) { counts[e.cause] = (counts[e.cause] || 0) + 1; });
+    var total = filtered.length || 1;
+    var max = Math.max.apply(null, CAUSES.map(function (c) { return counts[c]; })) || 1;
+
+    var rowH = h / CAUSES.length;
+    var labelW = 92, valueW = 92, chartAreaW = w - labelW - valueW;
+
+    CAUSES.forEach(function (cause, i) {
+      var y = i * rowH + rowH / 2;
+      var barLen = (counts[cause] / max) * chartAreaW;
+      var label = svgEl("text", { x: 0, y: y + 4, "font-weight": 600 });
+      label.textContent = CAUSE_LABEL[cause];
+      label.setAttribute("fill", "var(--text-primary)");
+      svg.appendChild(label);
+
+      var barY = y - 9;
+      var track = svgEl("rect", { x: labelW, y: barY, width: chartAreaW, height: 18, rx: 4, fill: "var(--grid)" });
+      svg.appendChild(track);
+      var bar = svgEl("rect", {
+        x: labelW, y: barY, width: Math.max(2, barLen), height: 18, rx: 4,
+        fill: causeColor(cause), class: "bar-hit",
+      });
+      svg.appendChild(bar);
+
+      var pct = ((counts[cause] / total) * 100).toFixed(1);
+      var valLabel = svgEl("text", { x: labelW + Math.max(2, barLen) + 8, y: y + 4, class: "bar-label" });
+      valLabel.textContent = fmtNum(counts[cause]) + " (" + pct + "%)";
+      svg.appendChild(valLabel);
+
+      var hit = svgEl("rect", { x: labelW, y: barY - 4, width: chartAreaW, height: 26, fill: "transparent", class: "bar-hit" });
+      hit.addEventListener("pointermove", function (ev) {
+        showTooltip('<div>' + CAUSE_LABEL[cause] + '</div><div class="t-val">' + fmtNum(counts[cause]) + " events (" + pct + "%)</div>", ev.clientX, ev.clientY);
+      });
+      hit.addEventListener("pointerleave", hideTooltip);
+      svg.appendChild(hit);
+    });
+  }
+
+  // ---------- avg recovery duration chart ----------
+  function renderDurationChart(filtered) {
+    var svg = document.getElementById("durationChart");
+    clearSvg(svg);
+    var w = chartWidth(svg), h = 190;
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+
+    var sums = {}, ns = {};
+    CAUSES.forEach(function (c) { sums[c] = 0; ns[c] = 0; });
+    filtered.forEach(function (e) {
+      if (e.timestamp_end && e.duration_hours != null) { sums[e.cause] += e.duration_hours; ns[e.cause] += 1; }
+    });
+    var avg = {}; CAUSES.forEach(function (c) { avg[c] = ns[c] ? sums[c] / ns[c] : null; });
+    var max = Math.max.apply(null, CAUSES.map(function (c) { return avg[c] || 0; })) || 1;
+
+    var rowH = h / CAUSES.length;
+    var labelW = 92, valueW = 110, chartAreaW = w - labelW - valueW;
+
+    CAUSES.forEach(function (cause, i) {
+      var y = i * rowH + rowH / 2;
+      var val = avg[cause];
+      var barLen = val ? (val / max) * chartAreaW : 0;
+      var label = svgEl("text", { x: 0, y: y + 4, "font-weight": 600 });
+      label.textContent = CAUSE_LABEL[cause];
+      svg.appendChild(label);
+
+      var barY = y - 8;
+      svg.appendChild(svgEl("rect", { x: labelW, y: barY, width: chartAreaW, height: 16, rx: 4, fill: "var(--grid)" }));
+      if (val) {
+        var bar = svgEl("rect", { x: labelW, y: barY, width: Math.max(2, barLen), height: 16, rx: 4, fill: causeColor(cause) });
+        svg.appendChild(bar);
+      }
+      var valLabel = svgEl("text", { x: labelW + Math.max(2, barLen) + 8, y: y + 4, class: "bar-label" });
+      valLabel.textContent = val ? fmtHours(val) + " (n=" + ns[cause] + ")" : "no resolved events";
+      svg.appendChild(valLabel);
+    });
+  }
+
+  // ---------- weekly timeline (stacked bars) ----------
+  function renderTimeline(filtered) {
+    var svg = document.getElementById("timelineChart");
+    clearSvg(svg);
+    var w = chartWidth(svg), h = 220;
+    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+
+    var buckets = {};
+    filtered.forEach(function (e) {
+      var d = parseDate(e.timestamp_start);
+      if (!d) return;
+      var wk = isoWeekKey(d);
+      if (!buckets[wk]) buckets[wk] = { conflict: 0, disaster: 0, shutdown: 0, unexplained: 0 };
+      buckets[wk][e.cause]++;
+    });
+    var weeks = Object.keys(buckets).sort();
+    if (weeks.length === 0) {
+      svg.appendChild(svgEl("text", { x: 10, y: 20 })).textContent = "No events in the current filter.";
+      return;
+    }
+    var maxTotal = 0;
+    weeks.forEach(function (wk) {
+      var t = CAUSES.reduce(function (s, c) { return s + buckets[wk][c]; }, 0);
+      maxTotal = Math.max(maxTotal, t);
+    });
+
+    var padL = 30, padB = 22, padT = 10;
+    var chartH = h - padB - padT, chartW = w - padL - 10;
+    var slot = chartW / weeks.length;
+    var barW = Math.max(3, Math.min(22, slot - 4));
+
+    // gridlines (0, 25%, 50%, 75%, 100% of maxTotal)
+    [0, 0.25, 0.5, 0.75, 1].forEach(function (f) {
+      var y = padT + chartH * (1 - f);
+      svg.appendChild(svgEl("line", { x1: padL, x2: w - 10, y1: y, y2: y, class: "grid-line" }));
+      var t = svgEl("text", { x: 2, y: y + 3 });
+      t.textContent = Math.round(maxTotal * f);
+      svg.appendChild(t);
+    });
+
+    weeks.forEach(function (wk, i) {
+      var x = padL + i * slot + (slot - barW) / 2;
+      var yCursor = padT + chartH;
+      CAUSES.forEach(function (cause) {
+        var v = buckets[wk][cause];
+        if (!v) return;
+        var segH = (v / maxTotal) * chartH;
+        var y = yCursor - segH;
+        var rect = svgEl("rect", {
+          x: x, y: y, width: barW, height: Math.max(0, segH - 1.5), fill: causeColor(cause), rx: 2,
+        });
+        rect.addEventListener("pointermove", function (ev) {
+          showTooltip('<div>' + wk + " — " + CAUSE_LABEL[cause] + '</div><div class="t-val">' + v + " events</div>", ev.clientX, ev.clientY);
+        });
+        rect.addEventListener("pointerleave", hideTooltip);
+        svg.appendChild(rect);
+        yCursor = y - 1.5;
+      });
+      if (i % Math.ceil(weeks.length / 8 || 1) === 0) {
+        var lbl = svgEl("text", { x: x + barW / 2, y: h - 6, "text-anchor": "middle" });
+        lbl.textContent = wk.slice(5);
+        svg.appendChild(lbl);
+      }
+    });
+    svg.appendChild(svgEl("line", { x1: padL, x2: w - 10, y1: padT + chartH, y2: padT + chartH, class: "axis-line" }));
+  }
+
+  // ---------- resilience / fragility ranking table ----------
+  function renderResilienceTable(filtered) {
+    var wrap = document.getElementById("resilienceTable");
+    var byCountry = {};
+    filtered.forEach(function (e) {
+      var key = e.country || "Unknown";
+      if (!byCountry[key]) byCountry[key] = { n: 0, downtime: 0, counts: {} };
+      var g = byCountry[key];
+      g.n++;
+      g.downtime += e.duration_hours || 0;
+      g.counts[e.cause] = (g.counts[e.cause] || 0) + 1;
+    });
+    var rows = Object.keys(byCountry).map(function (c) { return Object.assign({ country: c }, byCountry[c]); });
+    rows.sort(function (a, b) { return b.downtime - a.downtime; });
+    rows = rows.slice(0, 10);
+
+    var html = '<table class="data-table"><thead><tr><th>Country</th><th>Events</th><th>Downtime</th><th>Cause mix</th></tr></thead><tbody>';
+    rows.forEach(function (r) {
+      var total = r.n || 1;
+      var pips = CAUSES.map(function (c) {
+        var cnt = r.counts[c] || 0;
+        if (!cnt) return "";
+        var width = Math.max(6, (cnt / total) * 60);
+        return '<div class="pip" style="background:' + causeColor(c) + ";width:" + width + 'px" title="' + CAUSE_LABEL[c] + ": " + cnt + '"></div>';
+      }).join("");
+      html += "<tr><td>" + escapeHtml(r.country) + "</td><td>" + r.n + "</td><td>" + fmtHours(r.downtime) + '</td><td><div class="causepips">' + pips + "</div></td></tr>";
+    });
+    html += "</tbody></table>";
+    if (rows.length === 0) html = '<p style="color:var(--text-muted)">No events in the current filter.</p>';
+    wrap.innerHTML = html;
+  }
+
+  // ---------- KPI row ----------
+  function renderKpis(filtered) {
+    var el = document.getElementById("kpiRow");
+    var countries = new Set(filtered.map(function (e) { return e.country; }));
+    var unexplainedPct = filtered.length ? (filtered.filter(function (e) { return e.cause === "unexplained"; }).length / filtered.length * 100) : 0;
+    var totalDowntime = filtered.reduce(function (s, e) { return s + (e.duration_hours || 0); }, 0);
+    var highConfPct = filtered.length ? (filtered.filter(function (e) { return e.confidence === "high"; }).length / filtered.length * 100) : 0;
+    var mostRecent = filtered.reduce(function (m, e) { return (!m || e.timestamp_start > m) ? e.timestamp_start : m; }, null);
+
+    var tiles = [
+      { label: "Events in view", value: fmtNum(filtered.length) },
+      { label: "Countries affected", value: fmtNum(countries.size) },
+      { label: "Cumulative downtime", value: fmtHours(totalDowntime) },
+      { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%" },
+      { label: "High-confidence share", value: highConfPct.toFixed(0) + "%" },
+    ];
+    el.innerHTML = tiles.map(function (t) {
+      return '<div class="card kpi"><div class="label">' + t.label + '</div><div class="value">' + t.value + "</div></div>";
+    }).join("");
+  }
+
+  // ---------- insights ----------
+  function avgDuration(events, cause) {
+    var vals = events.filter(function (e) { return e.cause === cause && e.timestamp_end && e.duration_hours != null; }).map(function (e) { return e.duration_hours; });
+    if (!vals.length) return null;
+    return vals.reduce(function (a, b) { return a + b; }, 0) / vals.length;
+  }
+
+  function renderInsights(filtered) {
+    var list = document.getElementById("insightsList");
+    var items = [];
+
+    if (filtered.length === 0) {
+      list.innerHTML = "<li>No events match the current filters.</li>";
+      return;
+    }
+
+    var byCountry = {};
+    filtered.forEach(function (e) {
+      byCountry[e.country] = byCountry[e.country] || { n: 0, downtime: 0 };
+      byCountry[e.country].n++;
+      byCountry[e.country].downtime += e.duration_hours || 0;
+    });
+    var topCountry = Object.keys(byCountry).sort(function (a, b) { return byCountry[b].downtime - byCountry[a].downtime; })[0];
+    if (topCountry) {
+      items.push('<span class="tag">fragility</span><b>' + escapeHtml(topCountry) + "</b> recorded the most cumulative downtime in view: " +
+        fmtNum(byCountry[topCountry].n) + " events totaling " + fmtHours(byCountry[topCountry].downtime) + ".");
+    }
+
+    var confDur = avgDuration(filtered, "conflict"), disDur = avgDuration(filtered, "disaster"), sdDur = avgDuration(filtered, "shutdown");
+    if (confDur != null && disDur != null) {
+      var longer = confDur > disDur ? "longer" : "shorter";
+      items.push('<span class="tag">duration</span>Conflict-attributed outages average <b>' + fmtHours(confDur) + "</b> vs <b>" + fmtHours(disDur) +
+        "</b> for disasters in this view — conflict outages run " + longer + " on average, consistent with sustained infrastructure damage vs. episodic weather/seismic disruption.");
+    }
+    if (sdDur != null && (confDur != null || disDur != null)) {
+      var other = confDur != null ? confDur : disDur;
+      if (sdDur < other) {
+        items.push('<span class="tag">signature</span>Shutdown-attributed outages average <b>' + fmtHours(sdDur) +
+          "</b> — markedly shorter than conflict/disaster outages, consistent with a deliberate, centrally-reversible order rather than physical damage that takes time to repair.");
+      }
+    }
+
+    var unexplained = filtered.filter(function (e) { return e.cause === "unexplained"; });
+    if (filtered.length) {
+      var pct = (unexplained.length / filtered.length * 100).toFixed(0);
+      items.push('<span class="tag">coverage</span><b>' + pct + "%</b> of events in view have no matched structured cause (GDACS/ACLED/#KeepItOn) within the ±72h attribution window — candidates for the Phase 3 semantic gap-filling layer.");
+    }
+
+    var highConfShutdown = filtered.filter(function (e) { return e.cause === "shutdown" && e.confidence === "high"; }).length;
+    var totalShutdown = filtered.filter(function (e) { return e.cause === "shutdown"; }).length;
+    if (totalShutdown > 0) {
+      items.push('<span class="tag">attribution</span>' + highConfShutdown + " of " + totalShutdown +
+        " shutdown-attributed outages matched a #KeepItOn/ACLED record within 24h (high confidence) — the tighter the time match, the stronger the evidence the outage was ordered rather than incidental.");
+    }
+
+    var mostRecent = filtered.reduce(function (m, e) { return (!m || e.timestamp_start > m.timestamp_start) ? e : m; }, null);
+    if (mostRecent) {
+      items.push('<span class="tag">latest</span>Most recent event in view: <b>' + escapeHtml(mostRecent.country) + "</b> (" + CAUSE_LABEL[mostRecent.cause] +
+        ") starting " + fmtDate(mostRecent.timestamp_start) + ".");
+    }
+
+    list.innerHTML = items.map(function (h) { return "<li>" + h + "</li>"; }).join("");
+  }
+
+  // ---------- raw table ----------
+  function renderRawTable(filtered) {
+    var wrap = document.getElementById("rawTableWrap");
+    var rows = filtered.slice().sort(function (a, b) { return b.timestamp_start.localeCompare(a.timestamp_start); }).slice(0, 500);
+    var html = '<table class="data-table"><thead><tr><th>Start</th><th>Country</th><th>Cause</th><th>Subtype</th><th>Confidence</th><th>Source</th><th>Duration</th></tr></thead><tbody>';
+    rows.forEach(function (e) {
+      html += "<tr><td>" + fmtDate(e.timestamp_start) + "</td><td>" + escapeHtml(e.country) + "</td><td>" + CAUSE_LABEL[e.cause] +
+        "</td><td>" + escapeHtml(e.cause_subtype || "–") + "</td><td>" + e.confidence + "</td><td>" + escapeHtml(e.source_name) +
+        "</td><td>" + fmtHours(e.duration_hours) + "</td></tr>";
+    });
+    html += "</tbody></table>";
+    if (filtered.length > 500) html += '<p class="card-note">Showing 500 most recent of ' + fmtNum(filtered.length) + " filtered events.</p>";
+    wrap.innerHTML = html;
+  }
+
+  // ---------- render orchestration ----------
+  function renderAll() {
+    var filtered = applyFilters();
+    renderKpis(filtered);
+    renderMap(filtered);
+    renderCauseChart(filtered);
+    renderDurationChart(filtered);
+    renderTimeline(filtered);
+    renderResilienceTable(filtered);
+    renderInsights(filtered);
+    renderRawTable(filtered);
+  }
+
+  // ---------- wire up filter controls ----------
+  document.querySelectorAll(".chip").forEach(function (chip) {
+    var cause = chip.getAttribute("data-cause");
+    var checkbox = chip.querySelector("input");
+    // Clicking anywhere in a <label> wrapping its <input> already toggles the
+    // checkbox natively (whether the click lands on the text, the swatch, or
+    // the input itself) — listen for the resulting "change", don't also
+    // flip it by hand, or every click cancels itself out.
+    checkbox.addEventListener("change", function () {
+      if (checkbox.checked) { state.causes.add(cause); chip.classList.remove("off"); }
+      else { state.causes.delete(cause); chip.classList.add("off"); }
+      renderAll();
+    });
+  });
+  document.getElementById("rangeSelect").addEventListener("change", function (e) {
+    state.rangeDays = e.target.value === "all" ? "all" : parseInt(e.target.value, 10);
+    renderAll();
+  });
+  document.getElementById("confSelect").addEventListener("change", function (e) {
+    state.minConf = e.target.value;
+    renderAll();
+  });
+  document.getElementById("sourceSelect").addEventListener("change", function (e) {
+    state.sourceOnly = e.target.value;
+    renderAll();
+  });
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all" };
+    document.querySelectorAll(".chip").forEach(function (chip) {
+      chip.querySelector("input").checked = true;
+      chip.classList.remove("off");
+    });
+    document.getElementById("rangeSelect").value = "90";
+    document.getElementById("confSelect").value = "low";
+    document.getElementById("sourceSelect").value = "all";
+    renderAll();
+  });
+
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderAll, 150);
+  });
+
+  renderAll();
+})();

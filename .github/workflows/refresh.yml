@@ -1,0 +1,56 @@
+name: Refresh disruption tracker data
+
+# Runs the real ingestion pipeline (Phase 1-4) on a schedule and commits the
+# refreshed dashboard back to the repo. This is the "real-time" half of the
+# project: GitHub-hosted runners have full internet access, unlike the
+# sandbox this pipeline may have been authored in, so this is where the live
+# IODA / Cloudflare Radar / RIPE Atlas / GDACS / ACLED / #KeepItOn sources
+# actually get hit. Every source is fail-soft (see src/config.py,
+# README "Design Principles") — a missing API key or an unreachable source
+# is skipped, not fatal, so this job stays useful even with zero secrets
+# configured (IODA + GDACS need no key at all).
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: disruption-tracker-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline (fetch + attribute + semantic + build)
+        env:
+          LOOKBACK_DAYS: "14"
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACLED_API_KEY: ${{ secrets.ACLED_API_KEY }}
+          ACLED_EMAIL: ${{ secrets.ACLED_EMAIL }}
+          KEEPITON_CSV_PATH: ${{ secrets.KEEPITON_CSV_PATH }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NOMINATIM_USER_AGENT: ${{ vars.NOMINATIM_USER_AGENT }}
+        run: python main.py all
+
+      - name: Commit refreshed dashboard
+        run: |
+          git config user.name "shutdown-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dist/dashboard.html dist/data.json
+          git diff --cached --quiet || git commit -m "chore: refresh disruption tracker data [skip ci]"
+          git push
