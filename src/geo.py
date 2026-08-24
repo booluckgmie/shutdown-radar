@@ -102,3 +102,13 @@ def lookup(code: str) -> tuple[str, float, float] | None:
 def name_for(code: str) -> str:
     hit = lookup(code)
     return hit[0] if hit else code
+
+
+# name -> code, for callers that only have the display name an event was
+# stored with (events.country) and need the ISO code back (e.g. to resolve
+# region tags — see src/regions.py).
+NAME_TO_CODE: dict[str, str] = {name: code for code, (name, _lat, _lon) in COUNTRIES.items()}
+
+
+def code_for_name(name: str) -> str | None:
+    return NAME_TO_CODE.get(name)

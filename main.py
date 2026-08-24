@@ -32,9 +32,14 @@ logger = logging.getLogger("pipeline")
 def cmd_seed(args: argparse.Namespace) -> None:
     with db.connect() as conn:
         db.init_db(conn)
-        events = seed_demo_data.generate(lookback_days=args.lookback_days or 90)
-        n = db.upsert_events(conn, events)
-        logger.info("Seeded %d synthetic demo events (see src/seed_demo_data.py)", n)
+        outages, cause_events = seed_demo_data.generate(lookback_days=args.lookback_days or 90)
+        n_events = db.upsert_events(conn, outages)
+        n_cause = db.upsert_cause_events(conn, cause_events)
+        logger.info(
+            "Seeded %d synthetic outage events + %d cause events (see src/seed_demo_data.py) — "
+            "all outages start unexplained; attribution.run() resolves them for real",
+            n_events, n_cause,
+        )
 
 
 def cmd_fetch(args: argparse.Namespace) -> None:
@@ -116,6 +121,10 @@ def cmd_all(args: argparse.Namespace) -> None:
 def cmd_demo(args: argparse.Namespace) -> None:
     cmd_seed(args)
     cmd_attribute(args)
+    with db.connect() as conn:
+        db.init_db(conn)
+        stats = seed_demo_data.apply_demo_semantic_layer(conn)
+        logger.info("Demo semantic layer: resolved %d, left unexplained %d", stats["resolved"], stats["left_unexplained"])
     cmd_build(args)
 
 

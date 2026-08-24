@@ -85,6 +85,14 @@ def upsert_events(conn: sqlite3.Connection, events: Iterable[dict[str, Any]]) ->
     now = datetime.now(timezone.utc).isoformat()
     rows = []
     for e in events:
+        cause = e.get("cause", "unexplained")
+        # An event with no attributed cause cannot be "high" or "medium"
+        # confidence in that (nonexistent) cause — confidence tracks the
+        # strength of the cause match, so "unexplained" is low by
+        # definition. Enforced here, once, rather than trusting every
+        # caller (ingestion connector, attribution join, semantic layer,
+        # seed data) to get it right independently.
+        confidence = "low" if cause == "unexplained" else e.get("confidence", "low")
         rows.append(
             (
                 e["event_id"],
@@ -96,11 +104,11 @@ def upsert_events(conn: sqlite3.Connection, events: Iterable[dict[str, Any]]) ->
                 e["timestamp_start"],
                 e.get("timestamp_end"),
                 e.get("duration_hours"),
-                e.get("cause", "unexplained"),
+                cause,
                 e.get("cause_subtype"),
                 e.get("source_type", "structured"),
                 e["source_name"],
-                e.get("confidence", "low"),
+                confidence,
                 e.get("severity_score", 0.0),
                 now,
             )

@@ -55,7 +55,21 @@ Confidence is a direct function of how tight the time match was:
 - **high** — matched a structured cause record within 24h, same country
 - **medium** — within 48h
 - **low** — within 72h, or a semantic-layer (LLM-extracted) match
-- outage stays `cause="unexplained"` if nothing matched within 72h
+- outage stays `cause="unexplained"` if nothing matched within 72h — and `confidence` is
+  forced to `"low"` whenever `cause="unexplained"`, enforced centrally in
+  `db.upsert_events` (there's nothing to be confident about with no attributed cause).
+  The demo dataset (`src/seed_demo_data.py`) doesn't hardcode which outages end up
+  unexplained either — it emits Phase 1 outages and Phase 2 cause records as two
+  separate streams, the same shape the real connectors produce, and lets
+  `attribution.py`'s real join decide; only ~75% of outages get a plausible nearby cause
+  record at all, so the rest are genuinely earning the "unexplained" tag rather than
+  being told to wear it.
+
+The semantic layer (Phase 3) pools Serper's general web search *and* its dedicated news
+vertical per query, not just one, and records which distinct outlet domains actually
+contributed — e.g. `source_name: "Serper+Groq (reuters.com, apnews.com +2 more)"` — so
+attribution provenance is visible down to which news sources were behind a given call,
+not just "the LLM said so."
 
 ## ⚠️ A note on where this was built
 
@@ -77,10 +91,17 @@ Two ways to get *real* data:
 1. **Locally**, from a machine with normal internet access: `python main.py all`
    (see Setup below).
 2. **On a schedule, automatically**: `.github/workflows/refresh.yml` runs the real
-   pipeline every 6 hours on a GitHub-hosted runner (which has full internet access)
-   and commits the refreshed `dist/dashboard.html` back to the repo. Configure API keys
-   as repository secrets (see below) and it starts producing live data with zero local
-   setup — IODA and GDACS need no key at all, so it's useful even with none configured.
+   pipeline **hourly** on a GitHub-hosted runner (which has full internet access) and
+   commits the refreshed `dist/dashboard.html`/`dist/data.json` back to the repo, plus
+   the growing `data/disruption_tracker.sqlite` itself — since `db.upsert_events` never
+   deletes, that turns the rolling per-run lookback window into an actual accumulating
+   historical archive across runs (see "Historical data" below), not just a snapshot of
+   whatever's in the last 14 days. Configure API keys as repository secrets and it starts
+   producing live data with zero local setup — IODA and GDACS need no key at all, so it's
+   useful even with none configured. If the dashboard is also served over http(s) (e.g.
+   GitHub Pages), it polls `data.json` every 15 minutes and hot-swaps in newer data with
+   no manual reload — opening the file directly (`file://`) skips this automatically,
+   since a local file can't `fetch()` another one.
 
 ## Setup
 
@@ -143,24 +164,45 @@ Raw cause-labeled records from GDACS/ACLED/#KeepItOn are staged separately in
 `cause_events` before the Phase 2 join (`src/attribution.py`), so re-running attribution
 never requires re-fetching those sources.
 
+### Historical data
+
+`db.upsert_events`/`upsert_cause_events` are upserts keyed by a stable `event_id` —
+re-running `fetch` doesn't duplicate or drop anything outside the current lookback
+window, it only touches rows the new fetch actually saw. The hourly GitHub Actions run
+commits `data/disruption_tracker.sqlite` itself (see below), so the database is a
+genuinely accumulating archive across runs, not just a rolling snapshot of the last
+`LOOKBACK_DAYS`. The dashboard's time-range filter includes an "All available" option
+specifically so that history stays reachable as it builds up — `db.fetch_all_events`
+exports the whole table on every build, uncapped.
+
 ## Dashboard
 
 `dist/dashboard.html` is a single file — Leaflet (map) and the app itself are the only
 dependencies, loaded from CDN; every filter, chart, table, and insight is hand-rendered
 vanilla JS/SVG against the JSON embedded in the page, so it needs no build step and no
-server. Filtering (cause, time range, confidence threshold, structured-vs-semantic)
-re-aggregates the map, every chart, the fragility ranking, and the insight text live,
-client-side.
+server. Filtering (cause, **region**, time range, confidence threshold,
+structured-vs-semantic, free-text **search**) re-aggregates the map, every chart, the
+fragility ranking, and the insight text live, client-side.
 
 - **Bubble map** — one bubble per country in view; size = cumulative downtime-hours,
   color = dominant cause (red = conflict, orange = disaster, purple = shutdown,
-  gray = unexplained).
+  gray = unexplained). Scroll-to-zoom, drag-to-pan, and a "Reset view" button; degrades
+  to a message (rest of the dashboard keeps working) if the Leaflet CDN is unreachable.
+- **Region filter** — country → region tags computed in `src/regions.py` (Southeast Asia,
+  ASEAN, South Asia, East Asia, Central Asia, Middle East, the broad "Asia" rollup,
+  Europe, Africa, North/South America, Oceania); a country can carry more than one tag
+  (Türkiye is both Middle East and Europe, every ASEAN state is also Southeast Asia).
+- **Search box** — free-text match against country, region, cause subtype, and source
+  name; flies the map to the matching country when the filter narrows to exactly one.
 - **Weekly frequency chart**, **avg. recovery time by cause**, **fragility ranking**
   (top countries by downtime), and an **auto-generated insights** panel that
   recomputes the sub-question-style findings above against the current filter.
+- **Data pipeline & sources** section — the four-phase flow plus a live table of every
+  source in `src/export.py::SOURCE_CATALOG`: configured/not-configured (from your `.env`),
+  and how many records each has actually contributed to the current database (outage
+  events for Phase 1 sources, raw cause records for Phase 2 — pulled straight from the
+  `cause_events` table, not estimated).
 - A raw event table (collapsed by default) keeps every value reachable without hovering.
-- If the Leaflet CDN is unreachable (offline, locked-down network), the map panel
-  degrades to a message — every other panel keeps working.
 - Colors were chosen and validated for colorblind-safety against the project's data-viz
   skill (`validate_palette.js`): the conflict/disaster/shutdown hues clear both the CVD
   and normal-vision separation floors; "unexplained" gray is deliberately desaturated

@@ -1,12 +1,17 @@
 """Phase 3 — semantic gap-filling for outages with no structured-source match.
 
-For each outage still `unexplained` after Phase 2, search recent news via
-Serper.dev, ask Groq (Llama) to extract {location_text, date, event_type,
-cause} from the snippets, then geocode location_text through Nominatim
-(never trust LLM-generated coordinates directly, per the project's design
-principles). Records produced here are always tagged
-`source_type="semantic"` and capped at confidence in {low, medium} — they
-never compete with structured-source confidence tiers.
+For each outage still `unexplained` after Phase 2, search recent coverage via
+Serper.dev — both its general web search *and* its dedicated news vertical,
+so the extraction draws on whichever outlets actually covered the event
+rather than whatever ranks highest in plain web search — ask Groq (Llama) to
+extract {location_text, date, event_type, cause} from the combined results,
+then geocode location_text through Nominatim (never trust LLM-generated
+coordinates directly, per the project's design principles). Records produced
+here are always tagged `source_type="semantic"` and capped at confidence in
+{low, medium} — they never compete with structured-source confidence tiers.
+Each resolved record's `source_name` lists the distinct outlet domains that
+contributed, so the dashboard can show provenance down to which news sources
+were actually behind a given attribution.
 
 Gated entirely behind SERPER_API_KEY + GROQ_API_KEY; both free tiers are
 small, so this only processes the highest-severity unexplained outages
@@ -18,6 +23,7 @@ import json
 import logging
 import sqlite3
 import time
+from urllib.parse import urlparse
 
 import requests
 
@@ -25,12 +31,15 @@ from . import config, db
 
 logger = logging.getLogger(__name__)
 
-SERPER_URL = "https://google.serper.dev/search"
+SERPER_SEARCH_URL = "https://google.serper.dev/search"
+SERPER_NEWS_URL = "https://google.serper.dev/news"
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "llama-3.1-8b-instant"
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 
 MAX_EVENTS_PER_RUN = 15
+MAX_OUTLETS_SHOWN = 3
+RESULTS_PER_ENDPOINT = 5
 NOMINATIM_MIN_INTERVAL_SEC = 1.0
 
 EXTRACTION_PROMPT = """You are extracting structured facts from news search snippets about a \
@@ -50,19 +59,36 @@ Search snippets:
 """
 
 
-def _search_snippets(query: str, api_key: str) -> str:
-    resp = requests.post(
-        SERPER_URL,
-        headers={"X-API-KEY": api_key, "Content-Type": "application/json"},
-        json={"q": query, "num": 5},
-        timeout=20,
-    )
-    resp.raise_for_status()
-    payload = resp.json()
-    lines = []
-    for item in payload.get("organic", [])[:5]:
+def _domain(url: str) -> str | None:
+    try:
+        netloc = urlparse(url).netloc
+        return netloc[4:] if netloc.startswith("www.") else netloc or None
+    except ValueError:
+        return None
+
+
+def _gather_coverage(query: str, api_key: str) -> tuple[str, list[str]]:
+    """Pool Serper's general web search and its news vertical so extraction
+    draws on whichever outlets actually covered the event — returns
+    (snippet text for the LLM prompt, distinct outlet domains found)."""
+    headers = {"X-API-KEY": api_key, "Content-Type": "application/json"}
+    items: list[dict] = []
+    for url, result_key in ((SERPER_SEARCH_URL, "organic"), (SERPER_NEWS_URL, "news")):
+        try:
+            resp = requests.post(url, headers=headers, json={"q": query, "num": RESULTS_PER_ENDPOINT}, timeout=20)
+            resp.raise_for_status()
+            items.extend(resp.json().get(result_key, [])[:RESULTS_PER_ENDPOINT])
+        except requests.RequestException as exc:
+            logger.debug("Serper %s request failed, continuing with other endpoint: %s", url, exc)
+            continue
+
+    lines, domains = [], []
+    for item in items:
         lines.append(f"- {item.get('title', '')}: {item.get('snippet', '')} ({item.get('date', '')})")
-    return "\n".join(lines) if lines else "(no results)"
+        d = _domain(item.get("link", ""))
+        if d and d not in domains:
+            domains.append(d)
+    return ("\n".join(lines) if lines else "(no results)"), domains
 
 
 def _extract_with_groq(country: str, date: str, snippets: str, api_key: str) -> dict | None:
@@ -130,7 +156,7 @@ def run(conn: sqlite3.Connection, settings: config.Settings) -> dict[str, int]:
         date_str = (event["timestamp_start"] or "")[:10]
         query = f"internet outage OR internet disruption {event['country']} {date_str}"
         try:
-            snippets = _search_snippets(query, settings.serper_api_key)
+            snippets, domains = _gather_coverage(query, settings.serper_api_key)
             extraction = _extract_with_groq(event["country"], date_str, snippets, settings.groq_api_key)
         except requests.RequestException as exc:
             logger.warning("Semantic layer request failed for %s, skipping event: %s", event["event_id"], exc)
@@ -149,6 +175,13 @@ def run(conn: sqlite3.Connection, settings: config.Settings) -> dict[str, int]:
                 lat, lon = geocoded
 
         confidence = extraction.get("confidence") if extraction.get("confidence") in ("low", "medium") else "low"
+        if domains:
+            shown = ", ".join(domains[:MAX_OUTLETS_SHOWN])
+            extra = len(domains) - MAX_OUTLETS_SHOWN
+            outlets = shown + (f" +{extra} more" if extra > 0 else "")
+            source_name = f"Serper+Groq ({outlets})"
+        else:
+            source_name = "Serper+Groq"
         updates.append(
             {
                 "event_id": event["event_id"],
@@ -163,7 +196,7 @@ def run(conn: sqlite3.Connection, settings: config.Settings) -> dict[str, int]:
                 "cause": extraction["cause"],
                 "cause_subtype": extraction.get("cause_subtype"),
                 "source_type": "semantic",
-                "source_name": "Serper+Groq",
+                "source_name": source_name,
                 "confidence": confidence,
                 "severity_score": event["severity_score"],
             }

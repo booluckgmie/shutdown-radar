@@ -1,6 +1,11 @@
 __pycache__/
 *.pyc
 .env
+# Local/dev runs don't need to dirty git status on every `demo`/`fetch`.
+# The scheduled workflow (.github/workflows/refresh.yml) force-adds its copy
+# of data/disruption_tracker.sqlite anyway, so the growing historical
+# archive still gets committed and this rule doesn't apply to it once
+# tracked — see that workflow file for why.
 data/*.sqlite
 data/*.sqlite-journal
 .DS_Store

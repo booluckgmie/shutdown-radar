@@ -30,7 +30,6 @@ def render_dashboard(payload: dict[str, Any], out_path: Path) -> None:
 
     html = template
     html = html.replace("__DATA_JSON__", _json_for_script(payload))
-    html = html.replace("__META_JSON__", _json_for_script(payload.get("meta", {})))
     html = html.replace("__GENERATED_AT__", str(payload.get("generated_at", "")))
     html = html.replace('<script src="app.js.inline"></script>', "<script>\n" + app_js + "\n</script>")
 

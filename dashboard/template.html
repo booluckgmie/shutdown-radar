@@ -166,6 +166,20 @@
     color:var(--text-muted);border:1px solid var(--border);border-radius:4px;padding:0 4px;margin-right:6px;
   }
 
+  .pipeline-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .pipeline-step{
+    flex:1;min-width:170px;border:1px solid var(--border);border-radius:8px;padding:10px 12px;
+    background:var(--page-plane);position:relative;margin:4px;
+  }
+  .pipeline-step .phase{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-muted)}
+  .pipeline-step .title{font-weight:600;margin:2px 0 4px}
+  .pipeline-step .desc{font-size:11.5px;color:var(--text-secondary)}
+  .pipeline-arrow{align-self:center;color:var(--text-muted);font-size:18px;padding:0 2px}
+  .status-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 7px;border-radius:999px;border:1px solid var(--border)}
+  .status-pill.on{color:var(--cause-shutdown)}
+  .status-pill.off{color:var(--text-muted)}
+  .status-pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
   details.table-toggle{margin-top:16px}
   details.table-toggle summary{cursor:pointer;font-size:12.5px;color:var(--text-secondary);padding:4px 0}
   .table-scroll{overflow-x:auto;margin-top:10px}
@@ -184,7 +198,8 @@
     </div>
     <div class="top-meta">
       <button class="theme-btn" id="themeToggle" type="button">Toggle theme</button>
-      <span>Generated __GENERATED_AT__</span>
+      <span id="generatedAt">Generated __GENERATED_AT__</span>
+      <span id="liveStatus"></span>
     </div>
   </header>
 
@@ -197,6 +212,10 @@
       <label class="chip" data-cause="disaster"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-disaster)"></span>Disaster</label>
       <label class="chip" data-cause="shutdown"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-shutdown)"></span>Shutdown</label>
       <label class="chip" data-cause="unexplained"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-unexplained)"></span>Unexplained</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Region</span>
+      <select id="regionSelect"></select>
     </div>
     <div class="filter-group">
       <span class="filter-label">Time range</span>
@@ -222,6 +241,10 @@
         <option value="structured">Structured only</option>
       </select>
     </div>
+    <div class="filter-group" style="flex:1;min-width:200px">
+      <span class="filter-label">Search</span>
+      <input type="text" id="searchBox" placeholder="Country, subtype, source…" style="flex:1;min-width:160px;font-size:12.5px;border:1px solid var(--border);border-radius:6px;background:var(--page-plane);color:var(--text-primary);padding:5px 8px">
+    </div>
     <button class="btn" id="resetBtn" type="button">Reset filters</button>
   </div>
 
@@ -230,6 +253,10 @@
   <div class="card map-card">
     <div class="map-head">
       <h2 style="margin:0">Outage map — bubble size = downtime, color = dominant cause</h2>
+      <div style="display:flex;gap:8px">
+        <span class="card-note" style="align-self:center;margin:0">Scroll or use +/− to zoom, drag to pan</span>
+        <button class="btn" id="mapResetBtn" type="button">Reset view</button>
+      </div>
     </div>
     <div id="map"></div>
     <div class="legend-row">
@@ -267,6 +294,15 @@
     <ul id="insightsList"></ul>
   </div>
 
+  <div class="card full-span" style="margin-bottom:16px">
+    <h2>Data pipeline &amp; sources</h2>
+    <div id="pipelineFlow" class="pipeline-flow"></div>
+    <div class="table-scroll" style="margin-top:14px">
+      <table class="data-table" id="sourcesTable"></table>
+    </div>
+    <p class="card-note">"Contributed" counts reflect the current database, not just events currently in view (filters above don't affect this table). A source with 0 and "not configured" needs an API key — see .env.example / README.</p>
+  </div>
+
   <details class="table-toggle">
     <summary>View underlying event data as a table</summary>
     <div class="table-scroll" id="rawTableWrap"></div>
@@ -283,8 +319,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-const DATA = __DATA_JSON__;
-const META = __META_JSON__;
+let DATA = __DATA_JSON__;
 </script>
 <script src="app.js.inline"></script>
 </body>

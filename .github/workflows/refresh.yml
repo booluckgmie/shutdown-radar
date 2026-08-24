@@ -12,7 +12,7 @@ name: Refresh disruption tracker data
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -47,10 +47,18 @@ jobs:
           NOMINATIM_USER_AGENT: ${{ vars.NOMINATIM_USER_AGENT }}
         run: python main.py all
 
-      - name: Commit refreshed dashboard
+      - name: Commit refreshed dashboard + growing historical archive
         run: |
           git config user.name "shutdown-radar-bot"
           git config user.email "actions@users.noreply.github.com"
+          # data/disruption_tracker.sqlite is upserted, not replaced, on every
+          # run (see src/db.py) — committing it here (force-add: it's
+          # .gitignore'd for local/dev runs, see that file) turns the rolling
+          # per-run window into an actual growing historical archive across
+          # scheduled runs, satisfying the "Historical + near-real-time data"
+          # goal in the README/design doc rather than only ever showing the
+          # current lookback window.
+          git add -f data/disruption_tracker.sqlite
           git add dist/dashboard.html dist/data.json
           git diff --cached --quiet || git commit -m "chore: refresh disruption tracker data [skip ci]"
           git push

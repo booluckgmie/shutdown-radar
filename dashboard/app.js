@@ -55,7 +55,7 @@
   }
 
   // ---------- filter state ----------
-  var state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all" };
+  var state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "" };
 
   function withinRange(event) {
     if (state.rangeDays === "all") return true;
@@ -65,11 +65,20 @@
     return start >= cutoff;
   }
 
+  function matchesSearch(event) {
+    if (!state.search) return true;
+    var q = state.search;
+    return [event.country, event.region_name, event.cause_subtype, event.source_name, CAUSE_LABEL[event.cause]]
+      .some(function (f) { return f && String(f).toLowerCase().indexOf(q) !== -1; });
+  }
+
   function applyFilters() {
     return DATA.events.filter(function (e) {
       if (!state.causes.has(e.cause)) return false;
       if (CONF_RANK[e.confidence] < CONF_RANK[state.minConf]) return false;
       if (state.sourceOnly === "structured" && e.source_type !== "structured") return false;
+      if (state.region !== "all" && (!e.regions || e.regions.indexOf(state.region) === -1)) return false;
+      if (!matchesSearch(e)) return false;
       if (!withinRange(e)) return false;
       return true;
     });
@@ -96,7 +105,7 @@
   var map = null, markerLayer = null;
   try {
     if (typeof L !== "undefined") {
-      map = L.map("map", { scrollWheelZoom: false, worldCopyJump: true }).setView([15, 10], 2);
+      map = L.map("map", { scrollWheelZoom: true, worldCopyJump: true }).setView([15, 10], 2);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
         maxZoom: 18,
@@ -463,6 +472,38 @@
     wrap.innerHTML = html;
   }
 
+  // ---------- data pipeline & sources ----------
+  var PHASE_STEPS = [
+    { phase: "Phase 1", title: "Detect", desc: "IODA, Cloudflare Radar, RIPE Atlas flag connectivity loss — no cause attached yet." },
+    { phase: "Phase 2", title: "Attribute", desc: "Join each outage to GDACS/ACLED/#KeepItOn records within ±72h, same country. Closest match wins; confidence tracks the time gap." },
+    { phase: "Phase 3", title: "Semantic gap-fill", desc: "Still unexplained? News search (Serper) + LLM extraction (Groq), geocoded via Nominatim. Capped at low/medium confidence." },
+    { phase: "Phase 4", title: "Visualize", desc: "Export to this dashboard — every filter re-aggregates the map, charts, and insights client-side." },
+  ];
+
+  function renderPipelineSection() {
+    var flow = document.getElementById("pipelineFlow");
+    flow.innerHTML = PHASE_STEPS.map(function (s, i) {
+      var arrow = i < PHASE_STEPS.length - 1 ? '<span class="pipeline-arrow">→</span>' : "";
+      return '<div class="pipeline-step"><div class="phase">' + s.phase + '</div><div class="title">' + s.title +
+        '</div><div class="desc">' + s.desc + "</div></div>" + arrow;
+    }).join("");
+
+    var catalog = (DATA.meta && DATA.meta.sources_catalog) || [];
+    var table = document.getElementById("sourcesTable");
+    var html = "<thead><tr><th>Source</th><th>Role</th><th>Real-time</th><th>Access</th><th>Granularity</th><th>Status</th><th>Contributed</th></tr></thead><tbody>";
+    catalog.forEach(function (s) {
+      var pill;
+      if (s.configured === null) pill = '<span class="status-pill on"><span class="dot"></span>No key needed</span>';
+      else if (s.configured) pill = '<span class="status-pill on"><span class="dot"></span>Configured</span>';
+      else pill = '<span class="status-pill off"><span class="dot"></span>Not configured</span>';
+      html += "<tr><td>" + escapeHtml(s.name) + "</td><td>" + escapeHtml(s.category) + "</td><td>" + escapeHtml(s.realtime) +
+        "</td><td>" + escapeHtml(s.access) + "</td><td>" + escapeHtml(s.granularity) + "</td><td>" + pill +
+        "</td><td>" + escapeHtml(s.contributed_label) + "</td></tr>";
+    });
+    html += "</tbody>";
+    table.innerHTML = html;
+  }
+
   // ---------- render orchestration ----------
   function renderAll() {
     var filtered = applyFilters();
@@ -474,6 +515,14 @@
     renderResilienceTable(filtered);
     renderInsights(filtered);
     renderRawTable(filtered);
+
+    if (map && state.search) {
+      var countries = Array.from(new Set(filtered.map(function (e) { return e.country; })));
+      if (countries.length === 1 && filtered.length) {
+        var match = filtered[0];
+        map.flyTo([match.lat, match.lon], Math.max(map.getZoom(), 5), { duration: 0.6 });
+      }
+    }
   }
 
   // ---------- wire up filter controls ----------
@@ -502,8 +551,37 @@
     state.sourceOnly = e.target.value;
     renderAll();
   });
+
+  var regionSelectEl = document.getElementById("regionSelect");
+  (function populateRegions() {
+    var options = (DATA.meta && DATA.meta.region_options) || [{ value: "all", label: "All regions" }];
+    regionSelectEl.innerHTML = options.map(function (o) {
+      return '<option value="' + escapeHtml(o.value) + '">' + escapeHtml(o.label) + "</option>";
+    }).join("");
+  })();
+  regionSelectEl.addEventListener("change", function (e) {
+    state.region = e.target.value;
+    renderAll();
+  });
+
+  var searchBoxEl = document.getElementById("searchBox");
+  var searchTimer;
+  searchBoxEl.addEventListener("input", function (e) {
+    clearTimeout(searchTimer);
+    var val = e.target.value;
+    searchTimer = setTimeout(function () {
+      state.search = val.trim().toLowerCase();
+      renderAll();
+    }, 200);
+  });
+
+  var mapResetBtn = document.getElementById("mapResetBtn");
+  mapResetBtn.addEventListener("click", function () {
+    if (map) map.setView([15, 10], 2);
+  });
+
   document.getElementById("resetBtn").addEventListener("click", function () {
-    state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all" };
+    state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "" };
     document.querySelectorAll(".chip").forEach(function (chip) {
       chip.querySelector("input").checked = true;
       chip.classList.remove("off");
@@ -511,6 +589,9 @@
     document.getElementById("rangeSelect").value = "90";
     document.getElementById("confSelect").value = "low";
     document.getElementById("sourceSelect").value = "all";
+    regionSelectEl.value = "all";
+    searchBoxEl.value = "";
+    if (map) map.setView([15, 10], 2);
     renderAll();
   });
 
@@ -520,5 +601,44 @@
     resizeTimer = setTimeout(renderAll, 150);
   });
 
+  // ---------- hourly auto-refresh ----------
+  // The GitHub Actions workflow (.github/workflows/refresh.yml) regenerates
+  // dist/data.json + dist/dashboard.html hourly with live pipeline output.
+  // When this page is served over http(s) (GitHub Pages, any static host —
+  // NOT a plain file:// open, which fetch() can't reach) it polls the
+  // sibling data.json periodically and hot-swaps in newer data without a
+  // manual reload. Silently gives up on failure; the page is fully usable
+  // on whatever data it loaded with either way.
+  var AUTO_REFRESH_POLL_MS = 15 * 60 * 1000; // check every 15min; source data updates hourly
+  var liveStatusEl = document.getElementById("liveStatus");
+  var isFileProtocol = window.location.protocol === "file:";
+
+  function setLiveStatus(text) { if (liveStatusEl) liveStatusEl.textContent = text; }
+
+  function checkForUpdate() {
+    fetch("data.json", { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status)); })
+      .then(function (fresh) {
+        if (fresh && fresh.generated_at && fresh.generated_at > DATA.generated_at) {
+          DATA = fresh;
+          document.getElementById("generatedAt").textContent = "Generated " + fmtDateTime(DATA.generated_at);
+          renderPipelineSection();
+          renderAll();
+          setLiveStatus("· updated " + fmtDateTime(DATA.generated_at));
+        } else {
+          setLiveStatus("· up to date (checked " + new Date().toISOString().slice(11, 16) + " UTC)");
+        }
+      })
+      .catch(function () {
+        setLiveStatus(isFileProtocol ? "" : "· auto-refresh unavailable");
+      });
+  }
+
+  if (!isFileProtocol) {
+    setLiveStatus("· auto-refreshing (data updates hourly)");
+    setInterval(checkForUpdate, AUTO_REFRESH_POLL_MS);
+  }
+
+  renderPipelineSection();
   renderAll();
 })();
