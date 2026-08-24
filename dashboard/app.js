@@ -60,7 +60,13 @@
   }
 
   // ---------- filter state ----------
-  var state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "" };
+  // countryFilter/weekFilter are "cross-filters" set by clicking a mark
+  // (map bubble, table row, chart bar/segment) rather than a form control —
+  // see the click-to-slice section near the bottom of this file.
+  var state = {
+    causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "",
+    countryFilter: null, weekFilter: null,
+  };
 
   function withinRange(event) {
     if (state.rangeDays === "all") return true;
@@ -77,15 +83,109 @@
       .some(function (f) { return f && String(f).toLowerCase().indexOf(q) !== -1; });
   }
 
-  function applyFilters() {
+  // opts.ignoreWeek: skip the weekFilter restriction (still applies
+  // rangeDays instead). Used for the timeline chart specifically, so
+  // clicking one week's segment doesn't erase every other week's bar —
+  // every other panel wants the real, weekFilter-restricted slice.
+  function applyFilters(opts) {
+    var ignoreWeek = opts && opts.ignoreWeek;
     return DATA.events.filter(function (e) {
       if (!state.causes.has(e.cause)) return false;
       if (CONF_RANK[e.confidence] < CONF_RANK[state.minConf]) return false;
       if (state.sourceOnly === "structured" && e.source_type !== "structured") return false;
       if (state.region !== "all" && (!e.regions || e.regions.indexOf(state.region) === -1)) return false;
       if (!matchesSearch(e)) return false;
-      if (!withinRange(e)) return false;
+      if (state.countryFilter && e.country !== state.countryFilter) return false;
+      if (!ignoreWeek && state.weekFilter) {
+        var d = parseDate(e.timestamp_start);
+        if (!d || isoWeekKey(d) !== state.weekFilter) return false;
+      } else if (!withinRange(e)) {
+        return false;
+      }
       return true;
+    });
+  }
+
+  // ---------- click-to-slice ----------
+  // Every mark on the page (map bubble, chart bar/segment, table row, a
+  // couple of the KPI tiles) is a filter control, not just a readout:
+  // clicking it narrows every other panel to that slice, the same click
+  // again undoes it. This keeps the existing dropdown filters as the
+  // source of truth — clicking just mutates `state` the same way a
+  // dropdown's change handler would, then re-renders.
+
+  function syncChipUI() {
+    document.querySelectorAll(".chip").forEach(function (chip) {
+      var cause = chip.getAttribute("data-cause");
+      var on = state.causes.has(cause);
+      chip.querySelector("input").checked = on;
+      chip.classList.toggle("off", !on);
+    });
+  }
+
+  function isolateCause(cause) {
+    var alreadyIsolated = state.causes.size === 1 && state.causes.has(cause);
+    state.causes = alreadyIsolated ? new Set(CAUSES) : new Set([cause]);
+    syncChipUI();
+    renderAll();
+  }
+
+  function toggleCountryFilter(country) {
+    state.countryFilter = state.countryFilter === country ? null : country;
+    renderAll();
+  }
+
+  function toggleWeekFilter(weekKey, cause) {
+    var already = state.weekFilter === weekKey && state.causes.size === 1 && state.causes.has(cause);
+    if (already) {
+      state.weekFilter = null;
+      state.causes = new Set(CAUSES);
+    } else {
+      state.weekFilter = weekKey;
+      state.causes = new Set([cause]);
+    }
+    syncChipUI();
+    renderAll();
+  }
+
+  function toggleHighConfidenceOnly() {
+    var confSel = document.getElementById("confSelect");
+    state.minConf = state.minConf === "high" ? "low" : "high";
+    confSel.value = state.minConf;
+    renderAll();
+  }
+
+  function toggleUnexplainedOnly() {
+    isolateCause("unexplained");
+  }
+
+  function renderCrossFilterBar() {
+    var bar = document.getElementById("crossFilterBar");
+    if (!bar) return;
+    var chips = [];
+    if (state.countryFilter) {
+      chips.push({ label: "Country: " + state.countryFilter, clear: function () { toggleCountryFilter(state.countryFilter); } });
+    }
+    if (state.weekFilter) {
+      var causeLabel = state.causes.size === 1 ? CAUSE_LABEL[Array.from(state.causes)[0]] + " · " : "";
+      chips.push({ label: "Week: " + causeLabel + state.weekFilter, clear: function () { toggleWeekFilter(state.weekFilter, Array.from(state.causes)[0]); } });
+    }
+    if (!chips.length) {
+      bar.style.display = "none";
+      bar.innerHTML = "";
+      return;
+    }
+    bar.style.display = "flex";
+    bar.innerHTML = "";
+    chips.forEach(function (c) {
+      var el = document.createElement("span");
+      el.className = "active-chip";
+      el.appendChild(document.createTextNode(c.label + " "));
+      var x = document.createElement("b");
+      x.textContent = "×";
+      el.appendChild(x);
+      el.addEventListener("click", c.clear);
+      bar.appendChild(el);
     });
   }
 
@@ -157,13 +257,14 @@
         return (counts[b] || 0) - (counts[a] || 0) || CAUSE_PRIORITY[a] - CAUSE_PRIORITY[b];
       })[0];
       var avgRecovery = resolvedHours.length ? resolvedHours.reduce(function (a, b) { return a + b; }, 0) / resolvedHours.length : null;
+      var isSelected = state.countryFilter === country;
 
       var marker = L.circleMarker([lat, lon], {
         radius: radiusScale(downtime, n),
         color: causeColor(dominant),
-        weight: 2,
+        weight: isSelected ? 4 : 2,
         fillColor: causeColor(dominant),
-        fillOpacity: 0.55,
+        fillOpacity: isSelected ? 0.8 : 0.55,
       }).addTo(markerLayer);
 
       var breakdown = CAUSES.filter(function (c) { return counts[c]; })
@@ -173,8 +274,12 @@
         '<div class="pop-row"><span>Events in view</span><b>' + n + "</b></div>" +
         '<div class="pop-row"><span>Cumulative downtime</span><b>' + fmtHours(downtime) + "</b></div>" +
         '<div class="pop-row"><span>Avg recovery time</span><b>' + fmtHours(avgRecovery) + "</b></div>" +
-        '<div class="pop-row"><span>Most recent</span><b>' + fmtDate(mostRecent) + "</b></div><hr style='border:none;border-top:1px solid var(--border);margin:6px 0'/>" + breakdown;
+        '<div class="pop-row"><span>Most recent</span><b>' + fmtDate(mostRecent) + "</b></div><hr style='border:none;border-top:1px solid var(--border);margin:6px 0'/>" + breakdown +
+        '<div class="pop-hint">' + (isSelected ? "Click bubble again to clear filter" : "Click bubble to filter everything to " + escapeHtml(country)) + "</div>";
       marker.bindPopup(popupHtml);
+      marker.on("click", function () { toggleCountryFilter(country); });
+      marker.on("mouseover", function () { marker.setStyle({ fillOpacity: 0.85 }); });
+      marker.on("mouseout", function () { marker.setStyle({ fillOpacity: isSelected ? 0.8 : 0.55 }); });
     });
   }
 
@@ -209,12 +314,15 @@
     var rowH = h / CAUSES.length;
     var labelW = 92, valueW = 92, chartAreaW = w - labelW - valueW;
 
+    var isolated = state.causes.size === 1 ? Array.from(state.causes)[0] : null;
+
     CAUSES.forEach(function (cause, i) {
       var y = i * rowH + rowH / 2;
       var barLen = (counts[cause] / max) * chartAreaW;
+      var dimmed = isolated && isolated !== cause;
       var label = svgEl("text", { x: 0, y: y + 4, "font-weight": 600 });
-      label.textContent = CAUSE_LABEL[cause];
-      label.setAttribute("fill", "var(--text-primary)");
+      label.textContent = CAUSE_LABEL[cause] + (isolated === cause ? " ✓" : "");
+      label.setAttribute("fill", dimmed ? "var(--text-muted)" : "var(--text-primary)");
       svg.appendChild(label);
 
       var barY = y - 9;
@@ -222,7 +330,7 @@
       svg.appendChild(track);
       var bar = svgEl("rect", {
         x: labelW, y: barY, width: Math.max(2, barLen), height: 18, rx: 4,
-        fill: causeColor(cause), class: "bar-hit",
+        fill: causeColor(cause), opacity: dimmed ? 0.35 : 1,
       });
       svg.appendChild(bar);
 
@@ -233,9 +341,10 @@
 
       var hit = svgEl("rect", { x: labelW, y: barY - 4, width: chartAreaW, height: 26, fill: "transparent", class: "bar-hit" });
       hit.addEventListener("pointermove", function (ev) {
-        showTooltip('<div>' + CAUSE_LABEL[cause] + '</div><div class="t-val">' + fmtNum(counts[cause]) + " events (" + pct + "%)</div>", ev.clientX, ev.clientY);
+        showTooltip('<div>' + CAUSE_LABEL[cause] + " — click to isolate</div>" + '<div class="t-val">' + fmtNum(counts[cause]) + " events (" + pct + "%)</div>", ev.clientX, ev.clientY);
       });
       hit.addEventListener("pointerleave", hideTooltip);
+      hit.addEventListener("click", function () { isolateCause(cause); });
       svg.appendChild(hit);
     });
   }
@@ -257,24 +366,36 @@
 
     var rowH = h / CAUSES.length;
     var labelW = 92, valueW = 110, chartAreaW = w - labelW - valueW;
+    var isolated = state.causes.size === 1 ? Array.from(state.causes)[0] : null;
 
     CAUSES.forEach(function (cause, i) {
       var y = i * rowH + rowH / 2;
       var val = avg[cause];
       var barLen = val ? (val / max) * chartAreaW : 0;
+      var dimmed = isolated && isolated !== cause;
       var label = svgEl("text", { x: 0, y: y + 4, "font-weight": 600 });
-      label.textContent = CAUSE_LABEL[cause];
+      label.textContent = CAUSE_LABEL[cause] + (isolated === cause ? " ✓" : "");
+      label.setAttribute("fill", dimmed ? "var(--text-muted)" : "var(--text-primary)");
       svg.appendChild(label);
 
       var barY = y - 8;
       svg.appendChild(svgEl("rect", { x: labelW, y: barY, width: chartAreaW, height: 16, rx: 4, fill: "var(--grid)" }));
       if (val) {
-        var bar = svgEl("rect", { x: labelW, y: barY, width: Math.max(2, barLen), height: 16, rx: 4, fill: causeColor(cause) });
+        var bar = svgEl("rect", { x: labelW, y: barY, width: Math.max(2, barLen), height: 16, rx: 4, fill: causeColor(cause), opacity: dimmed ? 0.35 : 1 });
         svg.appendChild(bar);
       }
       var valLabel = svgEl("text", { x: labelW + Math.max(2, barLen) + 8, y: y + 4, class: "bar-label" });
       valLabel.textContent = val ? fmtHours(val) + " (n=" + ns[cause] + ")" : "no resolved events";
       svg.appendChild(valLabel);
+
+      var hit = svgEl("rect", { x: labelW, y: barY - 4, width: chartAreaW, height: 24, fill: "transparent", class: "bar-hit" });
+      hit.addEventListener("pointermove", function (ev) {
+        var text = val ? fmtHours(val) + " avg (n=" + ns[cause] + ")" : "no resolved events";
+        showTooltip("<div>" + CAUSE_LABEL[cause] + ' — click to isolate</div><div class="t-val">' + text + "</div>", ev.clientX, ev.clientY);
+      });
+      hit.addEventListener("pointerleave", hideTooltip);
+      hit.addEventListener("click", function () { isolateCause(cause); });
+      svg.appendChild(hit);
     });
   }
 
@@ -321,18 +442,25 @@
     weeks.forEach(function (wk, i) {
       var x = padL + i * slot + (slot - barW) / 2;
       var yCursor = padT + chartH;
+      var weekSelected = state.weekFilter === wk;
+      if (weekSelected) {
+        svg.appendChild(svgEl("rect", { x: x - 3, y: padT, width: barW + 6, height: chartH, fill: "var(--accent-tint)", rx: 4 }));
+      }
       CAUSES.forEach(function (cause) {
         var v = buckets[wk][cause];
         if (!v) return;
         var segH = (v / maxTotal) * chartH;
         var y = yCursor - segH;
+        var thisSegSelected = weekSelected && state.causes.size === 1 && state.causes.has(cause);
         var rect = svgEl("rect", {
           x: x, y: y, width: barW, height: Math.max(0, segH - 1.5), fill: causeColor(cause), rx: 2,
+          class: "bar-hit", stroke: thisSegSelected ? "var(--text-primary)" : "none", "stroke-width": thisSegSelected ? 1.5 : 0,
         });
         rect.addEventListener("pointermove", function (ev) {
-          showTooltip('<div>' + wk + " — " + CAUSE_LABEL[cause] + '</div><div class="t-val">' + v + " events</div>", ev.clientX, ev.clientY);
+          showTooltip('<div>' + wk + " — " + CAUSE_LABEL[cause] + " — click to filter this week</div>" + '<div class="t-val">' + v + " events</div>", ev.clientX, ev.clientY);
         });
         rect.addEventListener("pointerleave", hideTooltip);
+        rect.addEventListener("click", function () { toggleWeekFilter(wk, cause); });
         svg.appendChild(rect);
         yCursor = y - 1.5;
       });
@@ -361,7 +489,7 @@
     rows.sort(function (a, b) { return b.downtime - a.downtime; });
     rows = rows.slice(0, 10);
 
-    var html = '<table class="data-table"><thead><tr><th>Country</th><th>Events</th><th>Downtime</th><th>Cause mix</th></tr></thead><tbody>';
+    var html = '<table class="data-table clickable-rows"><thead><tr><th>Country</th><th>Events</th><th>Downtime</th><th>Cause mix</th></tr></thead><tbody>';
     rows.forEach(function (r) {
       var total = r.n || 1;
       var pips = CAUSES.map(function (c) {
@@ -370,11 +498,16 @@
         var width = Math.max(6, (cnt / total) * 60);
         return '<div class="pip" style="background:' + causeColor(c) + ";width:" + width + 'px" title="' + CAUSE_LABEL[c] + ": " + cnt + '"></div>';
       }).join("");
-      html += "<tr><td>" + escapeHtml(r.country) + "</td><td>" + r.n + "</td><td>" + fmtHours(r.downtime) + '</td><td><div class="causepips">' + pips + "</div></td></tr>";
+      var selected = r.country === state.countryFilter;
+      html += '<tr data-country="' + escapeHtml(r.country) + '"' + (selected ? ' class="row-selected"' : "") + "><td>" + escapeHtml(r.country) +
+        "</td><td>" + r.n + "</td><td>" + fmtHours(r.downtime) + '</td><td><div class="causepips">' + pips + "</div></td></tr>";
     });
     html += "</tbody></table>";
     if (rows.length === 0) html = '<p style="color:var(--text-muted)">No events in the current filter.</p>';
     wrap.innerHTML = html;
+    wrap.querySelectorAll("tr[data-country]").forEach(function (tr) {
+      tr.addEventListener("click", function () { toggleCountryFilter(tr.getAttribute("data-country")); });
+    });
   }
 
   // ---------- KPI row ----------
@@ -396,17 +529,28 @@
     var totalDowntime = filtered.reduce(function (s, e) { return s + (e.duration_hours || 0); }, 0);
     var highConfPct = filtered.length ? (filtered.filter(function (e) { return e.confidence === "high"; }).length / filtered.length * 100) : 0;
 
+    var unexplainedIsolated = state.causes.size === 1 && state.causes.has("unexplained");
+    var highConfActive = state.minConf === "high";
+
     var tiles = [
       { label: "Events in view", value: fmtNum(filtered.length), icon: "events" },
       { label: "Countries affected", value: fmtNum(countries.size), icon: "globe" },
       { label: "Cumulative downtime", value: fmtHours(totalDowntime), icon: "clock" },
-      { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%", icon: "question" },
-      { label: "High-confidence share", value: highConfPct.toFixed(0) + "%", icon: "shield" },
+      { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%", icon: "question", click: "toggleUnexplainedOnly", active: unexplainedIsolated },
+      { label: "High-confidence share", value: highConfPct.toFixed(0) + "%", icon: "shield", click: "toggleHighConfidenceOnly", active: highConfActive },
     ];
-    el.innerHTML = tiles.map(function (t) {
-      return '<div class="card kpi"><div class="kpi-top"><span class="label">' + t.label + "</span>" + kpiIcon(t.icon) +
+    el.innerHTML = tiles.map(function (t, i) {
+      var cls = "card kpi" + (t.click ? " kpi-clickable" : "") + (t.active ? " kpi-active" : "");
+      return '<div class="' + cls + '" data-kpi-index="' + i + '"><div class="kpi-top"><span class="label">' + t.label + "</span>" + kpiIcon(t.icon) +
         '</div><div class="value">' + t.value + "</div></div>";
     }).join("");
+
+    tiles.forEach(function (t, i) {
+      if (!t.click) return;
+      var el2 = el.querySelector('[data-kpi-index="' + i + '"]');
+      var fn = t.click === "toggleUnexplainedOnly" ? toggleUnexplainedOnly : toggleHighConfidenceOnly;
+      el2.addEventListener("click", fn);
+    });
   }
 
   // ---------- insights ----------
@@ -477,15 +621,20 @@
   function renderRawTable(filtered) {
     var wrap = document.getElementById("rawTableWrap");
     var rows = filtered.slice().sort(function (a, b) { return b.timestamp_start.localeCompare(a.timestamp_start); }).slice(0, 500);
-    var html = '<table class="data-table"><thead><tr><th>Start</th><th>Country</th><th>Cause</th><th>Subtype</th><th>Confidence</th><th>Source</th><th>Duration</th></tr></thead><tbody>';
+    var html = '<table class="data-table clickable-rows"><thead><tr><th>Start</th><th>Country</th><th>Cause</th><th>Subtype</th><th>Confidence</th><th>Source</th><th>Duration</th></tr></thead><tbody>';
     rows.forEach(function (e) {
-      html += "<tr><td>" + fmtDate(e.timestamp_start) + "</td><td>" + escapeHtml(e.country) + "</td><td>" + CAUSE_LABEL[e.cause] +
+      var selected = e.country === state.countryFilter;
+      html += '<tr data-country="' + escapeHtml(e.country) + '"' + (selected ? ' class="row-selected"' : "") + "><td>" + fmtDate(e.timestamp_start) +
+        "</td><td>" + escapeHtml(e.country) + "</td><td>" + CAUSE_LABEL[e.cause] +
         "</td><td>" + escapeHtml(e.cause_subtype || "–") + "</td><td>" + e.confidence + "</td><td>" + escapeHtml(e.source_name) +
         "</td><td>" + fmtHours(e.duration_hours) + "</td></tr>";
     });
     html += "</tbody></table>";
     if (filtered.length > 500) html += '<p class="card-note">Showing 500 most recent of ' + fmtNum(filtered.length) + " filtered events.</p>";
     wrap.innerHTML = html;
+    wrap.querySelectorAll("tr[data-country]").forEach(function (tr) {
+      tr.addEventListener("click", function () { toggleCountryFilter(tr.getAttribute("data-country")); });
+    });
   }
 
   // ---------- data pipeline & sources ----------
@@ -527,10 +676,11 @@
     renderMap(filtered);
     renderCauseChart(filtered);
     renderDurationChart(filtered);
-    renderTimeline(filtered);
+    renderTimeline(applyFilters({ ignoreWeek: true }));
     renderResilienceTable(filtered);
     renderInsights(filtered);
     renderRawTable(filtered);
+    renderCrossFilterBar();
 
     if (map && state.search) {
       var countries = Array.from(new Set(filtered.map(function (e) { return e.country; })));
@@ -597,11 +747,11 @@
   });
 
   document.getElementById("resetBtn").addEventListener("click", function () {
-    state = { causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "" };
-    document.querySelectorAll(".chip").forEach(function (chip) {
-      chip.querySelector("input").checked = true;
-      chip.classList.remove("off");
-    });
+    state = {
+      causes: new Set(CAUSES), rangeDays: 90, minConf: "low", sourceOnly: "all", region: "all", search: "",
+      countryFilter: null, weekFilter: null,
+    };
+    syncChipUI();
     document.getElementById("rangeSelect").value = "90";
     document.getElementById("confSelect").value = "low";
     document.getElementById("sourceSelect").value = "all";

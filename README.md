@@ -188,6 +188,17 @@ Filtering (cause, **region**, time range, confidence threshold,
 structured-vs-semantic, free-text **search**) re-aggregates the map, every chart, the
 fragility ranking, and the insight text live, client-side.
 
+**Click anything to slice** — the dashboard isn't just readouts, every mark is a filter
+control: click a map bubble, a resilience/raw-data table row, a cause-breakdown or
+recovery-time bar, a weekly-timeline segment, or the "Unexplained share"/
+"High-confidence share" KPI tile, and everything else on the page narrows to that slice
+(same click again undoes it). A country or week/cause click that has no existing form
+control shows up as a removable chip above the KPI row; cause isolation and confidence
+toggles reflect directly in the existing filter dropdowns, so there's one source of
+truth for "what's currently in view" no matter how you got there. The timeline keeps
+rendering every week (current selection highlighted) even while narrowed to one, so you
+can click straight through to a different week without clearing first.
+
 - **Bubble map** — one bubble per country in view; size = cumulative downtime-hours,
   color = dominant cause (red = conflict, orange = disaster, purple = shutdown,
   gray = unexplained). Scroll-to-zoom, drag-to-pan, and a "Reset view" button; degrades
