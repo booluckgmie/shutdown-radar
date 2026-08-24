@@ -32,7 +32,12 @@
   // ---------- provenance banner ----------
   (function banner() {
     var el = document.getElementById("provenanceBanner");
-    var isSeed = DATA.events.length > 0 && DATA.events.every(function (e) { return /\(seed\)$/.test(e.source_name); });
+    // Substring match, not an end-anchor: semantic-layer seed records look
+    // like "Serper+Groq (seed; Reuters, AP)" — the marker isn't always the
+    // last thing in the string. any() rather than every(): if even one
+    // record in the DB is synthetic (e.g. a `demo` run on top of a prior
+    // `fetch`), that's not "live pipeline data" any more.
+    var isSeed = DATA.events.some(function (e) { return e.source_name && e.source_name.indexOf("(seed") !== -1; });
     if (isSeed) {
       el.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
     } else {
@@ -373,23 +378,34 @@
   }
 
   // ---------- KPI row ----------
+  var KPI_ICONS = {
+    events: '<path d="M13 2 3 14h7l-1 8 10-12h-7z"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+    question: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.8 1c0 1.7-2.3 1.7-2.3 3.5"/><path d="M12 17h.01"/>',
+    shield: '<path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  };
+  function kpiIcon(name) {
+    return '<span class="icon-badge"><svg class="ic" viewBox="0 0 24 24">' + KPI_ICONS[name] + "</svg></span>";
+  }
+
   function renderKpis(filtered) {
     var el = document.getElementById("kpiRow");
     var countries = new Set(filtered.map(function (e) { return e.country; }));
     var unexplainedPct = filtered.length ? (filtered.filter(function (e) { return e.cause === "unexplained"; }).length / filtered.length * 100) : 0;
     var totalDowntime = filtered.reduce(function (s, e) { return s + (e.duration_hours || 0); }, 0);
     var highConfPct = filtered.length ? (filtered.filter(function (e) { return e.confidence === "high"; }).length / filtered.length * 100) : 0;
-    var mostRecent = filtered.reduce(function (m, e) { return (!m || e.timestamp_start > m) ? e.timestamp_start : m; }, null);
 
     var tiles = [
-      { label: "Events in view", value: fmtNum(filtered.length) },
-      { label: "Countries affected", value: fmtNum(countries.size) },
-      { label: "Cumulative downtime", value: fmtHours(totalDowntime) },
-      { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%" },
-      { label: "High-confidence share", value: highConfPct.toFixed(0) + "%" },
+      { label: "Events in view", value: fmtNum(filtered.length), icon: "events" },
+      { label: "Countries affected", value: fmtNum(countries.size), icon: "globe" },
+      { label: "Cumulative downtime", value: fmtHours(totalDowntime), icon: "clock" },
+      { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%", icon: "question" },
+      { label: "High-confidence share", value: highConfPct.toFixed(0) + "%", icon: "shield" },
     ];
     el.innerHTML = tiles.map(function (t) {
-      return '<div class="card kpi"><div class="label">' + t.label + '</div><div class="value">' + t.value + "</div></div>";
+      return '<div class="card kpi"><div class="kpi-top"><span class="label">' + t.label + "</span>" + kpiIcon(t.icon) +
+        '</div><div class="value">' + t.value + "</div></div>";
     }).join("");
   }
 
@@ -637,6 +653,45 @@
   if (!isFileProtocol) {
     setLiveStatus("· auto-refreshing (data updates hourly)");
     setInterval(checkForUpdate, AUTO_REFRESH_POLL_MS);
+  }
+
+  // ---------- nav rail: scroll-spy + mobile toggle ----------
+  var railEl = document.getElementById("rail");
+  var railToggleEl = document.getElementById("railToggle");
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll("#railNav a"));
+  var sections = railLinks
+    .map(function (a) { return document.getElementById(a.getAttribute("data-target")); })
+    .filter(Boolean);
+
+  function setActiveLink(id) {
+    railLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("data-target") === id);
+    });
+  }
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      },
+      { rootMargin: "-72px 0px -70% 0px", threshold: 0 }
+    );
+    sections.forEach(function (s) { observer.observe(s); });
+  }
+
+  railLinks.forEach(function (a) {
+    a.addEventListener("click", function () {
+      setActiveLink(a.getAttribute("data-target"));
+      railEl.classList.remove("open"); // close on mobile after navigating
+    });
+  });
+
+  if (railToggleEl) {
+    railToggleEl.addEventListener("click", function () {
+      railEl.classList.toggle("open");
+    });
   }
 
   renderPipelineSection();

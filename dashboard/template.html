@@ -10,6 +10,7 @@
   :root{
     color-scheme: light;
     --surface-1:      #fcfcfb;
+    --surface-2:      #f3f2ef;
     --page-plane:     #f9f9f7;
     --text-primary:   #0b0b0b;
     --text-secondary: #52514e;
@@ -17,16 +18,29 @@
     --grid:           #e1e0d9;
     --baseline:       #c3c2b7;
     --border:         rgba(11,11,11,0.10);
+    --shadow:         0 1px 2px rgba(11,11,11,.04), 0 8px 24px rgba(11,11,11,.05);
     --cause-conflict:    #b8253f;
     --cause-disaster:    #eb6834;
     --cause-shutdown:    #4a3aa7;
     --cause-unexplained: #898781;
     --seq-1: #cde2fb; --seq-4: #3987e5; --seq-7: #0d366b;
+    --accent: #2a78d6;
+    --accent-tint: rgba(42,120,214,.12);
+    /* the nav rail stays a constant dark "ops console" surface in both
+       themes -- common in mobility/fleet dashboards -- while the content
+       pane follows the light/dark tokens above */
+    --rail-bg:        #12141b;
+    --rail-border:    rgba(255,255,255,.08);
+    --rail-text:      #9a9db3;
+    --rail-text-dim:  #63667a;
+    --rail-active-bg: rgba(58,135,229,.16);
+    --rail-active-fg: #ffffff;
   }
   @media (prefers-color-scheme: dark){
     :root:where(:not([data-theme="light"])){
       color-scheme: dark;
       --surface-1:      #1a1a19;
+      --surface-2:      #212120;
       --page-plane:     #0d0d0d;
       --text-primary:   #ffffff;
       --text-secondary: #c3c2b7;
@@ -34,16 +48,20 @@
       --grid:           #2c2c2a;
       --baseline:       #383835;
       --border:         rgba(255,255,255,0.10);
+      --shadow:         0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
       --cause-conflict:    #a8305a;
       --cause-disaster:    #d95926;
       --cause-shutdown:    #9085e9;
       --cause-unexplained: #898781;
       --seq-1: #184f95; --seq-4: #3987e5; --seq-7: #cde2fb;
+      --accent: #3987e5;
+      --accent-tint: rgba(57,135,229,.18);
     }
   }
   :root[data-theme="dark"]{
     color-scheme: dark;
     --surface-1:      #1a1a19;
+    --surface-2:      #212120;
     --page-plane:     #0d0d0d;
     --text-primary:   #ffffff;
     --text-secondary: #c3c2b7;
@@ -51,13 +69,17 @@
     --grid:           #2c2c2a;
     --baseline:       #383835;
     --border:         rgba(255,255,255,0.10);
+    --shadow:         0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
     --cause-conflict:    #a8305a;
     --cause-disaster:    #d95926;
     --cause-shutdown:    #9085e9;
     --cause-unexplained: #898781;
     --seq-1: #184f95; --seq-4: #3987e5; --seq-7: #cde2fb;
+    --accent: #3987e5;
+    --accent-tint: rgba(57,135,229,.18);
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   html,body{margin:0;padding:0}
   body{
     background:var(--page-plane); color:var(--text-primary);
@@ -65,74 +87,140 @@
     font-size:14px; line-height:1.45;
   }
   a{color:inherit}
-  .wrap{max-width:1320px;margin:0 auto;padding:20px 20px 64px}
-  header.top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
-  h1{font-size:22px;margin:0 0 4px}
-  .subtitle{color:var(--text-secondary);margin:0;max-width:70ch}
-  .top-meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12px;color:var(--text-muted)}
+  svg.ic{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- nav rail ---------- */
+  /* Fixed (not sticky) — deliberately: sticky needs a containing block
+     taller than itself to have "room" to stick, and this shell has no
+     natural ancestor box to supply that without extra wrapper divs. Fixed
+     is unambiguous: always viewport-pinned, independent of document
+     height. .content below is offset with margin-left to make room. */
+  .rail{
+    width:216px;background:var(--rail-bg);color:var(--rail-text);
+    display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;
+    border-right:1px solid var(--rail-border);z-index:20;
+  }
+  .rail-brand{display:flex;align-items:center;gap:10px;padding:18px 18px 14px;color:#fff;font-weight:600;font-size:14px}
+  .rail-brand .mark{width:26px;height:26px;border-radius:7px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+  .rail-brand .mark svg{width:15px;height:15px;stroke:#fff}
+  .rail-brand span{white-space:nowrap;overflow:hidden}
+  .rail nav{display:flex;flex-direction:column;gap:2px;padding:8px 10px;flex:1;overflow-y:auto}
+  .rail a{
+    display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:8px;font-size:13px;
+    text-decoration:none;color:var(--rail-text);white-space:nowrap;overflow:hidden;
+  }
+  .rail a:hover{background:rgba(255,255,255,.05);color:#fff}
+  .rail a.active{background:var(--rail-active-bg);color:var(--rail-active-fg)}
+  .rail a svg{opacity:.9}
+  .rail-foot{padding:12px 14px 16px;border-top:1px solid var(--rail-border);font-size:11px;color:var(--rail-text-dim)}
+  .rail-foot .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ecf6e;margin-right:5px;box-shadow:0 0 0 3px rgba(62,207,110,.18)}
+  .rail-toggle{
+    display:none;position:fixed;top:14px;left:14px;z-index:30;background:var(--rail-bg);color:#fff;
+    border:1px solid var(--rail-border);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;
+  }
+
+  /* ---------- content ---------- */
+  .content{margin-left:216px;min-width:0;display:flex;flex-direction:column}
+  .topbar{
+    position:sticky;top:0;z-index:15;background:color-mix(in srgb, var(--page-plane) 88%, transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 28px;
+  }
+  .topbar h1{font-size:16px;margin:0;font-weight:600}
+  .topbar .subtitle{color:var(--text-secondary);margin:2px 0 0;font-size:12px;max-width:62ch}
+  .top-actions{display:flex;align-items:center;gap:10px;flex:none}
+  .meta-line{font-size:11px;color:var(--text-muted);text-align:right;white-space:nowrap}
   .theme-btn{
     background:var(--surface-1);border:1px solid var(--border);color:var(--text-primary);
-    border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;
+    border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;
   }
+  .theme-btn:hover{background:var(--surface-2)}
+
+  .page{max-width:1360px;width:100%;margin:0 auto;padding:20px 28px 64px}
+  section{scroll-margin-top:70px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:30px 0 12px}
+  .section-head:first-of-type{margin-top:6px}
+  .section-head h2.section-title{font-size:15px;margin:0;font-weight:600;display:flex;align-items:center;gap:8px}
+  .section-head .section-sub{font-size:12px;color:var(--text-muted);margin:0}
+
   .banner{
-    border:1px solid var(--border);border-left:3px solid var(--cause-shutdown);
-    background:var(--surface-1);border-radius:8px;padding:10px 14px;margin:0 0 18px;
-    font-size:12.5px;color:var(--text-secondary);
+    border:1px solid var(--border);border-left:3px solid var(--accent);
+    background:var(--surface-1);border-radius:10px;padding:11px 15px;margin:0 0 18px;
+    font-size:12.5px;color:var(--text-secondary);box-shadow:var(--shadow);
   }
   .banner strong{color:var(--text-primary)}
   .card{
-    background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
-    padding:16px;
+    background:var(--surface-1);border:1px solid var(--border);border-radius:14px;
+    padding:18px;box-shadow:var(--shadow);
   }
-  .card h2{font-size:13px;margin:0 0 12px;color:var(--text-secondary);font-weight:600;
-    text-transform:uppercase;letter-spacing:.03em}
+  .card h2{font-size:12.5px;margin:0 0 14px;color:var(--text-secondary);font-weight:600;
+    text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+  .card h2 svg{opacity:.7}
   .card .card-note{font-size:11.5px;color:var(--text-muted);margin-top:8px}
 
-  /* filters */
+  /* ---------- filters (pill bar) ---------- */
   .filters{
-    display:flex;flex-wrap:wrap;gap:18px;align-items:center;
-    background:var(--surface-1);border:1px solid var(--border);border-radius:10px;
-    padding:12px 16px;margin-bottom:16px;
+    display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+    background:var(--surface-1);border:1px solid var(--border);border-radius:999px;
+    padding:8px 10px 8px 18px;margin-bottom:20px;box-shadow:var(--shadow);
   }
+  @media (max-width:920px){.filters{border-radius:16px}}
   .filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .filter-label{font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em;margin-right:2px}
+  .filter-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
   .chip{
     display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);
-    border-radius:999px;padding:4px 10px 4px 8px;cursor:pointer;user-select:none;font-size:12.5px;
+    border-radius:999px;padding:5px 11px 5px 9px;cursor:pointer;user-select:none;font-size:12.5px;
     background:var(--page-plane);
   }
   .chip input{accent-color:currentColor;margin:0}
-  .chip .swatch{width:10px;height:10px;border-radius:3px;flex:none}
-  .chip.off{opacity:.45}
-  select, .btn{
-    font-size:12.5px;border:1px solid var(--border);border-radius:6px;background:var(--page-plane);
-    color:var(--text-primary);padding:5px 8px;
+  .chip .swatch{width:9px;height:9px;border-radius:3px;flex:none}
+  .chip.off{opacity:.4}
+  select, .btn, .search-input{
+    font-size:12.5px;border:1px solid var(--border);border-radius:999px;background:var(--page-plane);
+    color:var(--text-primary);padding:6px 12px;
   }
-  .btn{cursor:pointer}
-  .btn:hover{background:var(--surface-1)}
+  .search-input{border-radius:8px}
+  .btn{cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{background:var(--surface-2)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{filter:brightness(1.06)}
+  .filter-divider{width:1px;align-self:stretch;background:var(--border);margin:2px 0}
 
-  /* KPIs */
-  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
-  @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  /* ---------- KPIs ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:22px}
+  @media (max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  .kpi{display:flex;flex-direction:column;gap:10px}
+  .kpi .kpi-top{display:flex;align-items:center;justify-content:space-between}
+  .kpi .icon-badge{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);color:var(--accent)}
   .kpi .label{font-size:11.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}
-  .kpi .value{font-size:26px;font-weight:600;margin-top:4px}
-  .kpi .value small{font-size:13px;font-weight:500;color:var(--text-secondary)}
+  .kpi .value{font-size:25px;font-weight:600}
 
-  /* map */
-  .map-card{margin-bottom:16px;padding:0;overflow:hidden}
-  .map-card .map-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 0}
-  #map{height:480px;width:100%;margin-top:12px;background:var(--grid)}
-  .legend-row{display:flex;gap:16px;flex-wrap:wrap;padding:10px 16px 14px;font-size:12px;color:var(--text-secondary)}
-  .legend-row .item{display:flex;align-items:center;gap:6px}
-  .legend-row .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  /* ---------- map ---------- */
+  /* isolation:isolate contains the floating legend/controls' z-index:400
+     (needed to clear Leaflet's own internal pane stacking) to this card,
+     so it can't leak above the sticky topbar/rail once this section
+     scrolls near the top of the viewport. */
+  .map-card{margin-bottom:0;padding:0;overflow:hidden;position:relative;isolation:isolate}
+  #map{height:520px;width:100%;background:var(--grid)}
+  .map-floating{
+    position:absolute;z-index:400;background:color-mix(in srgb, var(--surface-1) 92%, transparent);
+    backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);
+  }
+  .map-title-float{top:14px;left:14px;padding:9px 14px;display:flex;flex-direction:column;gap:1px}
+  .map-title-float .t{font-size:12.5px;font-weight:600}
+  .map-title-float .s{font-size:11px;color:var(--text-muted)}
+  .map-controls-float{top:14px;right:14px;display:flex;gap:6px;padding:6px}
+  .map-legend-float{bottom:14px;left:14px;display:flex;gap:14px;flex-wrap:wrap;padding:9px 14px;font-size:11.5px;color:var(--text-secondary);max-width:calc(100% - 28px)}
+  .map-legend-float .item{display:flex;align-items:center;gap:6px}
+  .map-legend-float .dot{width:9px;height:9px;border-radius:50%;flex:none}
   .leaflet-popup-content{font-family:inherit;font-size:12.5px}
   .leaflet-popup-content .pop-title{font-weight:600;margin-bottom:4px}
   .leaflet-popup-content .pop-row{display:flex;justify-content:space-between;gap:10px}
   .leaflet-popup-content .pop-row b{font-variant-numeric:tabular-nums}
 
-  /* charts grid */
-  .charts-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;margin-bottom:16px}
-  @media (max-width:900px){.charts-grid{grid-template-columns:1fr}}
+  /* ---------- charts grid ---------- */
+  .charts-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-bottom:14px}
+  @media (max-width:1000px){.charts-grid{grid-template-columns:1fr}}
   .full-span{grid-column:1/-1}
   svg text{fill:var(--text-secondary);font-size:11px}
   svg .axis-line{stroke:var(--baseline);stroke-width:1}
@@ -141,177 +229,258 @@
   .bar-hit{cursor:pointer}
   .tooltip-fixed{
     position:fixed;pointer-events:none;background:var(--surface-1);border:1px solid var(--border);
-    border-radius:6px;padding:6px 9px;font-size:12px;box-shadow:0 4px 16px rgba(0,0,0,.18);
+    border-radius:8px;padding:6px 9px;font-size:12px;box-shadow:var(--shadow);
     z-index:1000;display:none;max-width:240px;
   }
   .tooltip-fixed .t-val{font-weight:600}
 
-  /* resilience table */
+  /* ---------- tables ---------- */
   table.data-table{width:100%;border-collapse:collapse;font-size:12.5px}
   table.data-table th{
-    text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-muted);
-    border-bottom:1px solid var(--grid);padding:6px 8px;font-weight:600;
+    text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);
+    border-bottom:1px solid var(--grid);padding:7px 10px;font-weight:600;
   }
-  table.data-table td{padding:6px 8px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums}
+  table.data-table td{padding:7px 10px;border-bottom:1px solid var(--grid);font-variant-numeric:tabular-nums}
+  table.data-table tbody tr:hover td{background:var(--surface-2)}
   table.data-table tr:last-child td{border-bottom:none}
   table.data-table .causepips{display:flex;gap:2px}
   table.data-table .pip{width:7px;height:7px;border-radius:2px}
 
-  /* insights */
-  .insights ul{margin:0;padding-left:18px}
-  .insights li{margin-bottom:8px;color:var(--text-secondary)}
+  /* ---------- insights ---------- */
+  .insights ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+  .insights li{padding:10px 4px;color:var(--text-secondary);border-bottom:1px solid var(--grid)}
+  .insights li:last-child{border-bottom:none}
   .insights li b{color:var(--text-primary)}
   .insights li .tag{
-    display:inline-block;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;
-    color:var(--text-muted);border:1px solid var(--border);border-radius:4px;padding:0 4px;margin-right:6px;
+    display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--accent);background:var(--accent-tint);border-radius:5px;padding:2px 6px;margin-right:8px;font-weight:600;
   }
 
   .pipeline-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
   .pipeline-step{
-    flex:1;min-width:170px;border:1px solid var(--border);border-radius:8px;padding:10px 12px;
+    flex:1;min-width:170px;border:1px solid var(--border);border-radius:10px;padding:12px 14px;
     background:var(--page-plane);position:relative;margin:4px;
   }
-  .pipeline-step .phase{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-muted)}
-  .pipeline-step .title{font-weight:600;margin:2px 0 4px}
+  .pipeline-step .phase{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--accent);font-weight:700}
+  .pipeline-step .title{font-weight:600;margin:3px 0 4px}
   .pipeline-step .desc{font-size:11.5px;color:var(--text-secondary)}
   .pipeline-arrow{align-self:center;color:var(--text-muted);font-size:18px;padding:0 2px}
-  .status-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 7px;border-radius:999px;border:1px solid var(--border)}
+  .status-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--border)}
   .status-pill.on{color:var(--cause-shutdown)}
   .status-pill.off{color:var(--text-muted)}
   .status-pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
 
-  details.table-toggle{margin-top:16px}
-  details.table-toggle summary{cursor:pointer;font-size:12.5px;color:var(--text-secondary);padding:4px 0}
+  details.table-toggle summary{cursor:pointer;font-size:12.5px;color:var(--text-secondary);padding:4px 0;list-style:none}
+  details.table-toggle summary::-webkit-details-marker{display:none}
+  details.table-toggle summary::before{content:"▸ ";color:var(--text-muted)}
+  details.table-toggle[open] summary::before{content:"▾ "}
   .table-scroll{overflow-x:auto;margin-top:10px}
 
-  footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--border);font-size:11.5px;color:var(--text-muted)}
-  footer p{margin:4px 0}
+  footer.page-footer{margin-top:30px;padding-top:16px;border-top:1px solid var(--border);font-size:11.5px;color:var(--text-muted)}
+  footer.page-footer p{margin:4px 0}
+
+  @media (max-width:860px){
+    .rail{transform:translateX(-100%);transition:transform .18s ease;box-shadow:0 0 0 2000px rgba(0,0,0,.35)}
+    .rail.open{transform:translateX(0)}
+    .rail-toggle{display:flex}
+    .content{margin-left:0}
+    .topbar{padding-left:60px}
+    .page{padding-left:16px;padding-right:16px}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header class="top">
+<button class="rail-toggle" id="railToggle" type="button" aria-label="Toggle navigation">
+  <svg class="ic" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+</button>
+
+<aside class="rail" id="rail">
+  <div class="rail-brand">
+    <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+    <span>Disruption Tracker</span>
+  </div>
+  <nav id="railNav">
+    <a href="#sec-overview" data-target="sec-overview" class="active">
+      <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      Overview
+    </a>
+    <a href="#sec-map" data-target="sec-map">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>
+      Outage map
+    </a>
+    <a href="#sec-trends" data-target="sec-trends">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 19V9M11 19V5M18 19v-7"/><path d="M2 19h20"/></svg>
+      Trends &amp; insights
+    </a>
+    <a href="#sec-pipeline" data-target="sec-pipeline">
+      <svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+      Pipeline &amp; sources
+    </a>
+    <a href="#sec-data" data-target="sec-data">
+      <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
+      Raw data
+    </a>
+  </nav>
+  <div class="rail-foot">
+    <div><span class="live-dot"></span><span id="liveStatus">Live pipeline</span></div>
+    <div id="generatedAt" style="margin-top:4px">Generated __GENERATED_AT__</div>
+  </div>
+</aside>
+
+<div class="content">
+  <div class="topbar">
     <div>
       <h1>Infrastructure Disruption Tracker</h1>
-      <p class="subtitle">Correlating internet outages with natural disasters, armed conflict, and government shutdowns — internet connectivity loss treated as a real-time proxy for physical infrastructure disruption.</p>
+      <p class="subtitle">Correlating internet outages with natural disasters, armed conflict, and government shutdowns.</p>
     </div>
-    <div class="top-meta">
-      <button class="theme-btn" id="themeToggle" type="button">Toggle theme</button>
-      <span id="generatedAt">Generated __GENERATED_AT__</span>
-      <span id="liveStatus"></span>
+    <div class="top-actions">
+      <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.4 5.4 0 0 1 12 3z"/></svg>
+      </button>
     </div>
-  </header>
-
-  <div class="banner" id="provenanceBanner"><!-- filled by JS --></div>
-
-  <div class="filters">
-    <div class="filter-group">
-      <span class="filter-label">Cause</span>
-      <label class="chip" data-cause="conflict"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-conflict)"></span>Conflict</label>
-      <label class="chip" data-cause="disaster"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-disaster)"></span>Disaster</label>
-      <label class="chip" data-cause="shutdown"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-shutdown)"></span>Shutdown</label>
-      <label class="chip" data-cause="unexplained"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-unexplained)"></span>Unexplained</label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Region</span>
-      <select id="regionSelect"></select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Time range</span>
-      <select id="rangeSelect">
-        <option value="7">Last 7 days</option>
-        <option value="30">Last 30 days</option>
-        <option value="90" selected>Last 90 days</option>
-        <option value="all">All available</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Min confidence</span>
-      <select id="confSelect">
-        <option value="low" selected>Low & up</option>
-        <option value="medium">Medium & up</option>
-        <option value="high">High only</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Source</span>
-      <select id="sourceSelect">
-        <option value="all" selected>Structured + semantic</option>
-        <option value="structured">Structured only</option>
-      </select>
-    </div>
-    <div class="filter-group" style="flex:1;min-width:200px">
-      <span class="filter-label">Search</span>
-      <input type="text" id="searchBox" placeholder="Country, subtype, source…" style="flex:1;min-width:160px;font-size:12.5px;border:1px solid var(--border);border-radius:6px;background:var(--page-plane);color:var(--text-primary);padding:5px 8px">
-    </div>
-    <button class="btn" id="resetBtn" type="button">Reset filters</button>
   </div>
 
-  <div class="kpis" id="kpiRow"></div>
+  <div class="page">
 
-  <div class="card map-card">
-    <div class="map-head">
-      <h2 style="margin:0">Outage map — bubble size = downtime, color = dominant cause</h2>
-      <div style="display:flex;gap:8px">
-        <span class="card-note" style="align-self:center;margin:0">Scroll or use +/− to zoom, drag to pan</span>
-        <button class="btn" id="mapResetBtn" type="button">Reset view</button>
+    <div class="banner" id="provenanceBanner"><!-- filled by JS --></div>
+
+    <section id="sec-overview">
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label">Cause</span>
+          <label class="chip" data-cause="conflict"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-conflict)"></span>Conflict</label>
+          <label class="chip" data-cause="disaster"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-disaster)"></span>Disaster</label>
+          <label class="chip" data-cause="shutdown"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-shutdown)"></span>Shutdown</label>
+          <label class="chip" data-cause="unexplained"><input type="checkbox" checked><span class="swatch" style="background:var(--cause-unexplained)"></span>Unexplained</label>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group">
+          <select id="regionSelect"></select>
+          <select id="rangeSelect">
+            <option value="7">Last 7 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="90" selected>Last 90 days</option>
+            <option value="all">All available</option>
+          </select>
+          <select id="confSelect">
+            <option value="low" selected>Confidence: Low &amp; up</option>
+            <option value="medium">Confidence: Medium &amp; up</option>
+            <option value="high">Confidence: High only</option>
+          </select>
+          <select id="sourceSelect">
+            <option value="all" selected>Structured + semantic</option>
+            <option value="structured">Structured only</option>
+          </select>
+        </div>
+        <div class="filter-divider"></div>
+        <div class="filter-group" style="flex:1;min-width:180px">
+          <input type="text" id="searchBox" class="search-input" placeholder="Search country, subtype, source…" style="width:100%">
+        </div>
+        <button class="btn" id="resetBtn" type="button">Reset</button>
       </div>
-    </div>
-    <div id="map"></div>
-    <div class="legend-row">
-      <span class="item"><span class="dot" style="background:var(--cause-conflict)"></span>Conflict</span>
-      <span class="item"><span class="dot" style="background:var(--cause-disaster)"></span>Disaster</span>
-      <span class="item"><span class="dot" style="background:var(--cause-shutdown)"></span>Shutdown</span>
-      <span class="item"><span class="dot" style="background:var(--cause-unexplained)"></span>Unexplained</span>
-      <span class="item" style="color:var(--text-muted)">Bubble radius scales with cumulative downtime-hours in view</span>
-    </div>
+
+      <div class="kpis" id="kpiRow"></div>
+    </section>
+
+    <section id="sec-map">
+      <div class="section-head">
+        <h2 class="section-title">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>
+          Outage map
+        </h2>
+        <p class="section-sub">Bubble size = cumulative downtime · color = dominant cause</p>
+      </div>
+      <div class="card map-card">
+        <div id="map"></div>
+        <div class="map-floating map-title-float">
+          <span class="t">Live disruption map</span>
+          <span class="s">Scroll to zoom · drag to pan</span>
+        </div>
+        <div class="map-floating map-controls-float">
+          <button class="btn" id="mapResetBtn" type="button">Reset view</button>
+        </div>
+        <div class="map-floating map-legend-float">
+          <span class="item"><span class="dot" style="background:var(--cause-conflict)"></span>Conflict</span>
+          <span class="item"><span class="dot" style="background:var(--cause-disaster)"></span>Disaster</span>
+          <span class="item"><span class="dot" style="background:var(--cause-shutdown)"></span>Shutdown</span>
+          <span class="item"><span class="dot" style="background:var(--cause-unexplained)"></span>Unexplained</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-trends">
+      <div class="section-head">
+        <h2 class="section-title">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M4 19V9M11 19V5M18 19v-7"/><path d="M2 19h20"/></svg>
+          Trends &amp; insights
+        </h2>
+        <p class="section-sub">Recomputed live against the filters above</p>
+      </div>
+
+      <div class="charts-grid">
+        <div class="card">
+          <h2>Weekly outage frequency by cause</h2>
+          <svg id="timelineChart" width="100%" height="220" role="img" aria-label="Weekly outage counts stacked by cause"></svg>
+        </div>
+        <div class="card">
+          <h2>Cause breakdown (events in view)</h2>
+          <svg id="causeChart" width="100%" height="220" role="img" aria-label="Event count by cause"></svg>
+        </div>
+        <div class="card">
+          <h2>Avg. recovery time by cause (hrs)</h2>
+          <svg id="durationChart" width="100%" height="200" role="img" aria-label="Average duration in hours by cause"></svg>
+          <p class="card-note">Only resolved events (known end time) count toward recovery time.</p>
+        </div>
+        <div class="card">
+          <h2>Fragility ranking — top countries</h2>
+          <div id="resilienceTable"></div>
+          <p class="card-note">Ranked by cumulative downtime-hours in the current filter/time window.</p>
+        </div>
+      </div>
+
+      <div class="card insights full-span" style="margin-top:14px">
+        <h2>Auto-generated insights</h2>
+        <ul id="insightsList"></ul>
+      </div>
+    </section>
+
+    <section id="sec-pipeline">
+      <div class="section-head">
+        <h2 class="section-title">
+          <svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+          Data pipeline &amp; sources
+        </h2>
+        <p class="section-sub">How every record gets from a raw signal to a labeled event</p>
+      </div>
+      <div class="card">
+        <div id="pipelineFlow" class="pipeline-flow"></div>
+        <div class="table-scroll" style="margin-top:14px">
+          <table class="data-table" id="sourcesTable"></table>
+        </div>
+        <p class="card-note">"Contributed" counts reflect the current database, not just events currently in view (filters above don't affect this table). A source with 0 and "not configured" needs an API key — see .env.example / README.</p>
+      </div>
+    </section>
+
+    <section id="sec-data">
+      <div class="section-head">
+        <h2 class="section-title">
+          <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
+          Raw event data
+        </h2>
+        <p class="section-sub">Every value reachable without hovering a chart</p>
+      </div>
+      <details class="table-toggle card">
+        <summary>View underlying event data as a table</summary>
+        <div class="table-scroll" id="rawTableWrap"></div>
+      </details>
+    </section>
+
+    <footer class="page-footer">
+      <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas) detect connectivity loss with no cause attached. Phase 2 joins each outage to GDACS/ACLED/#KeepItOn records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
+      <p><b>Limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See README for the full write-up.</p>
+    </footer>
   </div>
-
-  <div class="charts-grid">
-    <div class="card">
-      <h2>Weekly outage frequency by cause</h2>
-      <svg id="timelineChart" width="100%" height="220" role="img" aria-label="Weekly outage counts stacked by cause"></svg>
-    </div>
-    <div class="card">
-      <h2>Cause breakdown (events in view)</h2>
-      <svg id="causeChart" width="100%" height="220" role="img" aria-label="Event count by cause"></svg>
-    </div>
-    <div class="card">
-      <h2>Avg. recovery time by cause (hrs)</h2>
-      <svg id="durationChart" width="100%" height="200" role="img" aria-label="Average duration in hours by cause"></svg>
-      <p class="card-note">Only resolved events (known end time) count toward recovery time.</p>
-    </div>
-    <div class="card">
-      <h2>Fragility ranking — top countries</h2>
-      <div id="resilienceTable"></div>
-      <p class="card-note">Ranked by cumulative downtime-hours in the current filter/time window.</p>
-    </div>
-  </div>
-
-  <div class="card insights full-span" style="margin-bottom:16px">
-    <h2>Auto-generated insights</h2>
-    <ul id="insightsList"></ul>
-  </div>
-
-  <div class="card full-span" style="margin-bottom:16px">
-    <h2>Data pipeline &amp; sources</h2>
-    <div id="pipelineFlow" class="pipeline-flow"></div>
-    <div class="table-scroll" style="margin-top:14px">
-      <table class="data-table" id="sourcesTable"></table>
-    </div>
-    <p class="card-note">"Contributed" counts reflect the current database, not just events currently in view (filters above don't affect this table). A source with 0 and "not configured" needs an API key — see .env.example / README.</p>
-  </div>
-
-  <details class="table-toggle">
-    <summary>View underlying event data as a table</summary>
-    <div class="table-scroll" id="rawTableWrap"></div>
-  </details>
-
-  <footer>
-    <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas) detect connectivity loss with no cause attached. Phase 2 joins each outage to GDACS/ACLED/#KeepItOn records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
-    <p><b>Limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See README for the full write-up.</p>
-  </footer>
 </div>
 
 <div class="tooltip-fixed" id="tooltip"></div>

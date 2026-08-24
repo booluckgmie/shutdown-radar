@@ -180,7 +180,11 @@ exports the whole table on every build, uncapped.
 `dist/dashboard.html` is a single file — Leaflet (map) and the app itself are the only
 dependencies, loaded from CDN; every filter, chart, table, and insight is hand-rendered
 vanilla JS/SVG against the JSON embedded in the page, so it needs no build step and no
-server. Filtering (cause, **region**, time range, confidence threshold,
+server. Layout is a fixed sidebar-nav "ops console" shell (`dashboard/template.html`) —
+Overview / Outage map / Trends & insights / Pipeline & sources / Raw data as scroll-spy'd
+sections, a persistent dark nav rail regardless of light/dark content theme, a floating
+legend/controls overlay on the map, and a collapsible off-canvas nav below 860px.
+Filtering (cause, **region**, time range, confidence threshold,
 structured-vs-semantic, free-text **search**) re-aggregates the map, every chart, the
 fragility ranking, and the insight text live, client-side.
 
