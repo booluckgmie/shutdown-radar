@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T11:38:27.676711+00:00",
+  "generated_at": "2026-08-30T15:45:12.942758+00:00",
   "events": [
     {
       "event_id": "ripe:CA:2026-08-30",
@@ -8036,6 +8036,18 @@
         "configured": null
       },
       {
+        "name": "OpenSky Network",
+        "phase": 1,
+        "category": "Aviation-disruption signal",
+        "realtime": "Real-time",
+        "access": "Free, no key (optional account for higher rate limit)",
+        "granularity": "Country (aircraft registry)",
+        "key_required": false,
+        "contributed": 0,
+        "contributed_label": "0 outage events",
+        "configured": null
+      },
+      {
         "name": "GDACS",
         "phase": 2,
         "category": "Disaster attribution",
@@ -8066,6 +8078,18 @@
         "realtime": "Manually verified",
         "access": "Free \u2014 manual CSV export (no stable API)",
         "granularity": "Country/region",
+        "key_required": true,
+        "contributed": 0,
+        "contributed_label": "0 cause records",
+        "configured": false
+      },
+      {
+        "name": "FAA NOTAM",
+        "phase": 2,
+        "category": "Restricted-airspace attribution (US only)",
+        "realtime": "Real-time",
+        "access": "Free, registration (client_id + secret)",
+        "granularity": "Lat/lon",
         "key_required": true,
         "contributed": 0,
         "contributed_label": "0 cause records",
