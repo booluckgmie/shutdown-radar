@@ -1,34 +1,38 @@
 """GDACS — Global Disaster Alert and Coordination System.
 
-Free, no key, GeoRSS feed: https://www.gdacs.org/xml/rss.xml (rolling feed of
-currently active alerts; verify against https://www.gdacs.org/Knowledge/ for
-the current feed URL/schema before relying on this in production).
+Free, no key. This module previously parsed the GeoRSS feed
+(https://www.gdacs.org/xml/rss.xml) but that was found — via real GitHub
+Actions run logs against live traffic — to silently return zero results on
+every single run despite fetching and parsing without error: ElementTree's
+namespace-aware lookup was matching zero fields against a guessed
+`xmlns:gdacs` URI, and even after switching to namespace-agnostic local-tag
+matching, the feed's actual item/date structure still didn't match what was
+expected (429 "item"-like containers found, none with a parseable date —
+never fully diagnosed, since this project's authoring sandbox cannot reach
+gdacs.org to inspect the raw feed directly).
 
-Tag names below (gdacs:fromdate, gdacs:country, gdacs:eventtype,
-gdacs:alertlevel) were cross-checked against a maintained third-party GDACS
-GeoRSS parser (exxamalte/python-aio-georss-gdacs) and match. What's *not*
-verified is the exact `xmlns:gdacs="..."` URI the live feed declares —
-ElementTree's namespace-aware `findtext("gdacs:x", namespaces=NS)` silently
-returns None for every element if that URI is even slightly off (no
-exception, no warning), which was quietly producing zero results in
-production against this project's original hardcoded NS dict. To not
-depend on getting that URI exactly right, this version matches by local
-tag name (stripping whatever namespace ElementTree expands the tag to)
-instead of a fixed prefix->URI map — the field names are the part that's
-actually verified, so match on those.
+Switched to GDACS's JSON/GeoJSON REST API instead — research turned up two
+independent, currently-active real-world consumers preferring it over RSS,
+and JSON has no namespace-matching ambiguity to get wrong the way the RSS
+extension elements did. **The exact request/response shape below is
+inferred from indirect references, not confirmed against a live sample or
+official schema** (same sandbox limitation) — if this also returns
+unexpectedly empty, `_log_unexpected_shape` dumps a raw response snippet at
+WARNING so the next real run's GitHub Actions logs show the actual JSON
+shape directly, which is a fixable diagnostic (unlike the RSS case) since
+this project's CI runner *does* have real internet access even though the
+authoring sandbox doesn't.
 """
 from __future__ import annotations
 
 import logging
-import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
-from email.utils import parsedate_to_datetime
 
 import requests
 
 logger = logging.getLogger(__name__)
 
-FEED_URL = "https://www.gdacs.org/xml/rss.xml"
+API_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH"
 REQUEST_TIMEOUT = 20
 
 EVENT_TYPE_SUBTYPE = {
@@ -42,89 +46,77 @@ EVENT_TYPE_SUBTYPE = {
 }
 
 
-def _local_name(tag: str) -> str:
-    """'{http://www.gdacs.org}eventtype' -> 'eventtype', regardless of
-    whatever the actual namespace URI turns out to be."""
-    return tag.rsplit("}", 1)[-1] if "}" in tag else tag
+def _log_unexpected_shape(context: str, payload) -> None:
+    logger.warning("GDACS: unexpected response shape (%s) — raw body: %s", context, str(payload)[:1500])
 
 
-def _child_text(elem: ET.Element, local_name: str) -> str | None:
-    for child in elem.iter():
-        if child is elem:
-            continue
-        if _local_name(child.tag).lower() == local_name.lower():
-            text = (child.text or "").strip()
-            return text or None
-    return None
-
-
-def _find_containers(root: ET.Element) -> list[ET.Element]:
-    """RSS 'item' by local name, tolerant of an unexpected root namespace
-    or (should the feed ever switch shape) an Atom 'entry'."""
-    return [el for el in root.iter() if _local_name(el.tag) in ("item", "entry")]
-
-
-def _parse_point(text: str | None) -> tuple[float, float] | None:
-    if not text:
-        return None
-    parts = text.strip().split()
-    if len(parts) != 2:
+def _parse_date(value: str | None) -> datetime | None:
+    if not value:
         return None
     try:
-        return float(parts[0]), float(parts[1])
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except ValueError:
         return None
 
 
 def fetch(lookback_days: int) -> list[dict]:
+    until = datetime.now(timezone.utc)
+    since = until - timedelta(days=lookback_days)
+    params = {
+        "fromDate": since.strftime("%Y-%m-%d"),
+        "toDate": until.strftime("%Y-%m-%d"),
+        "alertlevel": "Green;Orange;Red",
+        "limit": 500,
+    }
+
     try:
-        resp = requests.get(FEED_URL, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(API_URL, params=params, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
     except requests.RequestException as exc:
         logger.warning("GDACS unreachable, skipping source: %s", exc)
         return []
 
     try:
-        root = ET.fromstring(resp.content)
-    except ET.ParseError as exc:
-        logger.warning("GDACS feed parse error, skipping source: %s", exc)
+        payload = resp.json()
+    except ValueError:
+        logger.warning("GDACS returned non-JSON response, skipping source. Body: %s", resp.text[:1500])
         return []
 
-    items = _find_containers(root)
-    cutoff = datetime.now(timezone.utc) - timedelta(days=lookback_days)
+    features = payload.get("features") if isinstance(payload, dict) else payload
+    if not isinstance(features, list):
+        _log_unexpected_shape("no 'features' list", payload)
+        return []
+    if not features:
+        # A genuinely quiet window is plausible but uncommon for a global
+        # feed; log the raw (likely small/empty) body so a real run's logs
+        # can distinguish "truly zero this week" from "wrong param names".
+        logger.info("GDACS: 0 features returned — raw body: %s", str(payload)[:800])
+        return []
+
     cause_events = []
-    skipped_no_date, skipped_old = 0, 0
+    skipped_no_date, skipped_old, skipped_bad_shape = 0, 0, 0
+    for feature in features:
+        if not isinstance(feature, dict):
+            skipped_bad_shape += 1
+            continue
+        props = feature.get("properties", {}) if isinstance(feature.get("properties"), dict) else {}
+        geometry = feature.get("geometry", {}) if isinstance(feature.get("geometry"), dict) else {}
+        coords = geometry.get("coordinates")
 
-    for item in items:
-        point = _parse_point(_child_text(item, "point"))
-        event_type = _child_text(item, "eventtype")
-        country = _child_text(item, "country")
-        from_date = _child_text(item, "fromdate")
-        title = _child_text(item, "title")
-        pub_date_raw = _child_text(item, "pubDate")
-
-        event_date = from_date
-        if not event_date and pub_date_raw:
-            try:
-                event_date = parsedate_to_datetime(pub_date_raw).isoformat()
-            except (TypeError, ValueError):
-                event_date = None
+        event_date = _parse_date(props.get("fromdate") or props.get("fromDate") or props.get("pubdate"))
         if not event_date:
             skipped_no_date += 1
             continue
-        try:
-            event_dt = datetime.fromisoformat(event_date.replace("Z", "+00:00"))
-            if event_dt.tzinfo is None:
-                event_dt = event_dt.replace(tzinfo=timezone.utc)
-        except ValueError:
-            skipped_no_date += 1
-            continue
-        if event_dt < cutoff:
+        if event_date < since:
             skipped_old += 1
             continue
 
-        lat, lon = point if point else (None, None)
-        event_id = _child_text(item, "guid") or f"gdacs:{event_type}:{event_date}:{country}"
+        lat, lon = (coords[1], coords[0]) if isinstance(coords, list) and len(coords) >= 2 else (None, None)
+        event_type = props.get("eventtype") or props.get("eventType")
+        country = props.get("country") or props.get("iso3")
+        event_id = props.get("eventid") or props.get("eventId") or f"{event_type}:{event_date.isoformat()}:{country}"
+
         cause_events.append(
             {
                 "cause_event_id": f"gdacs:{event_id}",
@@ -134,15 +126,15 @@ def fetch(lookback_days: int) -> list[dict]:
                 "country": country,
                 "lat": lat,
                 "lon": lon,
-                "event_date": event_dt.isoformat(),
-                "title": title,
-                "raw": {"eventtype": event_type, "country": country},
+                "event_date": event_date.isoformat(),
+                "title": props.get("eventname") or props.get("name"),
+                "raw": {"eventtype": event_type, "country": country, "alertlevel": props.get("alertlevel")},
             }
         )
 
     logger.info(
-        "GDACS: %d active disaster alerts within lookback window (%d containers seen, "
-        "%d skipped: no parseable date, %d skipped: older than lookback)",
-        len(cause_events), len(items), skipped_no_date, skipped_old,
+        "GDACS: %d active disaster alerts within lookback window (%d features seen, "
+        "%d skipped: no parseable date, %d skipped: older than lookback, %d skipped: bad shape)",
+        len(cause_events), len(features), skipped_no_date, skipped_old, skipped_bad_shape,
     )
     return cause_events

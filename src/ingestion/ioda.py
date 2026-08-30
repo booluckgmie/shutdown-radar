@@ -1,16 +1,24 @@
 """IODA (Georgia Tech / CAIDA) — Internet Outage Detection and Analysis.
 
-Free public API, no key required. Endpoints per
-https://github.com/CAIDA/ioda-api/wiki/API-Specification. IODA moved its
-hosting from CAIDA/UCSD to Georgia Tech's Internet Intelligence Lab in
-August 2021 (the live frontend is https://ioda.inetintel.cc.gatech.edu) —
-confirmed via a real production run's logs that the old
-`api.ioda.caida.org` host now just times out (dead, not merely
-rate-limited or 404ing). CANDIDATE_BASE_URLS tries the Georgia Tech host
-first and falls back to the legacy CAIDA one, logging which one actually
-answered — this is the best-supported guess available without live network
-access in the authoring sandbox (see README "A note on where this was
-built"); re-verify against current docs if both ever start failing.
+Free public API, no key required. IODA moved its hosting from CAIDA/UCSD to
+Georgia Tech's Internet Intelligence Lab in August 2021 (the live frontend
+is https://ioda.inetintel.cc.gatech.edu). Two prior guesses at the API host
+were confirmed dead/wrong by inspecting real GitHub Actions run logs
+against live traffic; the current CANDIDATE_BASE_URLS[0] +
+ALERTS_PATH/query-param shape below is corroborated by two independent,
+actively-used third-party projects that call it successfully as of this
+writing (ianlkl11234s/gis-data-collectors, PeterIbarra/dashboard-ven-monitor-app)
+plus InetIntel's own uptime monitor reporting 200 OK on this exact URL —
+notably the v2 API dropped the old CAIDA-era path-segmented endpoint shape
+(`/outages/alerts/{entityType}/{entityCode}`) for query parameters
+(`?entityType=...&entityCode=...`) entirely, which is almost certainly why
+earlier guesses at the new host still failed even with the right host.
+Response field names (`data[]`, `entityType`, `entityCode`, `entityName`)
+are inferred from those same projects, not confirmed against an official
+schema — _normalize() logs a raw response snippet at DEBUG if the shape
+looks unexpected, so a future run's logs can pinpoint exactly what's wrong
+if this guess is still off. CANDIDATE_BASE_URLS keeps the legacy CAIDA host
+as a fallback in case this one also stops answering.
 
 We treat IODA as the Phase 1 base signal: it tells us *where* and *when*
 connectivity dropped, with no cause attached yet (cause is resolved in
@@ -29,9 +37,10 @@ from .. import geo
 logger = logging.getLogger(__name__)
 
 CANDIDATE_BASE_URLS = [
-    "https://api.ioda.inetintel.cc.gatech.edu/dev",
-    "https://api.ioda.caida.org/dev",  # legacy host, kept as a fallback
+    "https://api.ioda.inetintel.cc.gatech.edu/v2",
+    "https://api.ioda.caida.org/dev",  # legacy host, kept as a last-resort fallback
 ]
+ALERTS_PATH = "/outages/alerts"
 REQUEST_TIMEOUT = 20
 # IODA alert "level" values that represent a real, ongoing signal loss
 # (as opposed to "normal"/"warning" recovery noise).
@@ -93,12 +102,14 @@ def _normalize(raw: dict, entity_code: str) -> dict | None:
 def fetch_alerts_for_country(
     code: str, since_unix: int, until_unix: int, session: requests.Session, base_url: str
 ) -> list[dict]:
-    url = f"{base_url}/outages/alerts/country/{code}"
-    resp = session.get(url, params={"from": since_unix, "until": until_unix}, timeout=REQUEST_TIMEOUT)
+    url = f"{base_url}{ALERTS_PATH}"
+    params = {"entityType": "country", "entityCode": code, "from": since_unix, "until": until_unix}
+    resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
     payload = resp.json()
     raw_alerts = payload.get("data", payload) if isinstance(payload, dict) else payload
     if not isinstance(raw_alerts, list):
+        logger.debug("IODA: unexpected response shape for %s, raw body: %s", code, str(payload)[:500])
         return []
     events = []
     for raw in raw_alerts:
