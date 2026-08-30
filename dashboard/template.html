@@ -497,7 +497,7 @@
     </section>
 
     <footer class="page-footer">
-      <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas) detect connectivity loss with no cause attached. Phase 2 joins each outage to GDACS/ACLED/#KeepItOn records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
+      <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas, OpenSky Network) detect connectivity/aviation disruption with no cause attached. Phase 2 joins each event to GDACS/ACLED/#KeepItOn/FAA-NOTAM records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
       <p><b>Limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See README for the full write-up.</p>
     </footer>
   </div>

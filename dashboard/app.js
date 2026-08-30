@@ -39,7 +39,7 @@
     // `fetch`), that's not "live pipeline data" any more.
     var isSeed = DATA.events.some(function (e) { return e.source_name && e.source_name.indexOf("(seed") !== -1; });
     if (isSeed) {
-      el.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
+      el.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn/OpenSky/FAA-NOTAM feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
     } else {
       var sources = Array.from(new Set(DATA.events.map(function (e) { return e.source_name; }))).sort();
       el.innerHTML = "<strong>Live pipeline data.</strong> " + DATA.meta.total_events + " events from " + sources.length + " source feeds. Generated " + fmtDateTime(DATA.generated_at) + ".";
@@ -598,7 +598,7 @@
     var unexplained = filtered.filter(function (e) { return e.cause === "unexplained"; });
     if (filtered.length) {
       var pct = (unexplained.length / filtered.length * 100).toFixed(0);
-      items.push('<span class="tag">coverage</span><b>' + pct + "%</b> of events in view have no matched structured cause (GDACS/ACLED/#KeepItOn) within the ±72h attribution window — candidates for the Phase 3 semantic gap-filling layer.");
+      items.push('<span class="tag">coverage</span><b>' + pct + "%</b> of events in view have no matched structured cause (GDACS/ACLED/#KeepItOn/FAA-NOTAM) within the ±72h attribution window — candidates for the Phase 3 semantic gap-filling layer.");
     }
 
     var highConfShutdown = filtered.filter(function (e) { return e.cause === "shutdown" && e.confidence === "high"; }).length;
@@ -639,8 +639,8 @@
 
   // ---------- data pipeline & sources ----------
   var PHASE_STEPS = [
-    { phase: "Phase 1", title: "Detect", desc: "IODA, Cloudflare Radar, RIPE Atlas flag connectivity loss — no cause attached yet." },
-    { phase: "Phase 2", title: "Attribute", desc: "Join each outage to GDACS/ACLED/#KeepItOn records within ±72h, same country. Closest match wins; confidence tracks the time gap." },
+    { phase: "Phase 1", title: "Detect", desc: "IODA, Cloudflare Radar, RIPE Atlas, OpenSky Network flag connectivity/aviation disruption — no cause attached yet." },
+    { phase: "Phase 2", title: "Attribute", desc: "Join each event to GDACS/ACLED/#KeepItOn/FAA-NOTAM records within ±72h, same country. Closest match wins; confidence tracks the time gap." },
     { phase: "Phase 3", title: "Semantic gap-fill", desc: "Still unexplained? News search (Serper) + LLM extraction (Groq), geocoded via Nominatim. Capped at low/medium confidence." },
     { phase: "Phase 4", title: "Visualize", desc: "Export to this dashboard — every filter re-aggregates the map, charts, and insights client-side." },
   ];

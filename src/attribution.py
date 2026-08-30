@@ -1,10 +1,11 @@
 """Phase 2 — join outage events to cause-labeled events within a time/geo window.
 
-For every outage still marked `unexplained`, look for GDACS/ACLED/#KeepItOn
-records in the same country within ATTRIBUTION_WINDOW_HOURS (default 72h,
-see config.py) of the outage's start time. The closest-in-time candidate
-wins; ties break by source priority (a verified shutdown record is stronger
-evidence than a time/geo-proximate disaster or conflict event). Confidence
+For every outage still marked `unexplained`, look for GDACS/ACLED/#KeepItOn/
+FAA-NOTAM records in the same country within ATTRIBUTION_WINDOW_HOURS
+(default 72h, see config.py) of the outage's start time. The closest-in-time
+candidate wins; ties break by source priority (a verified shutdown or
+restricted-airspace record is stronger evidence than a time/geo-proximate
+disaster or conflict event). Confidence
 tier is a direct function of how tight the time match is — this is a
 correlation, not proof, per the project's "Correlation != causation"
 principle: it's a documented heuristic, not a certainty claim.
@@ -20,7 +21,7 @@ from . import config, db
 logger = logging.getLogger(__name__)
 
 # Closest source wins on time; ties break in this order.
-SOURCE_PRIORITY = {"keepiton": 0, "acled": 1, "gdacs": 2}
+SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "gdacs": 3}
 
 
 def _parse(ts: str) -> datetime:

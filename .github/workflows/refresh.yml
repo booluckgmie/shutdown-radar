@@ -44,6 +44,10 @@ jobs:
           KEEPITON_CSV_PATH: ${{ secrets.KEEPITON_CSV_PATH }}
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENSKY_CLIENT_ID: ${{ secrets.OPENSKY_CLIENT_ID }}
+          OPENSKY_CLIENT_SECRET: ${{ secrets.OPENSKY_CLIENT_SECRET }}
+          FAA_NOTAM_CLIENT_ID: ${{ secrets.FAA_NOTAM_CLIENT_ID }}
+          FAA_NOTAM_CLIENT_SECRET: ${{ secrets.FAA_NOTAM_CLIENT_SECRET }}
           NOMINATIM_USER_AGENT: ${{ vars.NOMINATIM_USER_AGENT }}
         run: python main.py all
 

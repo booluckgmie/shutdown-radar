@@ -47,6 +47,18 @@ class Settings:
         )
     )
 
+    # OpenSky works anonymously at a lower rate limit; a free registered
+    # account (client_id/secret, OAuth2 client-credentials) raises it.
+    # Optional either way.
+    opensky_client_id: str = field(default_factory=lambda: os.environ.get("OPENSKY_CLIENT_ID", ""))
+    opensky_client_secret: str = field(default_factory=lambda: os.environ.get("OPENSKY_CLIENT_SECRET", ""))
+
+    # FAA NOTAM API — free registration at https://developer.faa.gov, but
+    # US-airspace-scoped only (FAA = Federal Aviation Administration). Not
+    # a global restricted-airspace source; see README "Limitations".
+    faa_notam_client_id: str = field(default_factory=lambda: os.environ.get("FAA_NOTAM_CLIENT_ID", ""))
+    faa_notam_client_secret: str = field(default_factory=lambda: os.environ.get("FAA_NOTAM_CLIENT_SECRET", ""))
+
     def has_cloudflare(self) -> bool:
         return bool(self.cloudflare_api_token)
 
@@ -58,6 +70,9 @@ class Settings:
 
     def has_semantic(self) -> bool:
         return bool(self.serper_api_key and self.groq_api_key)
+
+    def has_faa_notam(self) -> bool:
+        return bool(self.faa_notam_client_id and self.faa_notam_client_secret)
 
 
 SETTINGS = Settings()

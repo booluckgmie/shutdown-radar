@@ -21,7 +21,7 @@ import sys
 from datetime import datetime, timezone
 
 from src import attribution, config, db, export, semantic
-from src.ingestion import acled, cloudflare_radar, gdacs, ioda, keepiton, ripe_atlas
+from src.ingestion import acled, cloudflare_radar, faa_notam, gdacs, ioda, keepiton, opensky, ripe_atlas
 from src import seed_demo_data
 from dashboard.build_dashboard import render_dashboard
 
@@ -51,16 +51,17 @@ def cmd_fetch(args: argparse.Namespace) -> None:
     with db.connect() as conn:
         db.init_db(conn)
 
-        # Phase 1 — base outage signal
+        # Phase 1 — base outage/disruption signal
         for name, fn in (
             ("ioda", lambda: ioda.fetch(lookback)),
             ("cloudflare_radar", lambda: cloudflare_radar.fetch(lookback, settings.cloudflare_api_token)),
             ("ripe_atlas", lambda: ripe_atlas.fetch(lookback)),
+            ("opensky", lambda: opensky.fetch(conn, settings.opensky_client_id, settings.opensky_client_secret)),
         ):
             try:
                 events = fn()
                 db.upsert_events(conn, events)
-                (ok if events or name == "cloudflare_radar" else failed).append(name)
+                (ok if events or name in ("cloudflare_radar", "opensky") else failed).append(name)
             except Exception:
                 logger.exception("Source %s failed unexpectedly, continuing", name)
                 failed.append(name)
@@ -70,6 +71,7 @@ def cmd_fetch(args: argparse.Namespace) -> None:
             ("gdacs", lambda: gdacs.fetch(lookback)),
             ("acled", lambda: acled.fetch(lookback, settings.acled_api_key, settings.acled_email)),
             ("keepiton", lambda: keepiton.fetch(lookback, settings.keepiton_csv_path)),
+            ("faa_notam", lambda: faa_notam.fetch(lookback, settings.faa_notam_client_id, settings.faa_notam_client_secret)),
         ):
             try:
                 cause_events = fn()

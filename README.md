@@ -40,8 +40,8 @@ which answers these live against whatever data is currently loaded):
 
 | Phase | What it does | Code |
 |---|---|---|
-| 1. Base signal | Detect outages with no cause attached yet | `src/ingestion/ioda.py`, `cloudflare_radar.py`, `ripe_atlas.py` |
-| 2. Attribution | Join outages to cause-labeled events within a ±72h/same-country window | `src/ingestion/gdacs.py`, `acled.py`, `keepiton.py`, `src/attribution.py` |
+| 1. Base signal | Detect outages with no cause attached yet | `src/ingestion/ioda.py`, `cloudflare_radar.py`, `ripe_atlas.py`, `opensky.py` |
+| 2. Attribution | Join outages to cause-labeled events within a ±72h/same-country window | `src/ingestion/gdacs.py`, `acled.py`, `keepiton.py`, `faa_notam.py`, `src/attribution.py` |
 | 3. Semantic gap-fill | News search + LLM extraction for events still unexplained | `src/semantic.py` |
 | 4. Visualize | Export + render the interactive dashboard | `src/export.py`, `dashboard/build_dashboard.py` |
 
@@ -116,9 +116,11 @@ cp .env.example .env   # fill in whichever keys you have — all optional, see b
 | `ACLED_API_KEY` / `ACLED_EMAIL` | [ACLED registration](https://acleddata.com/register/) (free) | Phase 2 conflict attribution |
 | `KEEPITON_CSV_PATH` | Your own export of Access Now's [#KeepItOn](https://www.accessnow.org/keepiton/) data (no stable public API exists) | Phase 2 shutdown attribution |
 | `SERPER_API_KEY` / `GROQ_API_KEY` | [Serper.dev](https://serper.dev) / [Groq](https://console.groq.com) (both free tier) | Phase 3 semantic gap-filling |
+| `OPENSKY_CLIENT_ID` / `OPENSKY_CLIENT_SECRET` | [OpenSky Network](https://opensky-network.org/apidoc/) (free, optional — works anonymously without it, just at a lower rate limit) | Phase 1 aviation-disruption signal |
+| `FAA_NOTAM_CLIENT_ID` / `FAA_NOTAM_CLIENT_SECRET` | [FAA API Portal](https://developer.faa.gov) (free registration) | Phase 2 restricted-airspace attribution (US only) |
 | `NOMINATIM_USER_AGENT` | none — just set a real contact per [Nominatim's usage policy](https://operations.osmfoundation.org/policies/nominatim/) | Phase 3 geocoding |
 
-IODA, GDACS, and RIPE Atlas need no key and run unconditionally.
+IODA, GDACS, RIPE Atlas, and OpenSky (anonymous mode) need no key and run unconditionally.
 
 ```
 python main.py fetch       # Phase 1+2: real ingestion + attribution join
@@ -138,9 +140,11 @@ on any subcommand.
 | [IODA](https://ioda.inetintel.cc.gatech.edu/) (Georgia Tech / CAIDA) | Outage signals (BGP, active probing, darknet traffic) | ~hourly | Free, no key | Country / ASN |
 | [Cloudflare Radar](https://developers.cloudflare.com/radar/) | Traffic anomalies + outage annotations | Yes | Free, API token | Country |
 | [RIPE Atlas](https://atlas.ripe.net/) | Probe disconnect events | Yes | Free, no key | City / ISP |
+| [OpenSky Network](https://opensky-network.org/) | Aviation disruption (airborne-count drops per aircraft registry) | Yes | Free, no key (optional account for higher rate limit) | Country (registry, not airspace — see `src/ingestion/opensky.py`) |
 | [GDACS](https://www.gdacs.org/) | Disaster alerts (storms, quakes, floods) | Yes | Free, no key | Lat/lon |
 | [ACLED](https://acleddata.com/) | Armed conflict / violence events | Near real-time | Free, registration | Lat/lon |
 | [#KeepItOn](https://www.accessnow.org/keepiton/) (Access Now) | Verified govt-ordered shutdowns | Manually verified | Free, no stable API — bring your own CSV export | Country/region |
+| [FAA NOTAM API](https://developer.faa.gov) | Restricted/closed airspace (TFRs, security, disaster) | Yes | Free, registration | Lat/lon — **US only** |
 | Serper.dev + Groq | News extraction (semantic gap-fill) | Real-time | Free tier | Geocoded via Nominatim |
 
 Free-tier API shapes drift over time — every connector module's docstring links the
@@ -234,6 +238,13 @@ can click straight through to a different week without clearing first.
   multi-ASN outages; bubbles sit at country centroids (`src/geo.py`), not exact sites.
 - **Free-tier caps.** Serper/Groq are rate-limited; `src/semantic.py` only processes the
   highest-severity unexplained events per run (`MAX_EVENTS_PER_RUN`), not the full backlog.
+- **OpenSky measures registry, not airspace.** A drop in airborne aircraft *registered to*
+  a country is not the same as reduced air traffic *over* that country — there's no
+  border-polygon data in this project to compute the latter from raw lat/lon. See
+  `src/ingestion/opensky.py` for what the metric actually means.
+- **FAA NOTAM is US-only.** FAA is the US aviation authority; its NOTAM feed only ever
+  covers US airspace. It's not a global restricted-airspace source — global
+  restricted-location coverage still comes from ACLED/#KeepItOn.
 - **Not integration-tested against live sources** — see the sandbox note above.
 
 ## Design principles
@@ -252,9 +263,13 @@ can click straight through to a different week without clearing first.
 - [x] Phase 3 semantic gap-filling layer (Serper + Groq + Nominatim)
 - [x] Phase 4 interactive dashboard (bubble map, charts, insights)
 - [x] Scheduled real-data refresh via GitHub Actions
+- [x] OpenSky Network aviation-disruption signal (Phase 1) + FAA NOTAM restricted-airspace
+      attribution (Phase 2, US only)
 - [ ] Verify each connector against live traffic (blocked in the authoring sandbox —
       see note above; do this first when picking the project back up)
 - [ ] Apply for/confirm ACLED access and exercise the real endpoint
+- [ ] A global restricted-location source to complement FAA NOTAM's US-only coverage —
+      e.g. government travel advisories, or another aviation authority's NOTAM feed
 - [ ] Explore predictive/forecasting extension once a real historical archive exists
 
 ## Project layout
@@ -270,8 +285,8 @@ src/
   export.py                     DB -> dashboard JSON payload
   seed_demo_data.py             synthetic offline demo dataset (NOT live data)
   ingestion/
-    ioda.py cloudflare_radar.py ripe_atlas.py      Phase 1 connectors
-    gdacs.py acled.py keepiton.py                  Phase 2 connectors
+    ioda.py cloudflare_radar.py ripe_atlas.py opensky.py    Phase 1 connectors
+    gdacs.py acled.py keepiton.py faa_notam.py              Phase 2 connectors
 dashboard/
   template.html                page shell + CSS (light/dark)
   app.js                        filters, map, charts, insights (vanilla JS)

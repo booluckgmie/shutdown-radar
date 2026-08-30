@@ -61,6 +61,20 @@ CREATE TABLE IF NOT EXISTS pipeline_runs (
     sources_failed TEXT,
     notes TEXT
 );
+
+-- Rolling history of airborne-aircraft counts per country (OpenSky Network).
+-- A single snapshot can't tell you anything on its own -- src/ingestion/
+-- opensky.py compares each new count against the trailing baseline built up
+-- here across runs, and flags an outage-like event when a country's count
+-- drops sharply below its own recent normal. One row per (country, run).
+CREATE TABLE IF NOT EXISTS flight_activity (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    country TEXT NOT NULL,
+    observed_at TEXT NOT NULL,
+    airborne_count INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_flight_activity_country_time ON flight_activity(country, observed_at);
 """
 
 
@@ -178,6 +192,27 @@ def fetch_all_events(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 
 def fetch_cause_events_for_country(conn: sqlite3.Connection, country: str) -> list[sqlite3.Row]:
     return conn.execute("SELECT * FROM cause_events WHERE country = ?", (country,)).fetchall()
+
+
+def record_flight_activity(conn: sqlite3.Connection, counts: dict[str, int], observed_at: str) -> None:
+    rows = [(country, observed_at, count) for country, count in counts.items()]
+    conn.executemany(
+        "INSERT INTO flight_activity (country, observed_at, airborne_count) VALUES (?,?,?)", rows
+    )
+
+
+def fetch_flight_baseline(conn: sqlite3.Connection, since_iso: str) -> dict[str, list[int]]:
+    """Per-country airborne-count history since `since_iso`, most-recent-run
+    excluded by the caller (see opensky.py) so "today" is never compared
+    against itself."""
+    rows = conn.execute(
+        "SELECT country, airborne_count FROM flight_activity WHERE observed_at >= ? ORDER BY observed_at",
+        (since_iso,),
+    ).fetchall()
+    baseline: dict[str, list[int]] = {}
+    for r in rows:
+        baseline.setdefault(r["country"], []).append(r["airborne_count"])
+    return baseline
 
 
 def record_run(

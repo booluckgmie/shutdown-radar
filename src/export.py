@@ -37,6 +37,12 @@ SOURCE_CATALOG = [
         "family_prefix": "RIPE Atlas",
     },
     {
+        "name": "OpenSky Network", "phase": 1, "category": "Aviation-disruption signal",
+        "realtime": "Real-time", "access": "Free, no key (optional account for higher rate limit)",
+        "granularity": "Country (aircraft registry)", "key_required": False,
+        "family_prefix": "OpenSky Network",
+    },
+    {
         "name": "GDACS", "phase": 2, "category": "Disaster attribution",
         "realtime": "Real-time", "access": "Free, no key",
         "granularity": "Lat/lon", "key_required": False,
@@ -53,6 +59,12 @@ SOURCE_CATALOG = [
         "realtime": "Manually verified", "access": "Free — manual CSV export (no stable API)",
         "granularity": "Country/region", "key_required": True,
         "cause_source_key": "keepiton",
+    },
+    {
+        "name": "FAA NOTAM", "phase": 2, "category": "Restricted-airspace attribution (US only)",
+        "realtime": "Real-time", "access": "Free, registration (client_id + secret)",
+        "granularity": "Lat/lon", "key_required": True,
+        "cause_source_key": "notam",
     },
     {
         "name": "Serper.dev + Groq", "phase": 3, "category": "Semantic gap-filling (news + LLM)",
@@ -74,6 +86,7 @@ def _sources_status(conn: sqlite3.Connection, events: list[dict[str, Any]]) -> l
         "Cloudflare Radar": settings.has_cloudflare(),
         "ACLED": settings.has_acled(),
         "#KeepItOn (Access Now)": settings.has_keepiton(),
+        "FAA NOTAM": settings.has_faa_notam(),
         "Serper.dev + Groq": settings.has_semantic(),
     }
 

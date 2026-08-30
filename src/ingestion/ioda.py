@@ -1,9 +1,16 @@
 """IODA (Georgia Tech / CAIDA) — Internet Outage Detection and Analysis.
 
-Free public API, no key required. Base URL and endpoints per
-https://github.com/CAIDA/ioda-api/wiki/API-Specification (verify against
-current docs before relying on this in production — free-tier API shapes
-drift over time, per the project's design principles).
+Free public API, no key required. Endpoints per
+https://github.com/CAIDA/ioda-api/wiki/API-Specification. IODA moved its
+hosting from CAIDA/UCSD to Georgia Tech's Internet Intelligence Lab in
+August 2021 (the live frontend is https://ioda.inetintel.cc.gatech.edu) —
+confirmed via a real production run's logs that the old
+`api.ioda.caida.org` host now just times out (dead, not merely
+rate-limited or 404ing). CANDIDATE_BASE_URLS tries the Georgia Tech host
+first and falls back to the legacy CAIDA one, logging which one actually
+answered — this is the best-supported guess available without live network
+access in the authoring sandbox (see README "A note on where this was
+built"); re-verify against current docs if both ever start failing.
 
 We treat IODA as the Phase 1 base signal: it tells us *where* and *when*
 connectivity dropped, with no cause attached yet (cause is resolved in
@@ -21,7 +28,10 @@ from .. import geo
 
 logger = logging.getLogger(__name__)
 
-BASE_URL = "https://api.ioda.caida.org/dev"
+CANDIDATE_BASE_URLS = [
+    "https://api.ioda.inetintel.cc.gatech.edu/dev",
+    "https://api.ioda.caida.org/dev",  # legacy host, kept as a fallback
+]
 REQUEST_TIMEOUT = 20
 # IODA alert "level" values that represent a real, ongoing signal loss
 # (as opposed to "normal"/"warning" recovery noise).
@@ -80,8 +90,10 @@ def _normalize(raw: dict, entity_code: str) -> dict | None:
     }
 
 
-def fetch_alerts_for_country(code: str, since_unix: int, until_unix: int, session: requests.Session) -> list[dict]:
-    url = f"{BASE_URL}/outages/alerts/country/{code}"
+def fetch_alerts_for_country(
+    code: str, since_unix: int, until_unix: int, session: requests.Session, base_url: str
+) -> list[dict]:
+    url = f"{base_url}/outages/alerts/country/{code}"
     resp = session.get(url, params={"from": since_unix, "until": until_unix}, timeout=REQUEST_TIMEOUT)
     resp.raise_for_status()
     payload = resp.json()
@@ -110,18 +122,28 @@ def fetch(lookback_days: int, country_codes: list[str] | None = None) -> list[di
     codes = country_codes or sorted(geo.COUNTRIES.keys())
 
     session = requests.Session()
-    # Connectivity probe: if the very first call fails, don't burn time/
-    # timeouts looping over ~190 countries.
-    try:
-        fetch_alerts_for_country(codes[0], since_unix, until_unix, session)
-    except requests.RequestException as exc:
-        logger.warning("IODA unreachable, skipping source: %s", exc)
+    # Connectivity probe: try each candidate base URL against just the
+    # first country before committing to a full ~190-country loop against
+    # a host that might be dead (see CANDIDATE_BASE_URLS above).
+    base_url = None
+    for candidate in CANDIDATE_BASE_URLS:
+        try:
+            fetch_alerts_for_country(codes[0], since_unix, until_unix, session, candidate)
+            base_url = candidate
+            break
+        except requests.RequestException as exc:
+            logger.debug("IODA candidate base URL %s failed: %s", candidate, exc)
+            continue
+
+    if base_url is None:
+        logger.warning("IODA unreachable on all candidate base URLs (%s), skipping source", CANDIDATE_BASE_URLS)
         return []
+    logger.info("IODA: using base URL %s", base_url)
 
     events: list[dict] = []
     for code in codes:
         try:
-            events.extend(fetch_alerts_for_country(code, since_unix, until_unix, session))
+            events.extend(fetch_alerts_for_country(code, since_unix, until_unix, session, base_url))
         except requests.RequestException as exc:
             logger.debug("IODA fetch failed for %s: %s", code, exc)
             continue
