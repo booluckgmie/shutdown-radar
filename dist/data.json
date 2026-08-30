@@ -1,6 +1,348 @@
 {
-  "generated_at": "2026-08-30T15:47:28.792930+00:00",
+  "generated_at": "2026-08-30T16:03:44.639482+00:00",
   "events": [
+    {
+      "event_id": "ioda:TM:1788101400",
+      "lat": 38.97,
+      "lon": 59.56,
+      "region_name": "Turkmenistan",
+      "country": "Turkmenistan",
+      "asn": null,
+      "timestamp_start": "2026-08-30T14:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.025316455696202556,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1788099600",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-30T14:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01203600687771822,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ZW:1788097500",
+      "lat": -19.02,
+      "lon": 29.15,
+      "region_name": "Zimbabwe",
+      "country": "Zimbabwe",
+      "asn": null,
+      "timestamp_start": "2026-08-30T13:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02249488752556239,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TM:1788096900",
+      "lat": 38.97,
+      "lon": 59.56,
+      "region_name": "Turkmenistan",
+      "country": "Turkmenistan",
+      "asn": null,
+      "timestamp_start": "2026-08-30T13:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.03164556962025311,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1788093600",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T12:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788091800",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T12:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20397749574774304,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788087000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T10:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20397749574774304,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788084600",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T10:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20109904487766583,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1788068100",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T05:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1788066000",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-30T05:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01521739130434785,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788064800",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T04:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2071176239696454,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1788061680",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-30T03:48:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.7704918032786885,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1788061140",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-30T03:39:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8360655737704918,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1788060600",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-30T03:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.12043215761042259,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788057600",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-30T02:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.202669108988617,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ripe:SV:2026-08-30",
+      "lat": 13.79,
+      "lon": -88.9,
+      "region_name": "El Salvador",
+      "country": "El Salvador",
+      "asn": null,
+      "timestamp_start": "2026-08-30T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
     {
       "event_id": "ripe:PL:2026-08-30",
       "lat": 51.92,
@@ -17,7 +359,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -37,8 +379,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -60,7 +402,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -81,7 +423,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -103,7 +445,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Central Asia",
         "Asia"
@@ -140,13 +482,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Oceania"
       ]
@@ -189,7 +531,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -233,7 +575,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -253,8 +595,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -269,13 +611,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -290,13 +632,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -339,7 +681,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -360,7 +702,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -376,13 +718,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -399,13 +741,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.65,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -444,8 +786,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -466,7 +808,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -482,13 +824,13 @@
       "timestamp_start": "2026-08-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
-      "severity_score": 0.6,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "confidence": "high",
+      "severity_score": 0.65,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -532,7 +874,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.35,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -552,10 +894,347 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:KE:1788035100",
+      "lat": -0.02,
+      "lon": 37.91,
+      "region_name": "Kenya",
+      "country": "Kenya",
+      "asn": null,
+      "timestamp_start": "2026-08-29T20:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.05979650404382986,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788032400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T19:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20240743163679187,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1788026700",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-29T18:05:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01193486396277943,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788009000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T13:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20345414104409265,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1788006600",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T12:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20109904487766583,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TD:1788003900",
+      "lat": 15.45,
+      "lon": 18.73,
+      "region_name": "Chad",
+      "country": "Chad",
+      "asn": null,
+      "timestamp_start": "2026-08-29T11:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.011363636363636354,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NE:1787999700",
+      "lat": 17.61,
+      "lon": 8.08,
+      "region_name": "Niger",
+      "country": "Niger",
+      "asn": null,
+      "timestamp_start": "2026-08-29T10:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02020202020202022,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787999400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T10:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20096820620175326,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787994600",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T09:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20188407693314148,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787991000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T08:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2051550438309564,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787990220",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-29T07:57:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.96875,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787987400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T07:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20358497972000522,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787986500",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-29T06:55:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:AO:1787974500",
+      "lat": -11.2,
+      "lon": 17.87,
+      "region_name": "Angola",
+      "country": "Angola",
+      "asn": null,
+      "timestamp_start": "2026-08-29T03:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "medium",
+      "severity_score": 0.015004935834155964,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1787974200",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-29T03:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.12329202414998408,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787964300",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-29T00:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010544815465729385,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -568,11 +1247,11 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-29T23:59:00.522863+00:00",
       "regions": [
@@ -745,7 +1424,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -767,7 +1446,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -782,13 +1461,13 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -873,7 +1552,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -915,7 +1594,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -1016,13 +1695,13 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -1038,11 +1717,11 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.15,
       "updated_at": "2026-08-29T08:49:09.426702+00:00",
       "regions": [
@@ -1067,7 +1746,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -1133,7 +1812,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -1170,13 +1849,13 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.35,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -1192,13 +1871,13 @@
       "timestamp_start": "2026-08-29T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.8,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -1259,9 +1938,287 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787946600",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-28T19:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.021138869222210976,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ZW:1787936100",
+      "lat": -19.02,
+      "lon": 29.15,
+      "region_name": "Zimbabwe",
+      "country": "Zimbabwe",
+      "asn": null,
+      "timestamp_start": "2026-08-28T16:55:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.016293279022403295,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:KP:1787933700",
+      "lat": 40.34,
+      "lon": 127.51,
+      "region_name": "North Korea",
+      "country": "North Korea",
+      "asn": null,
+      "timestamp_start": "2026-08-28T16:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.09090909090909094,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787929200",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-28T15:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.014665722666127201,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787925900",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-28T14:05:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.014665722666127201,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CM:1787922000",
+      "lat": 7.37,
+      "lon": 12.35,
+      "region_name": "Cameroon",
+      "country": "Cameroon",
+      "asn": null,
+      "timestamp_start": "2026-08-28T13:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20547945205479456,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CF:1787920200",
+      "lat": 6.61,
+      "lon": 20.94,
+      "region_name": "Central African Republic",
+      "country": "Central African Republic",
+      "asn": null,
+      "timestamp_start": "2026-08-28T12:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (gtr)",
+      "confidence": "low",
+      "severity_score": 0.28205128205128205,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787919000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-28T12:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20293078634044226,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CF:1787919000",
+      "lat": 6.61,
+      "lon": 20.94,
+      "region_name": "Central African Republic",
+      "country": "Central African Republic",
+      "asn": null,
+      "timestamp_start": "2026-08-28T12:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.07407407407407407,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TJ:1787916900",
+      "lat": 38.86,
+      "lon": 71.28,
+      "region_name": "Tajikistan",
+      "country": "Tajikistan",
+      "asn": null,
+      "timestamp_start": "2026-08-28T11:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010810810810810811,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:TJ:1787913600",
+      "lat": 38.86,
+      "lon": 71.28,
+      "region_name": "Tajikistan",
+      "country": "Tajikistan",
+      "asn": null,
+      "timestamp_start": "2026-08-28T10:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010810810810810811,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:MY:1787897580",
+      "lat": 4.21,
+      "lon": 101.98,
+      "region_name": "Malaysia",
+      "country": "Malaysia",
+      "asn": null,
+      "timestamp_start": "2026-08-28T06:13:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8674698795180723,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:AO:1787895000",
+      "lat": -11.2,
+      "lon": 17.87,
+      "region_name": "Angola",
+      "country": "Angola",
+      "asn": null,
+      "timestamp_start": "2026-08-28T05:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "high",
+      "severity_score": 0.014215202369200375,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -1303,7 +2260,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Africa"
       ]
@@ -1345,7 +2302,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -1434,7 +2391,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -1691,7 +2648,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -1706,11 +2663,11 @@
       "timestamp_start": "2026-08-28T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.15,
       "updated_at": "2026-08-28T17:13:46.747056+00:00",
       "regions": [
@@ -1816,8 +2773,8 @@
       "timestamp_start": "2026-08-28T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
@@ -1844,7 +2801,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -1887,7 +2844,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -1902,11 +2859,11 @@
       "timestamp_start": "2026-08-28T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
       "updated_at": "2026-08-29T01:35:21.438809+00:00",
       "regions": [
@@ -1924,13 +2881,13 @@
       "timestamp_start": "2026-08-28T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.25,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -1946,13 +2903,13 @@
       "timestamp_start": "2026-08-28T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.75,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -1971,9 +2928,140 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.35,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:MM:1787857800",
+      "lat": 21.91,
+      "lon": 95.96,
+      "region_name": "Myanmar",
+      "country": "Myanmar",
+      "asn": null,
+      "timestamp_start": "2026-08-27T19:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.016519823788546217,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NE:1787841300",
+      "lat": 17.61,
+      "lon": 8.08,
+      "region_name": "Niger",
+      "country": "Niger",
+      "asn": null,
+      "timestamp_start": "2026-08-27T14:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.16161616161616166,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NE:1787837400",
+      "lat": 17.61,
+      "lon": 8.08,
+      "region_name": "Niger",
+      "country": "Niger",
+      "asn": null,
+      "timestamp_start": "2026-08-27T13:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.1767676767676768,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:HT:1787804100",
+      "lat": 18.97,
+      "lon": -72.29,
+      "region_name": "Haiti",
+      "country": "Haiti",
+      "asn": null,
+      "timestamp_start": "2026-08-27T04:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.5455927051671732,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:HT:1787803800",
+      "lat": 18.97,
+      "lon": -72.29,
+      "region_name": "Haiti",
+      "country": "Haiti",
+      "asn": null,
+      "timestamp_start": "2026-08-27T04:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.5587044534412955,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1787800800",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-27T03:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.013358778625954248,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
       ]
     },
     {
@@ -2007,13 +3095,13 @@
       "timestamp_start": "2026-08-27T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Oceania"
       ]
@@ -2099,7 +3187,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -2340,7 +3428,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -2355,13 +3443,13 @@
       "timestamp_start": "2026-08-27T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -2490,7 +3578,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -2532,7 +3620,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.5,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -2545,11 +3633,11 @@
       "timestamp_start": "2026-08-27T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-27T19:42:27.975913+00:00",
       "regions": [
@@ -2653,8 +3741,8 @@
       "timestamp_start": "2026-08-27T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
@@ -2675,13 +3763,13 @@
       "timestamp_start": "2026-08-27T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.5,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -2703,7 +3791,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -2746,7 +3834,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -2768,7 +3856,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -2833,9 +3921,200 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.5,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787776200",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-26T20:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.020936583392333397,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ZW:1787769600",
+      "lat": -19.02,
+      "lon": 29.15,
+      "region_name": "Zimbabwe",
+      "country": "Zimbabwe",
+      "asn": null,
+      "timestamp_start": "2026-08-26T18:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.24892703862660948,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787760600",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-26T16:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.020936583392333397,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TT:1787739000",
+      "lat": 10.69,
+      "lon": -61.22,
+      "region_name": "Trinidad And Tobago",
+      "country": "Trinidad and Tobago",
+      "asn": null,
+      "timestamp_start": "2026-08-26T10:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.24843423799582465,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:ZM:1787737800",
+      "lat": -13.13,
+      "lon": 27.85,
+      "region_name": "Zambia",
+      "country": "Zambia",
+      "asn": null,
+      "timestamp_start": "2026-08-26T09:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.261437908496732,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ZW:1787732700",
+      "lat": -19.02,
+      "lon": 29.15,
+      "region_name": "Zimbabwe",
+      "country": "Zimbabwe",
+      "asn": null,
+      "timestamp_start": "2026-08-26T08:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.014256619144602856,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ZW:1787732400",
+      "lat": -19.02,
+      "lon": 29.15,
+      "region_name": "Zimbabwe",
+      "country": "Zimbabwe",
+      "asn": null,
+      "timestamp_start": "2026-08-26T08:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.29828326180257514,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787716500",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-26T03:55:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010845986984815648,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:IQ:1787714400",
+      "lat": 33.22,
+      "lon": 43.68,
+      "region_name": "Iraq",
+      "country": "Iraq",
+      "asn": null,
+      "timestamp_start": "2026-08-26T03:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.13640699523052469,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
       ]
     },
     {
@@ -2918,7 +4197,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -2996,11 +4275,11 @@
       "timestamp_start": "2026-08-26T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-26T23:09:52.411155+00:00",
       "regions": [
@@ -3084,11 +4363,11 @@
       "timestamp_start": "2026-08-26T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
       "updated_at": "2026-08-26T19:07:47.820263+00:00",
       "regions": [
@@ -3113,7 +4392,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -3393,7 +4672,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -3457,7 +4736,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -3540,11 +4819,11 @@
       "timestamp_start": "2026-08-26T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
       "updated_at": "2026-08-26T23:09:52.411155+00:00",
       "regions": [
@@ -3583,13 +4862,13 @@
       "timestamp_start": "2026-08-26T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.3,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -3654,7 +4933,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -3673,7 +4952,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -3694,9 +4973,220 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787697000",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-25T22:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.015070294325882472,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787679600",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-25T17:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.014463436836249621,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787669340",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-25T14:49:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.7575757575757576,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787668080",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-25T14:28:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8181818181818181,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787665800",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-25T13:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.9090909090909091,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787664900",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-25T13:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787662200",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-25T12:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GH:1787660400",
+      "lat": 7.95,
+      "lon": -1.02,
+      "region_name": "Ghana",
+      "country": "Ghana",
+      "asn": null,
+      "timestamp_start": "2026-08-25T12:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01032816924870894,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787653200",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-25T10:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NP:1787643300",
+      "lat": 28.39,
+      "lon": 84.12,
+      "region_name": "Nepal",
+      "country": "Nepal",
+      "asn": null,
+      "timestamp_start": "2026-08-25T07:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.06597510373443982,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South Asia",
+        "Asia"
       ]
     },
     {
@@ -3825,7 +5315,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -3906,11 +5396,11 @@
       "timestamp_start": "2026-08-25T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
       "updated_at": "2026-08-25T20:34:50.739673+00:00",
       "regions": [
@@ -4011,11 +5501,11 @@
       "timestamp_start": "2026-08-25T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-25T11:33:18.654168+00:00",
       "regions": [
@@ -4125,7 +5615,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -4147,7 +5637,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4210,7 +5700,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4252,7 +5742,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4273,7 +5763,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -4295,7 +5785,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.6,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4572,11 +6062,11 @@
       "timestamp_start": "2026-08-25T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-30T05:13:40.183194+00:00",
       "regions": [
@@ -4686,7 +6176,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4728,7 +6218,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4743,11 +6233,11 @@
       "timestamp_start": "2026-08-25T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-26T19:07:47.820263+00:00",
       "regions": [
@@ -4793,7 +6283,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4808,13 +6298,13 @@
       "timestamp_start": "2026-08-25T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.7,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -4836,7 +6326,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -4857,7 +6347,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.8,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -4876,9 +6366,325 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.8,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NE:1787599800",
+      "lat": 17.61,
+      "lon": 8.08,
+      "region_name": "Niger",
+      "country": "Niger",
+      "asn": null,
+      "timestamp_start": "2026-08-24T19:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.015151515151515138,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:SY:1787575200",
+      "lat": 34.8,
+      "lon": 38.997,
+      "region_name": "Syrian Arab Republic",
+      "country": "Syria",
+      "asn": null,
+      "timestamp_start": "2026-08-24T12:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.26120556414219476,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787574960",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-24T12:36:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.84375,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787571660",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-24T11:41:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.96875,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GA:1787570400",
+      "lat": -0.8,
+      "lon": 11.61,
+      "region_name": "Gabon",
+      "country": "Gabon",
+      "asn": null,
+      "timestamp_start": "2026-08-24T11:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2892561983471075,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787568000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T10:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2051550438309564,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787565000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T09:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20201491560905405,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787558400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T08:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20240743163679187,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787556000",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T07:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787548200",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T05:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20044485149810287,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787545200",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-24T04:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2037158183959178,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:PG:1787543400",
+      "lat": -6.31,
+      "lon": 143.96,
+      "region_name": "Papua New Guinea",
+      "country": "Papua New Guinea",
+      "asn": null,
+      "timestamp_start": "2026-08-24T03:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.025078369905956133,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787543400",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-24T03:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010822510822510845,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:SS:1787542200",
+      "lat": 6.88,
+      "lon": 31.31,
+      "region_name": "South Sudan",
+      "country": "South Sudan",
+      "asn": null,
+      "timestamp_start": "2026-08-24T03:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.017699115044247815,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787540700",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-24T03:05:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010822510822510845,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -4897,7 +6703,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -5065,11 +6871,11 @@
       "timestamp_start": "2026-08-24T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-26T07:53:22.414917+00:00",
       "regions": [
@@ -5086,13 +6892,13 @@
       "timestamp_start": "2026-08-24T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -5129,11 +6935,11 @@
       "timestamp_start": "2026-08-24T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-24T12:59:50.418427+00:00",
       "regions": [
@@ -5394,7 +7200,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -5432,11 +7238,11 @@
       "timestamp_start": "2026-08-24T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
       "updated_at": "2026-08-26T19:07:47.820263+00:00",
       "regions": [
@@ -5525,7 +7331,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.45,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -5583,11 +7389,11 @@
       "timestamp_start": "2026-08-24T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-24T22:31:44.220897+00:00",
       "regions": [
@@ -5612,7 +7418,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -5654,7 +7460,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -5697,6 +7503,528 @@
       "updated_at": "2026-08-24T07:07:52.533209+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:MR:1787522400",
+      "lat": 21.01,
+      "lon": -10.94,
+      "region_name": "Mauritania",
+      "country": "Mauritania",
+      "asn": null,
+      "timestamp_start": "2026-08-23T22:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (gtr)",
+      "confidence": "low",
+      "severity_score": 0.3874555160142349,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:FJ:1787518800",
+      "lat": -17.71,
+      "lon": 178.07,
+      "region_name": "Fiji",
+      "country": "Fiji",
+      "asn": null,
+      "timestamp_start": "2026-08-23T21:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (gtr)",
+      "confidence": "low",
+      "severity_score": 0.2404403244495944,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787510400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T18:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2008373675258407,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787502000",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-23T16:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010822510822510845,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787481600",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T10:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20502420515504383,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787479200",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T10:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20162239958131623,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787469000",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T07:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20018317414627762,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787464800",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T06:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20528588250686908,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787458800",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T04:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20332330236818008,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TL:1787456100",
+      "lat": -8.87,
+      "lon": 125.73,
+      "region_name": "Timor-Leste",
+      "country": "Timor-Leste",
+      "asn": null,
+      "timestamp_start": "2026-08-23T03:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.017391304347826098,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:ID:1787456100",
+      "lat": -0.79,
+      "lon": 113.92,
+      "region_name": "Indonesia",
+      "country": "Indonesia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T03:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "medium",
+      "severity_score": 0.01064367995018678,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:LB:1787455200",
+      "lat": 33.85,
+      "lon": 35.86,
+      "region_name": "Lebanon",
+      "country": "Lebanon",
+      "asn": null,
+      "timestamp_start": "2026-08-23T03:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.018026137899954886,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787453400",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T02:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20044485149810287,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787449800",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20044485149810287,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:VN:1787448000",
+      "lat": 14.06,
+      "lon": 108.28,
+      "region_name": "Viet Nam",
+      "country": "Vietnam",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.23295406893852566,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NZ:1787448000",
+      "lat": -40.9,
+      "lon": 174.89,
+      "region_name": "New Zealand",
+      "country": "New Zealand",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.30654761904761907,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "ioda:JP:1787448000",
+      "lat": 36.2,
+      "lon": 138.25,
+      "region_name": "Japan",
+      "country": "Japan",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.23073959629198604,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:TH:1787447400",
+      "lat": 15.87,
+      "lon": 100.99,
+      "region_name": "Thailand",
+      "country": "Thailand",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.25518394648829434,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:SG:1787447400",
+      "lat": 1.35,
+      "lon": 103.82,
+      "region_name": "Singapore",
+      "country": "Singapore",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.22349896074355857,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:MX:1787447400",
+      "lat": 23.63,
+      "lon": -102.55,
+      "region_name": "Mexico",
+      "country": "Mexico",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20569240801901678,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:MM:1787447400",
+      "lat": 21.91,
+      "lon": 95.96,
+      "region_name": "Myanmar",
+      "country": "Myanmar",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.25958702064896755,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:KH:1787447400",
+      "lat": 12.57,
+      "lon": 104.99,
+      "region_name": "Cambodia",
+      "country": "Cambodia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.3720405862457723,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:ID:1787446800",
+      "lat": -0.79,
+      "lon": 113.92,
+      "region_name": "Indonesia",
+      "country": "Indonesia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T01:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "medium",
+      "severity_score": 0.21419290354822584,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:TN:1787443200",
+      "lat": 33.89,
+      "lon": 9.54,
+      "region_name": "Tunisia",
+      "country": "Tunisia",
+      "asn": null,
+      "timestamp_start": "2026-08-23T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20005233547036505,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -5779,7 +8107,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -5821,7 +8149,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -5857,13 +8185,13 @@
       "timestamp_start": "2026-08-23T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -5885,7 +8213,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -5904,9 +8232,282 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:BJ:1787404800",
+      "lat": 9.31,
+      "lon": 2.32,
+      "region_name": "Benin",
+      "country": "Benin",
+      "asn": null,
+      "timestamp_start": "2026-08-22T13:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2033898305084746,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:SL:1787403000",
+      "lat": 8.46,
+      "lon": -11.78,
+      "region_name": "Sierra Leone",
+      "country": "Sierra Leone",
+      "asn": null,
+      "timestamp_start": "2026-08-22T12:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.012861736334405127,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787402100",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-22T12:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787395380",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T10:43:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8888888888888888,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787392800",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T10:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.9444444444444444,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787391000",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-22T09:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.014868008496004892,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787386800",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T08:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010799136069114423,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BW:1787383800",
+      "lat": -22.33,
+      "lon": 24.68,
+      "region_name": "Botswana",
+      "country": "Botswana",
+      "asn": null,
+      "timestamp_start": "2026-08-22T07:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (gtr)",
+      "confidence": "low",
+      "severity_score": 0.39950151326330785,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TG:1787382540",
+      "lat": 8.62,
+      "lon": 0.82,
+      "region_name": "Togo",
+      "country": "Togo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T07:09:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.7560975609756098,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TG:1787381820",
+      "lat": 8.62,
+      "lon": 0.82,
+      "region_name": "Togo",
+      "country": "Togo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T06:57:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8536585365853658,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TG:1787381340",
+      "lat": 8.62,
+      "lon": 0.82,
+      "region_name": "Togo",
+      "country": "Togo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T06:49:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.7804878048780488,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787379300",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T06:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010799136069114423,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CD:1787360100",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-22T00:55:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010799136069114423,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -5946,7 +8547,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -5968,7 +8569,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -6030,7 +8631,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6051,7 +8652,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6072,7 +8673,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6093,7 +8694,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -6109,13 +8710,13 @@
       "timestamp_start": "2026-08-22T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6137,9 +8738,158 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.4,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787347200",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-21T21:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.021341155052088556,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:MG:1787330400",
+      "lat": -18.77,
+      "lon": 46.87,
+      "region_name": "Madagascar",
+      "country": "Madagascar",
+      "asn": null,
+      "timestamp_start": "2026-08-21T16:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.22340425531914898,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787318460",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-21T13:21:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8461538461538461,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787310000",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-21T11:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.015373723070698952,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TD:1787302200",
+      "lat": 15.45,
+      "lon": 18.73,
+      "region_name": "Chad",
+      "country": "Chad",
+      "asn": null,
+      "timestamp_start": "2026-08-21T08:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.045454545454545414,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TJ:1787301900",
+      "lat": 38.86,
+      "lon": 71.28,
+      "region_name": "Tajikistan",
+      "country": "Tajikistan",
+      "asn": null,
+      "timestamp_start": "2026-08-21T08:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.17297297297297298,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:GT:1787300700",
+      "lat": 15.78,
+      "lon": -90.23,
+      "region_name": "Guatemala",
+      "country": "Guatemala",
+      "asn": null,
+      "timestamp_start": "2026-08-21T08:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.011632005639760301,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
       ]
     },
     {
@@ -6174,11 +8924,11 @@
       "timestamp_start": "2026-08-21T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-25T04:44:09.603498+00:00",
       "regions": [
@@ -6203,7 +8953,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6224,7 +8974,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -6246,7 +8996,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -6259,11 +9009,11 @@
       "timestamp_start": "2026-08-21T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
       "updated_at": "2026-08-24T20:36:29.122757+00:00",
       "regions": [
@@ -6308,7 +9058,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6329,7 +9079,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6344,11 +9094,11 @@
       "timestamp_start": "2026-08-21T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.2,
       "updated_at": "2026-08-29T01:35:21.438809+00:00",
       "regions": [
@@ -6372,7 +9122,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6393,9 +9143,347 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787259000",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-20T20:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TL:1787246100",
+      "lat": -8.87,
+      "lon": 125.73,
+      "region_name": "Timor-Leste",
+      "country": "Timor-Leste",
+      "asn": null,
+      "timestamp_start": "2026-08-20T17:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.017391304347826098,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787236200",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-20T14:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01324972185698392,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:VE:1787222100",
+      "lat": 6.42,
+      "lon": -66.59,
+      "region_name": "Venezuela",
+      "country": "Venezuela",
+      "asn": null,
+      "timestamp_start": "2026-08-20T10:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.06110201854882702,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787217900",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-20T09:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010822291898452518,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CM:1787214300",
+      "lat": 7.37,
+      "lon": 12.35,
+      "region_name": "Cameroon",
+      "country": "Cameroon",
+      "asn": null,
+      "timestamp_start": "2026-08-20T08:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.04462474645030423,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GH:1787210400",
+      "lat": 7.95,
+      "lon": -1.02,
+      "region_name": "Ghana",
+      "country": "Ghana",
+      "asn": null,
+      "timestamp_start": "2026-08-20T07:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.23725834797891032,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787210400",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-20T07:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787208900",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-20T06:55:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:SS:1787204400",
+      "lat": 6.88,
+      "lon": 31.31,
+      "region_name": "South Sudan",
+      "country": "South Sudan",
+      "asn": null,
+      "timestamp_start": "2026-08-20T05:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.026548672566371723,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GH:1787204400",
+      "lat": 7.95,
+      "lon": -1.02,
+      "region_name": "Ghana",
+      "country": "Ghana",
+      "asn": null,
+      "timestamp_start": "2026-08-20T05:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.011827419623521518,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GH:1787201400",
+      "lat": 7.95,
+      "lon": -1.02,
+      "region_name": "Ghana",
+      "country": "Ghana",
+      "asn": null,
+      "timestamp_start": "2026-08-20T04:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20913884007029881,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BF:1787200920",
+      "lat": 12.24,
+      "lon": -1.56,
+      "region_name": "Burkina Faso",
+      "country": "Burkina Faso",
+      "asn": null,
+      "timestamp_start": "2026-08-20T04:42:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8387096774193549,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:SS:1787197500",
+      "lat": 6.88,
+      "lon": 31.31,
+      "region_name": "South Sudan",
+      "country": "South Sudan",
+      "asn": null,
+      "timestamp_start": "2026-08-20T03:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.026548672566371723,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787194200",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-20T02:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.5932203389830508,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787193000",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-20T02:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -6430,13 +9518,13 @@
       "timestamp_start": "2026-08-20T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -6458,7 +9546,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -6474,13 +9562,13 @@
       "timestamp_start": "2026-08-20T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6502,7 +9590,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6523,7 +9611,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6544,7 +9632,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6565,7 +9653,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6580,13 +9668,13 @@
       "timestamp_start": "2026-08-20T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6608,7 +9696,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -6633,6 +9721,197 @@
       ]
     },
     {
+      "event_id": "ioda:NG:1787173500",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-19T21:05:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01304743602710634,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787166600",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-19T19:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787166600",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-19T19:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787146500",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-19T13:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787141940",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-19T12:19:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.9615384615384616,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:MX:1787121300",
+      "lat": 23.63,
+      "lon": -102.55,
+      "region_name": "Mexico",
+      "country": "Mexico",
+      "asn": null,
+      "timestamp_start": "2026-08-19T06:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.01820548872571992,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787115000",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-19T04:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:AF:1787109600",
+      "lat": 33.94,
+      "lon": 67.71,
+      "region_name": "Afghanistan",
+      "country": "Afghanistan",
+      "asn": null,
+      "timestamp_start": "2026-08-19T03:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010903426791277204,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787102100",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-19T01:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.019720873786407744,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
       "event_id": "ripe:NL:2026-08-19",
       "lat": 52.13,
       "lon": 5.29,
@@ -6648,7 +9927,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6663,13 +9942,13 @@
       "timestamp_start": "2026-08-19T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6713,7 +9992,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6728,13 +10007,13 @@
       "timestamp_start": "2026-08-19T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Oceania"
       ]
@@ -6777,7 +10056,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -6796,7 +10075,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6844,6 +10123,363 @@
       ]
     },
     {
+      "event_id": "ioda:KE:1787096100",
+      "lat": -0.02,
+      "lon": 37.91,
+      "region_name": "Kenya",
+      "country": "Kenya",
+      "asn": null,
+      "timestamp_start": "2026-08-18T23:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.06037361719891465,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:AF:1787092200",
+      "lat": 33.94,
+      "lon": 67.71,
+      "region_name": "Afghanistan",
+      "country": "Afghanistan",
+      "asn": null,
+      "timestamp_start": "2026-08-18T22:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.012383900928792602,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:AM:1787091000",
+      "lat": 40.07,
+      "lon": 45.04,
+      "region_name": "Armenia",
+      "country": "Armenia",
+      "asn": null,
+      "timestamp_start": "2026-08-18T22:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.232597623089983,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": []
+    },
+    {
+      "event_id": "ioda:CD:1787086800",
+      "lat": -4.04,
+      "lon": 21.76,
+      "region_name": "Democratic Republic Of The Congo",
+      "country": "DR Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-18T21:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010799136069114423,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:KE:1787082000",
+      "lat": -0.02,
+      "lon": 37.91,
+      "region_name": "Kenya",
+      "country": "Kenya",
+      "asn": null,
+      "timestamp_start": "2026-08-18T19:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.06037361719891465,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1787081760",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-18T19:36:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.9230769230769231,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:XK:1787081700",
+      "lat": 42.6,
+      "lon": 20.9,
+      "region_name": "Kosovo",
+      "country": "Kosovo",
+      "asn": null,
+      "timestamp_start": "2026-08-18T19:35:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.018181818181818188,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:LA:1787074800",
+      "lat": 19.86,
+      "lon": 102.5,
+      "region_name": "Lao Peoples Democratic Republic",
+      "country": "Laos",
+      "asn": null,
+      "timestamp_start": "2026-08-18T17:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010840108401083959,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:RU:1787073600",
+      "lat": 61.52,
+      "lon": 105.32,
+      "region_name": "Russian Federation",
+      "country": "Russia",
+      "asn": null,
+      "timestamp_start": "2026-08-18T17:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.013462202278218816,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": []
+    },
+    {
+      "event_id": "ioda:NG:1787068800",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-18T16:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.013450647249190983,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787060700",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-18T13:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787058000",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-18T13:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:XK:1787045400",
+      "lat": 42.6,
+      "lon": 20.9,
+      "region_name": "Kosovo",
+      "country": "Kosovo",
+      "asn": null,
+      "timestamp_start": "2026-08-18T09:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.018181818181818188,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1787041800",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-18T08:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.020226537216828433,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1787038800",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-18T07:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1787021100",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-18T02:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:KP:1787013600",
+      "lat": 40.34,
+      "lon": 127.51,
+      "region_name": "North Korea",
+      "country": "North Korea",
+      "asn": null,
+      "timestamp_start": "2026-08-18T00:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.045454545454545414,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
       "event_id": "ripe:PT:2026-08-18",
       "lat": 39.4,
       "lon": -8.22,
@@ -6880,7 +10516,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -6924,7 +10560,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -6945,7 +10581,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -6958,13 +10594,13 @@
       "timestamp_start": "2026-08-18T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.25,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6986,9 +10622,309 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:VE:1787007900",
+      "lat": 6.42,
+      "lon": -66.59,
+      "region_name": "Venezuela",
+      "country": "Venezuela",
+      "asn": null,
+      "timestamp_start": "2026-08-17T23:05:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010443457251967936,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1786988400",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-17T17:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:VE:1786987200",
+      "lat": 6.42,
+      "lon": -66.59,
+      "region_name": "Venezuela",
+      "country": "Venezuela",
+      "asn": null,
+      "timestamp_start": "2026-08-17T17:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.061257891045125135,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "South America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1786986900",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-17T17:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.013450647249190983,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1786984800",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-17T16:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.013349514563106846,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1786975800",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-17T14:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.8461538461538461,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1786964400",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-17T11:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:TJ:1786956300",
+      "lat": 38.86,
+      "lon": 71.28,
+      "region_name": "Tajikistan",
+      "country": "Tajikistan",
+      "asn": null,
+      "timestamp_start": "2026-08-17T08:45:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.010840108401083959,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Central Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1786955100",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-08-17T08:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:NG:1786953000",
+      "lat": 9.08,
+      "lon": 8.68,
+      "region_name": "Nigeria",
+      "country": "Nigeria",
+      "asn": null,
+      "timestamp_start": "2026-08-17T07:50:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02032766990291257,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GT:1786947000",
+      "lat": 15.78,
+      "lon": -90.23,
+      "region_name": "Guatemala",
+      "country": "Guatemala",
+      "asn": null,
+      "timestamp_start": "2026-08-17T06:10:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.011279520620373629,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "North America",
+        "Americas"
+      ]
+    },
+    {
+      "event_id": "ioda:SY:1786944300",
+      "lat": 34.8,
+      "lon": 38.997,
+      "region_name": "Syrian Arab Republic",
+      "country": "Syria",
+      "asn": null,
+      "timestamp_start": "2026-08-17T05:25:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.011603812681309611,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:BI:1786936800",
+      "lat": -3.37,
+      "lon": 29.92,
+      "region_name": "Burundi",
+      "country": "Burundi",
+      "asn": null,
+      "timestamp_start": "2026-08-17T03:20:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.02614379084967322,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:IR:1786924800",
+      "lat": 32.43,
+      "lon": 53.69,
+      "region_name": "Iran (Islamic Republic Of)",
+      "country": "Iran",
+      "asn": null,
+      "timestamp_start": "2026-08-17T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.018667563606659776,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
       ]
     },
     {
@@ -7007,7 +10943,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -7029,7 +10965,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -7051,7 +10987,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -7067,13 +11003,13 @@
       "timestamp_start": "2026-08-17T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -7096,7 +11032,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -7112,11 +11048,11 @@
       "timestamp_start": "2026-08-17T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-08-25T01:35:44.525148+00:00",
       "regions": [
@@ -7140,7 +11076,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -7163,7 +11099,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -7186,7 +11122,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -7208,7 +11144,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.45,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": []
     },
     {
@@ -7227,7 +11163,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -7248,7 +11184,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.35,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
       ]
@@ -7263,13 +11199,13 @@
       "timestamp_start": "2026-08-17T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -7291,9 +11227,72 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "Europe"
+      ]
+    },
+    {
+      "event_id": "ioda:GA:1786916400",
+      "lat": -0.8,
+      "lon": 11.61,
+      "region_name": "Gabon",
+      "country": "Gabon",
+      "asn": null,
+      "timestamp_start": "2026-08-16T21:40:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.20746887966804983,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:GA:1786910400",
+      "lat": -0.8,
+      "lon": 11.61,
+      "region_name": "Gabon",
+      "country": "Gabon",
+      "asn": null,
+      "timestamp_start": "2026-08-16T20:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (ping-slash24)",
+      "confidence": "low",
+      "severity_score": 0.2614107883817427,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ioda:CG:1786901400",
+      "lat": -0.23,
+      "lon": 15.83,
+      "region_name": "Congo",
+      "country": "Congo",
+      "asn": null,
+      "timestamp_start": "2026-08-16T17:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (merit-nt)",
+      "confidence": "low",
+      "severity_score": 0.9230769230769231,
+      "updated_at": "2026-08-30T16:03:26.130567+00:00",
+      "regions": [
+        "Africa"
       ]
     },
     {
@@ -7306,13 +11305,13 @@
       "timestamp_start": "2026-08-16T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-08-30T15:47:23.771372+00:00",
+      "updated_at": "2026-08-30T16:03:28.987073+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -7625,8 +11624,8 @@
       "timestamp_start": "2026-08-14T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
@@ -8083,13 +12082,14 @@
     }
   ],
   "meta": {
-    "total_events": 377,
-    "countries_count": 74,
+    "total_events": 565,
+    "countries_count": 109,
     "causes_breakdown": {
-      "unexplained": 377
+      "unexplained": 506,
+      "disaster": 59
     },
     "date_min": "2026-08-10T00:00:00+00:00",
-    "date_max": "2026-08-30T00:00:00+00:00",
+    "date_max": "2026-08-30T14:50:00+00:00",
     "region_options": [
       {
         "value": "all",
@@ -8157,8 +12157,8 @@
         "access": "Free, no key",
         "granularity": "Country / ASN",
         "key_required": false,
-        "contributed": 0,
-        "contributed_label": "0 outage events",
+        "contributed": 187,
+        "contributed_label": "187 outage events",
         "configured": null
       },
       {
@@ -8181,8 +12181,8 @@
         "access": "Free, no key",
         "granularity": "City / ISP",
         "key_required": false,
-        "contributed": 377,
-        "contributed_label": "377 outage events",
+        "contributed": 378,
+        "contributed_label": "378 outage events",
         "configured": null
       },
       {
@@ -8205,8 +12205,8 @@
         "access": "Free, no key",
         "granularity": "Lat/lon",
         "key_required": false,
-        "contributed": 0,
-        "contributed_label": "0 cause records",
+        "contributed": 92,
+        "contributed_label": "92 cause records",
         "configured": null
       },
       {
