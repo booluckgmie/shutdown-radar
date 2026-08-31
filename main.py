@@ -113,6 +113,13 @@ def cmd_build(args: argparse.Namespace) -> None:
     render_dashboard(payload, out_path)
     logger.info("Wrote %s", out_path)
 
+    # Also written as index.html so any static host that defaults to
+    # serving index.html from the publish directory (Netlify, GitHub
+    # Pages, etc.) works with zero extra configuration -- see netlify.toml.
+    index_path = config.DIST_DIR / "index.html"
+    render_dashboard(payload, index_path)
+    logger.info("Wrote %s", index_path)
+
 
 def cmd_all(args: argparse.Namespace) -> None:
     cmd_fetch(args)

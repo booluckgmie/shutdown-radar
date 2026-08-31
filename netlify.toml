@@ -1,0 +1,5 @@
+# Serves the pre-built dist/ directory as a static site -- no build step
+# needed here, dist/index.html + dist/data.json are committed by
+# .github/workflows/refresh.yml on every pipeline run (see README).
+[build]
+  publish = "dist"

@@ -227,6 +227,21 @@ can click straight through to a different week without clearing first.
   and normal-vision separation floors; "unexplained" gray is deliberately desaturated
   (a neutral/no-signal marker, not a competing identity color).
 
+### Hosting it (Netlify, GitHub Pages, or any static host)
+
+`python main.py build` writes the same rendered page to **both**
+`dist/dashboard.html` and `dist/index.html` — the second exists purely so a static
+host that defaults to serving `index.html` from its publish directory works with
+zero extra configuration. `netlify.toml` at the repo root sets `publish = "dist"`.
+
+To connect this repo to Netlify: New site from Git → pick this repo → leave the
+build command empty (nothing needs building; `dist/` is committed by
+`.github/workflows/refresh.yml` on every pipeline run) → publish directory `dist`.
+Once connected, every hourly refresh's commit triggers a redeploy automatically, so
+the hosted site stays live without any manual step. The same `dist` → `index.html`
+setup works unmodified for GitHub Pages (`Settings → Pages → Deploy from a branch`,
+folder `/dist`) or any other static host.
+
 ## Known limitations
 
 - **Correlation ≠ causation.** Time/geo proximity is not proof of a causal link —
