@@ -372,6 +372,26 @@
     var avg = {}; CAUSES.forEach(function (c) { avg[c] = ns[c] ? sums[c] / ns[c] : null; });
     var max = Math.max.apply(null, CAUSES.map(function (c) { return avg[c] || 0; })) || 1;
 
+    var noteEl = document.getElementById("durationNote");
+    if (noteEl) {
+      var totalResolved = CAUSES.reduce(function (sum, c) { return sum + ns[c]; }, 0);
+      if (totalResolved === 0) {
+        // Not every ingestion source reports a resolution timestamp -- IODA's
+        // alerts are single point-in-time threshold crossings with no
+        // open/close interval, confirmed against a real raw alert (see
+        // src/ingestion/ioda.py). Cloudflare Radar's outage annotations do
+        // carry a real end time but need CLOUDFLARE_API_TOKEN configured.
+        var cfCatalog = ((DATA.meta && DATA.meta.sources_catalog) || []).find(function (s) { return s.name === "Cloudflare Radar"; });
+        var cfConfigured = cfCatalog && cfCatalog.configured;
+        noteEl.textContent = "Only resolved events (known end time) count toward recovery time. " +
+          (cfConfigured
+            ? "No currently active source has a resolved event in view yet."
+            : "None of the currently active sources report a resolution time -- IODA's alerts are point-in-time, not open/close intervals; Cloudflare Radar does report one but isn't configured (needs CLOUDFLARE_API_TOKEN).");
+      } else {
+        noteEl.textContent = "Only resolved events (known end time) count toward recovery time.";
+      }
+    }
+
     var rowH = h / CAUSES.length;
     var labelW = 92, valueW = 110, chartAreaW = w - labelW - valueW;
     var isolated = state.causes.size === 1 ? Array.from(state.causes)[0] : null;
