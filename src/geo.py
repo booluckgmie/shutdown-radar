@@ -112,3 +112,61 @@ NAME_TO_CODE: dict[str, str] = {name: code for code, (name, _lat, _lon) in COUNT
 
 def code_for_name(name: str) -> str | None:
     return NAME_TO_CODE.get(name)
+
+
+# External sources (GDACS, OpenSky's origin_country, and likely ACLED/others
+# once configured) don't consistently use this project's canonical ISO
+# short names — "Russian Federation" vs our "Russia", "The Democratic
+# Republic of Congo" vs our "DR Congo", etc. Found by directly inspecting
+# real cause_events/events country values after a live run and comparing
+# the two sets (see attribution.py join, which is exact-string-match on
+# country — a naming mismatch here silently drops a real match, not a
+# genuine absence of correlation). One shared alias table + resolver so
+# every connector normalizes into the same canonical names, instead of
+# each maintaining its own list (src/ingestion/opensky.py used to).
+EXTERNAL_NAME_ALIASES: dict[str, str] = {
+    "Russian Federation": "Russia",
+    "Czech Republic": "Czechia",
+    "Ivory Coast": "Cote d'Ivoire",
+    "Macedonia": "North Macedonia",
+    "Democratic Republic of the Congo": "DR Congo",
+    "The Democratic Republic of Congo": "DR Congo",
+    "DR of the Congo": "DR Congo",
+    "Republic of the Congo": "Congo",
+    "Myanmar (Burma)": "Myanmar",
+    "Syrian Arab Republic": "Syria",
+    "Republic of Korea": "South Korea",
+    "Korea, Republic of": "South Korea",
+    "Democratic People's Republic of Korea": "North Korea",
+    "Viet Nam": "Vietnam",
+    "Lao People's Democratic Republic": "Laos",
+    "United Republic of Tanzania": "Tanzania",
+    "United States of America": "United States",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+}
+
+
+def resolve_name(raw_name: str | None) -> tuple[str, float, float] | None:
+    """Best-effort match of an external source's country string to our
+    canonical (name, lat, lon): exact name -> known alias -> case-insensitive
+    exact match, in that order. Returns None (rather than guessing further)
+    for multi-country strings ("Bosnia and Herzegovina, Croatia" — split
+    that yourself before calling, one call per country) and ocean/region
+    labels GDACS uses for offshore earthquakes ("Northern Molucca Sea") that
+    have no single owning country to attribute to."""
+    if not raw_name:
+        return None
+    name = raw_name.strip()
+    code = code_for_name(name)
+    if code:
+        return COUNTRIES[code]
+    aliased = EXTERNAL_NAME_ALIASES.get(name)
+    if aliased:
+        code = code_for_name(aliased)
+        if code:
+            return COUNTRIES[code]
+    lowered = name.lower()
+    for c, (n, lat, lon) in COUNTRIES.items():
+        if n.lower() == lowered:
+            return (n, lat, lon)
+    return None

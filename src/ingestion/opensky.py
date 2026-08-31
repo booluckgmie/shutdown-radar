@@ -21,12 +21,12 @@ database — nothing gets flagged until enough prior runs are on record (see
 MIN_BASELINE_SAMPLES), by design: a single snapshot can't tell you whether
 today is anomalous.
 
-OpenSky's `origin_country` strings don't exactly match this project's
-ISO-3166 display names in every case (e.g. "Russia" vs "Russian
-Federation") — COUNTRY_NAME_ALIASES below covers the handful of common
-mismatches recalled from general knowledge, not verified against live
-traffic in this sandbox (see README "A note on where this was built").
-Extend it once run against the real API.
+OpenSky's `origin_country` strings don't always match this project's
+canonical display names (e.g. "Russia" vs "Russian Federation") —
+geo.resolve_name() handles that normalization, shared with gdacs.py which
+hit the identical mismatch class against real GDACS data (confirmed by
+directly comparing country strings across both sources after a live run;
+see geo.py's EXTERNAL_NAME_ALIASES).
 """
 from __future__ import annotations
 
@@ -50,34 +50,9 @@ MIN_BASELINE_SAMPLES = 3    # need this many prior runs on record before flaggin
 DROP_THRESHOLD = 0.4        # flag when today's count is <= (1 - 0.4) = 60% of the trailing median
 MIN_BASELINE_COUNT = 15     # ignore countries with too few aircraft for the ratio to mean anything
 
-COUNTRY_NAME_ALIASES = {
-    "Russian Federation": "Russia",
-    "Czech Republic": "Czechia",
-    "Ivory Coast": "Cote d'Ivoire",
-    "Macedonia": "North Macedonia",
-    "Democratic Republic of the Congo": "DR Congo",
-    "Republic of the Congo": "Congo",
-    "Myanmar (Burma)": "Myanmar",
-    "Syrian Arab Republic": "Syria",
-    "Republic of Korea": "South Korea",
-    "Korea, Republic of": "South Korea",
-    "Democratic People's Republic of Korea": "North Korea",
-    "Viet Nam": "Vietnam",
-    "Lao People's Democratic Republic": "Laos",
-}
-
-
-def _resolve_country_code(origin_country: str) -> str | None:
-    name = COUNTRY_NAME_ALIASES.get(origin_country, origin_country)
-    code = geo.code_for_name(name)
-    if code:
-        return code
-    # try a case-insensitive pass over our own country names as a fallback
-    lowered = name.strip().lower()
-    for c, (n, _lat, _lon) in geo.COUNTRIES.items():
-        if n.lower() == lowered:
-            return c
-    return None
+# Country-name normalization (OpenSky's origin_country doesn't always match
+# our canonical names) now lives in geo.resolve_name() — shared with
+# gdacs.py, which hit the identical problem.
 
 
 def _access_token(client_id: str, client_secret: str) -> str | None:
@@ -141,16 +116,15 @@ def fetch(conn: sqlite3.Connection, client_id: str = "", client_secret: str = ""
         if median < MIN_BASELINE_COUNT or today_count > median * (1 - DROP_THRESHOLD):
             continue
 
-        code = _resolve_country_code(origin_country)
-        geo_hit = geo.lookup(code) if code else None
+        geo_hit = geo.resolve_name(origin_country)
         if not geo_hit:
-            logger.debug("OpenSky: no country-code match for origin_country=%r, skipping", origin_country)
+            logger.debug("OpenSky: no country match for origin_country=%r, skipping", origin_country)
             continue
         country_name, lat, lon = geo_hit
         drop_ratio = 1 - (today_count / median)
         events.append(
             {
-                "event_id": f"opensky:{code}:{now.strftime('%Y-%m-%d')}",
+                "event_id": f"opensky:{country_name}:{now.strftime('%Y-%m-%d')}",
                 "lat": lat,
                 "lon": lon,
                 "region_name": country_name,

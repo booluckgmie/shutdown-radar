@@ -278,8 +278,16 @@
         '<div class="pop-hint">' + (isSelected ? "Click bubble again to clear filter" : "Click bubble to filter everything to " + escapeHtml(country)) + "</div>";
       marker.bindPopup(popupHtml);
       marker.on("click", function () { toggleCountryFilter(country); });
-      marker.on("mouseover", function () { marker.setStyle({ fillOpacity: 0.85 }); });
-      marker.on("mouseout", function () { marker.setStyle({ fillOpacity: isSelected ? 0.8 : 0.55 }); });
+      // Summary shows on hover (not just click) so scanning the map doesn't
+      // require clicking every bubble -- click still also filters.
+      marker.on("mouseover", function () {
+        marker.setStyle({ fillOpacity: 0.85 });
+        marker.openPopup();
+      });
+      marker.on("mouseout", function () {
+        marker.setStyle({ fillOpacity: isSelected ? 0.8 : 0.55 });
+        marker.closePopup();
+      });
     });
   }
 

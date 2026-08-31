@@ -30,6 +30,8 @@ from datetime import datetime, timedelta, timezone
 
 import requests
 
+from .. import geo
+
 logger = logging.getLogger(__name__)
 
 API_URL = "https://www.gdacs.org/gdacsapi/api/events/geteventlist/SEARCH"
@@ -58,6 +60,27 @@ def _parse_date(value: str | None) -> datetime | None:
         return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except ValueError:
         return None
+
+
+def _resolve_countries(raw_country: str | None) -> list[str]:
+    """GDACS sometimes joins several affected countries into one
+    comma-separated string ("Bosnia and Herzegovina, Croatia") and doesn't
+    consistently use this project's canonical names ("Russian Federation"
+    vs our "Russia") -- confirmed by directly comparing real GDACS country
+    strings against this project's country set after a live run, which is
+    why events an outage should have matched were silently not matching:
+    attribution.py's join is exact-string equality on country. Splits and
+    resolves each part via geo.resolve_name(); unresolvable parts (ocean/
+    region labels like "Northern Molucca Sea" for an offshore earthquake)
+    are simply dropped, not guessed at further."""
+    if not raw_country:
+        return []
+    resolved = []
+    for part in raw_country.split(","):
+        hit = geo.resolve_name(part)
+        if hit and hit[0] not in resolved:
+            resolved.append(hit[0])
+    return resolved
 
 
 def fetch(lookback_days: int) -> list[dict]:
@@ -114,23 +137,33 @@ def fetch(lookback_days: int) -> list[dict]:
 
         lat, lon = (coords[1], coords[0]) if isinstance(coords, list) and len(coords) >= 2 else (None, None)
         event_type = props.get("eventtype") or props.get("eventType")
-        country = props.get("country") or props.get("iso3")
-        event_id = props.get("eventid") or props.get("eventId") or f"{event_type}:{event_date.isoformat()}:{country}"
+        raw_country = props.get("country") or props.get("iso3")
+        event_id = props.get("eventid") or props.get("eventId") or f"{event_type}:{event_date.isoformat()}:{raw_country}"
 
-        cause_events.append(
-            {
-                "cause_event_id": f"gdacs:{event_id}",
-                "source": "gdacs",
-                "cause": "disaster",
-                "cause_subtype": EVENT_TYPE_SUBTYPE.get(event_type, event_type),
-                "country": country,
-                "lat": lat,
-                "lon": lon,
-                "event_date": event_date.isoformat(),
-                "title": props.get("eventname") or props.get("name"),
-                "raw": {"eventtype": event_type, "country": country, "alertlevel": props.get("alertlevel")},
-            }
-        )
+        # One record per resolved country -- a multi-country GDACS event
+        # genuinely affects each of them, and attribution.py's join is
+        # per-country, so a single merged record could only ever match one.
+        # Keep a country=None record when nothing resolves (offshore/region
+        # labels), so the "N cause records" audit count in the Data
+        # Pipeline & Sources panel still reflects what GDACS actually sent,
+        # even though a country=None record can never join to an outage.
+        countries = _resolve_countries(raw_country) or [None]
+        for country in countries:
+            suffix = f":{country}" if len(countries) > 1 else ""
+            cause_events.append(
+                {
+                    "cause_event_id": f"gdacs:{event_id}{suffix}",
+                    "source": "gdacs",
+                    "cause": "disaster",
+                    "cause_subtype": EVENT_TYPE_SUBTYPE.get(event_type, event_type),
+                    "country": country,
+                    "lat": lat,
+                    "lon": lon,
+                    "event_date": event_date.isoformat(),
+                    "title": props.get("eventname") or props.get("name"),
+                    "raw": {"eventtype": event_type, "raw_country": raw_country, "alertlevel": props.get("alertlevel")},
+                }
+            )
 
     logger.info(
         "GDACS: %d active disaster alerts within lookback window (%d features seen, "
