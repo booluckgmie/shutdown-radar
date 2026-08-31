@@ -53,6 +53,9 @@ def _iso(unix_ts: float | int | None) -> str | None:
     return datetime.fromtimestamp(int(unix_ts), tz=timezone.utc).isoformat()
 
 
+_logged_sample = False
+
+
 def _normalize(raw: dict, entity_code: str) -> dict | None:
     entity = raw.get("entity", {}) if isinstance(raw.get("entity"), dict) else {}
     code = (entity.get("code") or entity_code or "").upper()
@@ -111,6 +114,22 @@ def fetch_alerts_for_country(
     if not isinstance(raw_alerts, list):
         logger.debug("IODA: unexpected response shape for %s, raw body: %s", code, str(payload)[:500])
         return []
+    global _logged_sample
+    if not _logged_sample and raw_alerts:
+        # One-time diagnostic: this project's authoring sandbox can't reach
+        # IODA directly (proxy blocks it), so every prior guess at this
+        # response's field names (see module docstring) was inferred from
+        # third-party code, never confirmed against a live sample. Every
+        # real production event so far has come back with duration_hours
+        # unset -- either "until"/"end" genuinely isn't in the alerts
+        # payload (alerts may be point-in-time, not open/close intervals)
+        # or the guessed field name is wrong like the earlier host/param
+        # guesses were. Logging one full raw alert at INFO (not DEBUG, so
+        # it shows up without changing the run's log level) makes the next
+        # real GitHub Actions run's logs the direct answer either way.
+        logger.info("IODA: sample raw alert (diagnostic, first seen this run): %s", raw_alerts[0])
+        _logged_sample = True
+
     events = []
     for raw in raw_alerts:
         level = str(raw.get("level", "")).lower()
