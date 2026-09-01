@@ -36,6 +36,27 @@ which answers these live against whatever data is currently loaded):
 4. Which regions have disproportionately frequent/long outages relative to triggering
    events — i.e. fragile infrastructure?
 
+## Scope
+
+**In scope:**
+
+- Global internet outage detection at country/region/ASN level
+- Cause attribution across four categories: `disaster`, `conflict`, `shutdown`, `unexplained`
+- Historical + near-real-time data (rolling window, accumulating into a full archive —
+  see "Historical data" below)
+- Geospatial bubble-map visualization (frequency, severity, cause)
+- Confidence scoring per event, distinguishing structured-source data from
+  LLM-extracted semantic data
+
+**Out of scope (for now):**
+
+- Sub-city/household-level outage detection (limited by source granularity — every
+  current source resolves to country/region/ASN/city at best, not individual networks)
+- Predictive forecasting — this is a detection/attribution project first; a possible
+  future extension once the accumulating historical archive is substantial (see Roadmap)
+- Any integration with unrelated business tooling — this is a standalone research/
+  analysis project
+
 ## How it works — the four phases
 
 | Phase | What it does | Code |
@@ -152,6 +173,12 @@ on any subcommand.
 Free-tier API shapes drift over time — every connector module's docstring links the
 spec it was written against and says to re-verify before relying on it in production
 (see e.g. `src/ingestion/ioda.py`, `acled.py`).
+
+**EM-DAT was considered and deliberately not implemented.** The original project spec
+included it as a curated disaster-event archive, but it's bulk-download-only with a
+days-to-weeks lag — GDACS already covers real-time disaster attribution here with no
+key and no registration friction, so EM-DAT would have added the same `cause: disaster`
+category at a real latency cost for no coverage gain this project needed.
 
 ## Unified schema
 
