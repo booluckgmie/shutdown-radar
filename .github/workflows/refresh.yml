@@ -48,6 +48,7 @@ jobs:
           OPENSKY_CLIENT_SECRET: ${{ secrets.OPENSKY_CLIENT_SECRET }}
           FAA_NOTAM_CLIENT_ID: ${{ secrets.FAA_NOTAM_CLIENT_ID }}
           FAA_NOTAM_CLIENT_SECRET: ${{ secrets.FAA_NOTAM_CLIENT_SECRET }}
+          GOV_SHUTDOWN_SOURCES: ${{ secrets.GOV_SHUTDOWN_SOURCES }}
           NOMINATIM_USER_AGENT: ${{ vars.NOMINATIM_USER_AGENT }}
         run: python main.py all
 

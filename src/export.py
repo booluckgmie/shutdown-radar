@@ -67,6 +67,12 @@ SOURCE_CATALOG = [
         "cause_source_key": "notam",
     },
     {
+        "name": "Gov. shutdown scraper", "phase": 2, "category": "Shutdown attribution (direct scrape)",
+        "realtime": "Real-time", "access": "Free — you supply the government page URLs",
+        "granularity": "Country (page-level, no per-announcement date)", "key_required": True,
+        "cause_source_key": "gov_scraper",
+    },
+    {
         "name": "Serper.dev + Groq", "phase": 3, "category": "Semantic gap-filling (news + LLM)",
         "realtime": "Real-time", "access": "Free tier, 2 API keys",
         "granularity": "Geocoded via Nominatim", "key_required": True,
@@ -87,6 +93,7 @@ def _sources_status(conn: sqlite3.Connection, events: list[dict[str, Any]]) -> l
         "ACLED": settings.has_acled(),
         "#KeepItOn (Access Now)": settings.has_keepiton(),
         "FAA NOTAM": settings.has_faa_notam(),
+        "Gov. shutdown scraper": settings.has_gov_shutdown_sources(),
         "Serper.dev + Groq": settings.has_semantic(),
     }
 

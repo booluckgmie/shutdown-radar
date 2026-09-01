@@ -59,6 +59,11 @@ class Settings:
     faa_notam_client_id: str = field(default_factory=lambda: os.environ.get("FAA_NOTAM_CLIENT_ID", ""))
     faa_notam_client_secret: str = field(default_factory=lambda: os.environ.get("FAA_NOTAM_CLIENT_SECRET", ""))
 
+    # Government shutdown/restriction announcement scraper — comma-separated
+    # "CountryName|https://..." pairs pointing at official government/
+    # regulator notice pages. See src/ingestion/gov_shutdown_scraper.py.
+    gov_shutdown_sources: str = field(default_factory=lambda: os.environ.get("GOV_SHUTDOWN_SOURCES", ""))
+
     def has_cloudflare(self) -> bool:
         return bool(self.cloudflare_api_token)
 
@@ -73,6 +78,9 @@ class Settings:
 
     def has_faa_notam(self) -> bool:
         return bool(self.faa_notam_client_id and self.faa_notam_client_secret)
+
+    def has_gov_shutdown_sources(self) -> bool:
+        return bool(self.gov_shutdown_sources)
 
 
 SETTINGS = Settings()

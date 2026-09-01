@@ -21,7 +21,7 @@ import sys
 from datetime import datetime, timezone
 
 from src import attribution, config, db, export, semantic
-from src.ingestion import acled, cloudflare_radar, faa_notam, gdacs, ioda, keepiton, opensky, ripe_atlas
+from src.ingestion import acled, cloudflare_radar, faa_notam, gdacs, gov_shutdown_scraper, ioda, keepiton, opensky, ripe_atlas
 from src import seed_demo_data
 from dashboard.build_dashboard import render_dashboard
 
@@ -72,6 +72,7 @@ def cmd_fetch(args: argparse.Namespace) -> None:
             ("acled", lambda: acled.fetch(lookback, settings.acled_api_key, settings.acled_email)),
             ("keepiton", lambda: keepiton.fetch(lookback, settings.keepiton_csv_path)),
             ("faa_notam", lambda: faa_notam.fetch(lookback, settings.faa_notam_client_id, settings.faa_notam_client_secret)),
+            ("gov_shutdown_scraper", lambda: gov_shutdown_scraper.fetch(lookback, settings.gov_shutdown_sources)),
         ):
             try:
                 cause_events = fn()

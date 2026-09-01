@@ -20,8 +20,11 @@ from . import config, db
 
 logger = logging.getLogger(__name__)
 
-# Closest source wins on time; ties break in this order.
-SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "gdacs": 3}
+# Closest source wins on time; ties break in this order. gov_scraper sits
+# last: it's a raw keyword match against a live page with no per-announcement
+# date (see src/ingestion/gov_shutdown_scraper.py), the least verified
+# signal here, unlike keepiton's curated records or notam's structured API.
+SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "gdacs": 3, "gov_scraper": 4}
 
 
 def _parse(ts: str) -> datetime:
@@ -53,6 +56,22 @@ def _confidence_for_delta(delta_hours: float) -> str:
     return "low"
 
 
+# gov_scraper's event_date is always "now" (fetch time), not a real
+# announcement date -- see src/ingestion/gov_shutdown_scraper.py -- so a
+# small time delta there reflects fetch timing, not evidence of a tight
+# real-world match, the way it does for every other source. Capped so it
+# can never claim "high" confidence the way a genuinely dated record can.
+MAX_CONFIDENCE_BY_SOURCE = {"gov_scraper": "medium"}
+_CONFIDENCE_RANK = {"low": 0, "medium": 1, "high": 2}
+
+
+def _cap_confidence(source: str, confidence: str) -> str:
+    cap = MAX_CONFIDENCE_BY_SOURCE.get(source)
+    if cap and _CONFIDENCE_RANK[confidence] > _CONFIDENCE_RANK[cap]:
+        return cap
+    return confidence
+
+
 def run(conn: sqlite3.Connection) -> dict[str, int]:
     unexplained = db.fetch_unexplained_events(conn)
     stats = {"matched": 0, "still_unexplained": 0}
@@ -81,7 +100,7 @@ def run(conn: sqlite3.Connection) -> dict[str, int]:
             continue
 
         delta_hours = abs((outage_start - _parse(match["event_date"])).total_seconds()) / 3600
-        confidence = _confidence_for_delta(delta_hours)
+        confidence = _cap_confidence(match["source"], _confidence_for_delta(delta_hours))
         updates.append((match["cause"], match["cause_subtype"], confidence, outage["event_id"]))
         stats["matched"] += 1
 

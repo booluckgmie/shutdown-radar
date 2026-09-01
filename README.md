@@ -118,6 +118,7 @@ cp .env.example .env   # fill in whichever keys you have — all optional, see b
 | `SERPER_API_KEY` / `GROQ_API_KEY` | [Serper.dev](https://serper.dev) / [Groq](https://console.groq.com) (both free tier) | Phase 3 semantic gap-filling |
 | `OPENSKY_CLIENT_ID` / `OPENSKY_CLIENT_SECRET` | [OpenSky Network](https://opensky-network.org/apidoc/) (free, optional — works anonymously without it, just at a lower rate limit) | Phase 1 aviation-disruption signal |
 | `FAA_NOTAM_CLIENT_ID` / `FAA_NOTAM_CLIENT_SECRET` | [FAA API Portal](https://developer.faa.gov) (free registration) | Phase 2 restricted-airspace attribution (US only) |
+| `GOV_SHUTDOWN_SOURCES` | No key — comma-separated `Country\|https://...` pairs pointing at official government/regulator notice pages you choose | Phase 2 shutdown attribution (direct scrape) |
 | `NOMINATIM_USER_AGENT` | none — just set a real contact per [Nominatim's usage policy](https://operations.osmfoundation.org/policies/nominatim/) | Phase 3 geocoding |
 
 IODA, GDACS, RIPE Atlas, and OpenSky (anonymous mode) need no key and run unconditionally.
@@ -145,6 +146,7 @@ on any subcommand.
 | [ACLED](https://acleddata.com/) | Armed conflict / violence events | Near real-time | Free, registration | Lat/lon |
 | [#KeepItOn](https://www.accessnow.org/keepiton/) (Access Now) | Verified govt-ordered shutdowns | Manually verified | Free, no stable API — bring your own CSV export | Country/region |
 | [FAA NOTAM API](https://developer.faa.gov) | Restricted/closed airspace (TFRs, security, disaster) | Yes | Free, registration | Lat/lon — **US only** |
+| Gov. shutdown scraper | Direct scrape of government/regulator notice pages you point it at | Yes | No key — you supply the URLs | Country (page-level, no per-announcement date — see `src/ingestion/gov_shutdown_scraper.py`) |
 | Serper.dev + Groq | News extraction (semantic gap-fill) | Real-time | Free tier | Geocoded via Nominatim |
 
 Free-tier API shapes drift over time — every connector module's docstring links the
@@ -260,6 +262,13 @@ folder `/dist`) or any other static host.
 - **FAA NOTAM is US-only.** FAA is the US aviation authority; its NOTAM feed only ever
   covers US airspace. It's not a global restricted-airspace source — global
   restricted-location coverage still comes from ACLED/#KeepItOn.
+- **Gov. shutdown scraper has no per-announcement date.** It's a keyword match against
+  whatever's on the page right now, dated to fetch time and deduplicated per country per
+  day — not a real announcement timestamp the way #KeepItOn/FAA NOTAM's structured
+  records are. Its attribution confidence is capped at "medium" for this reason (see
+  `MAX_CONFIDENCE_BY_SOURCE` in `src/attribution.py`). It also intentionally fetches with
+  plain HTTP, not stealth/anti-bot-bypass tooling — a target page sitting behind
+  Cloudflare or similar simply won't be reachable, by design (see the module docstring).
 - **Not integration-tested against live sources** — see the sandbox note above.
 
 ## Design principles
@@ -280,6 +289,7 @@ folder `/dist`) or any other static host.
 - [x] Scheduled real-data refresh via GitHub Actions
 - [x] OpenSky Network aviation-disruption signal (Phase 1) + FAA NOTAM restricted-airspace
       attribution (Phase 2, US only)
+- [x] Government shutdown/restriction announcement scraper (Phase 2, bring-your-own URLs)
 - [ ] Verify each connector against live traffic (blocked in the authoring sandbox —
       see note above; do this first when picking the project back up)
 - [ ] Apply for/confirm ACLED access and exercise the real endpoint

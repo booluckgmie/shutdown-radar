@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T01:08:39.538540+00:00",
+  "generated_at": "2026-09-01T02:50:31.652220+00:00",
   "events": [
     {
       "event_id": "opensky:Luxembourg:2026-09-01",
@@ -16428,7 +16428,7 @@
         "key_required": true,
         "contributed": 6,
         "contributed_label": "6 outage events",
-        "configured": true
+        "configured": false
       },
       {
         "name": "RIPE Atlas",
@@ -16497,6 +16497,18 @@
         "realtime": "Real-time",
         "access": "Free, registration (client_id + secret)",
         "granularity": "Lat/lon",
+        "key_required": true,
+        "contributed": 0,
+        "contributed_label": "0 cause records",
+        "configured": false
+      },
+      {
+        "name": "Gov. shutdown scraper",
+        "phase": 2,
+        "category": "Shutdown attribution (direct scrape)",
+        "realtime": "Real-time",
+        "access": "Free \u2014 you supply the government page URLs",
+        "granularity": "Country (page-level, no per-announcement date)",
         "key_required": true,
         "contributed": 0,
         "contributed_label": "0 cause records",
