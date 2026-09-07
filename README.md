@@ -256,7 +256,7 @@ can click straight through to a different week without clearing first.
   and normal-vision separation floors; "unexplained" gray is deliberately desaturated
   (a neutral/no-signal marker, not a competing identity color).
 
-### Hosting it (Netlify, GitHub Pages, or any static host)
+### Hosting it (Netlify, Vercel, GitHub Pages, or any static host)
 
 `python main.py build` writes the same rendered page to **both**
 `dist/dashboard.html` and `dist/index.html` — the second exists purely so a static
@@ -270,6 +270,17 @@ Once connected, every hourly refresh's commit triggers a redeploy automatically,
 the hosted site stays live without any manual step. The same `dist` → `index.html`
 setup works unmodified for GitHub Pages (`Settings → Pages → Deploy from a branch`,
 folder `/dist`) or any other static host.
+
+**Vercel needs its own config, unlike Netlify/Pages** — this repo has a top-level
+`main.py`, and Vercel's zero-config "Other" framework preset auto-detects any
+top-level `.py` file as a Python serverless function entrypoint, expecting it to
+export an `app`/`application`/`handler` variable. `main.py` is the CLI pipeline
+script, not a web handler, so that detection fails the build with *"Found main.py
+but it does not export a top-level app/application/handler variable"*.
+`vercel.json` (`outputDirectory: "dist"`, empty build/install commands) and
+`.vercelignore` (excluding `main.py`, `src/`, and the rest of the Python codebase
+from the deployment entirely) fix this — same static-only deployment as Netlify,
+just spelled out explicitly since Vercel's auto-detection gets it wrong here.
 
 ## Known limitations
 

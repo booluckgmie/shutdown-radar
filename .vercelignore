@@ -1,0 +1,16 @@
+# Vercel serves the pre-built dist/ directory as a static site (see
+# vercel.json) -- the pipeline itself runs in GitHub Actions
+# (.github/workflows/refresh.yml), never on Vercel. Excluding every .py
+# file here isn't just cleanup: Vercel's zero-config "Other" framework
+# preset auto-detects any top-level .py file as a Python serverless
+# function entrypoint (expecting an "app"/"application"/"handler"
+# variable) independently of vercel.json's buildCommand -- main.py is a
+# CLI script, not a web handler, which is exactly the "does not export a
+# top-level app/application/handler" build error this avoids.
+main.py
+src/
+dashboard/build_dashboard.py
+requirements.txt
+data/
+.github/
+.env.example
