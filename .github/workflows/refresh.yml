@@ -64,6 +64,6 @@ jobs:
           # goal in the README/design doc rather than only ever showing the
           # current lookback window.
           git add -f data/disruption_tracker.sqlite
-          git add dist/dashboard.html dist/data.json
+          git add dist/dashboard.html dist/index.html dist/data.json
           git diff --cached --quiet || git commit -m "chore: refresh disruption tracker data"
           git push
