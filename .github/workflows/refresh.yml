@@ -65,5 +65,5 @@ jobs:
           # current lookback window.
           git add -f data/disruption_tracker.sqlite
           git add dist/dashboard.html dist/data.json
-          git diff --cached --quiet || git commit -m "chore: refresh disruption tracker data [skip ci]"
+          git diff --cached --quiet || git commit -m "chore: refresh disruption tracker data"
           git push
