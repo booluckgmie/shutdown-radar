@@ -1,6 +1,201 @@
 {
-  "generated_at": "2026-10-02T08:14:52.090622+00:00",
+  "generated_at": "2026-10-02T15:37:40.424434+00:00",
   "events": [
+    {
+      "event_id": "opensky:New Zealand:2026-10-02",
+      "lat": -40.9,
+      "lon": 174.89,
+      "region_name": "New Zealand",
+      "country": "New Zealand",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "high",
+      "severity_score": 0.92,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "opensky:South Korea:2026-10-02",
+      "lat": 35.91,
+      "lon": 127.77,
+      "region_name": "South Korea",
+      "country": "South Korea",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.4162162162162162,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Taiwan:2026-10-02",
+      "lat": 23.7,
+      "lon": 120.96,
+      "region_name": "Taiwan",
+      "country": "Taiwan",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.6559139784946236,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Japan:2026-10-02",
+      "lat": 36.2,
+      "lon": 138.25,
+      "region_name": "Japan",
+      "country": "Japan",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "high",
+      "severity_score": 0.8158995815899581,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Israel:2026-10-02",
+      "lat": 31.05,
+      "lon": 34.85,
+      "region_name": "Israel",
+      "country": "Israel",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.6521739130434783,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Australia:2026-10-02",
+      "lat": -25.27,
+      "lon": 133.78,
+      "region_name": "Australia",
+      "country": "Australia",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.8968481375358166,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "opensky:Indonesia:2026-10-02",
+      "lat": -0.79,
+      "lon": 113.92,
+      "region_name": "Indonesia",
+      "country": "Indonesia",
+      "asn": null,
+      "timestamp_start": "2026-10-02T15:36:36.225245+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "high",
+      "severity_score": 0.6842105263157895,
+      "updated_at": "2026-10-02T15:36:36.254146+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ioda:PG:1790937000",
+      "lat": -6.31,
+      "lon": 143.96,
+      "region_name": "Papua New Guinea",
+      "country": "Papua New Guinea",
+      "asn": null,
+      "timestamp_start": "2026-10-02T10:30:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "IODA (gtr)",
+      "confidence": "high",
+      "severity_score": 0.333842627960275,
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "ioda:ET:1790928900",
+      "lat": 9.15,
+      "lon": 40.49,
+      "region_name": "Ethiopia",
+      "country": "Ethiopia",
+      "asn": null,
+      "timestamp_start": "2026-10-02T08:15:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "IODA (bgp)",
+      "confidence": "low",
+      "severity_score": 0.055077452667814164,
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
     {
       "event_id": "opensky:Colombia:2026-10-02",
       "lat": 4.57,
@@ -149,7 +344,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3928571428571429,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -675,7 +870,115 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.018181818181818188,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ripe:LY:2026-10-02",
+      "lat": 26.34,
+      "lon": 17.23,
+      "region_name": "Libya",
+      "country": "Libya",
+      "asn": null,
+      "timestamp_start": "2026-10-02T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "ripe:RO:2026-10-02",
+      "lat": 45.94,
+      "lon": 24.97,
+      "region_name": "Romania",
+      "country": "Romania",
+      "asn": null,
+      "timestamp_start": "2026-10-02T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ripe:CN:2026-10-02",
+      "lat": 35.86,
+      "lon": 104.2,
+      "region_name": "China",
+      "country": "China",
+      "asn": null,
+      "timestamp_start": "2026-10-02T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:VN:2026-10-02",
+      "lat": 14.06,
+      "lon": 108.28,
+      "region_name": "Vietnam",
+      "country": "Vietnam",
+      "asn": null,
+      "timestamp_start": "2026-10-02T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:CH:2026-10-02",
+      "lat": 46.82,
+      "lon": 8.23,
+      "region_name": "Switzerland",
+      "country": "Switzerland",
+      "asn": null,
+      "timestamp_start": "2026-10-02T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -696,7 +999,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -717,8 +1020,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.25,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -739,7 +1042,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -802,8 +1105,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -824,7 +1127,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -844,8 +1147,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.4,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.45,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -890,8 +1193,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -911,8 +1214,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -932,8 +1235,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-02T01:28:02.415434+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -954,8 +1257,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -976,8 +1279,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.35,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.55,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -998,8 +1301,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.5,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 1.0,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -1038,8 +1341,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-02T01:28:02.415434+00:00",
+      "severity_score": 0.35,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -1059,8 +1362,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -1081,7 +1384,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.45,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -1102,7 +1405,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1570,7 +1873,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012987012987012991,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1651,11 +1954,11 @@
       "timestamp_start": "2026-10-01T16:12:20.114263+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "OpenSky Network",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.8133333333333334,
       "updated_at": "2026-10-01T16:12:20.142350+00:00",
       "regions": [
@@ -1678,7 +1981,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02515007650959311,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -1700,7 +2003,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1721,7 +2024,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02591792656587477,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1874,7 +2177,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1895,7 +2198,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.023538739132812125,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -1917,7 +2220,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02614379084967322,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1938,7 +2241,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012931034482758674,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -1959,7 +2262,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010775862068965525,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -2170,7 +2473,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.4482758620689655,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -2215,7 +2518,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -2279,7 +2582,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -2449,7 +2752,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -2582,7 +2885,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -2625,7 +2928,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -2690,7 +2993,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Oceania"
       ]
@@ -2796,8 +3099,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.45,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.3,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -2817,8 +3120,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -2839,8 +3142,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 1.0,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.75,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -2859,7 +3162,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -2899,9 +3202,9 @@
       "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "IODA (gtr)",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.15858843537414968,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -3407,7 +3710,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3428,7 +3731,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.95,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3581,7 +3884,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.0326797385620915,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3602,7 +3905,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02614379084967322,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3842,7 +4145,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3863,7 +4166,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.019230769230769273,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -3885,7 +4188,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.5296296296296297,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3906,7 +4209,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.21999999999999997,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -3927,7 +4230,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.051094890510948954,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -4291,7 +4594,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -4335,7 +4638,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -4577,7 +4880,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -4664,7 +4967,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -4750,7 +5053,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 1.0,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -4787,11 +5090,11 @@
       "timestamp_start": "2026-09-30T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.1,
       "updated_at": "2026-09-30T22:57:18.970579+00:00",
       "regions": [
@@ -4857,7 +5160,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.35,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -4879,7 +5182,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -4900,7 +5203,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -4919,7 +5222,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.21488610062126934,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -4940,7 +5243,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.1407440609592111,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -4961,7 +5264,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02614379084967322,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -4982,7 +5285,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5261,7 +5564,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.04424778761061943,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5282,7 +5585,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.28846153846153844,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5389,7 +5692,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5410,7 +5713,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-02T08:13:42.892388+00:00",
+      "updated_at": "2026-10-02T15:36:30.635859+00:00",
       "regions": [
         "Africa"
       ]
@@ -5431,7 +5734,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.5185185185185186,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5452,7 +5755,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -5473,7 +5776,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.20497237569060778,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -5648,7 +5951,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.95,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -6347,7 +6650,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -6584,7 +6887,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.45,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6756,7 +7059,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -6800,7 +7103,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -6821,7 +7124,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -6840,7 +7143,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -6861,7 +7164,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -6882,7 +7185,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -6903,7 +7206,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.1842105263157895,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -7372,7 +7675,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010752688172043001,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7479,7 +7782,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.06153121688969121,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -7501,7 +7804,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012307692307692353,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7522,7 +7825,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7543,7 +7846,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.06153121688969121,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -7565,7 +7868,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7586,7 +7889,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7607,7 +7910,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02118732955737357,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -7629,7 +7932,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012499999999999956,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7650,7 +7953,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012307692307692353,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7671,7 +7974,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012307692307692353,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7692,7 +7995,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.1702017589239524,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -7713,7 +8016,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.013804654259469196,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -7931,7 +8234,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012307692307692353,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7952,7 +8255,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -7973,7 +8276,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8235294117647058,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -7995,7 +8298,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-02T08:13:42.892388+00:00",
+      "updated_at": "2026-10-02T15:36:30.635859+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -8017,7 +8320,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.6383720930232558,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -8039,7 +8342,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.30987821380243574,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -8272,7 +8575,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -8572,7 +8875,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -8594,7 +8897,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -8637,7 +8940,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -8681,7 +8984,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -8746,8 +9049,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -8829,7 +9132,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -8872,7 +9175,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.4,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -8893,7 +9196,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010045912961582193,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -8915,7 +9218,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -8936,7 +9239,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.30221811460258785,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -8957,7 +9260,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.17530045586406962,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -8978,7 +9281,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012699173355696702,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -9000,7 +9303,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.19093041438623926,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9536,7 +9839,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.016260162601625994,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9557,7 +9860,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9578,7 +9881,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8095238095238095,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9599,7 +9902,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9620,7 +9923,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9047619047619048,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9641,7 +9944,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9523809523809523,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9662,7 +9965,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.2621902478017586,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -9684,7 +9987,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9705,7 +10008,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9726,7 +10029,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.4933333333333333,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9747,7 +10050,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.04424778761061943,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9768,7 +10071,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9810,7 +10113,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013953488372092981,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -9831,7 +10134,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.17102803738317762,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -10006,7 +10309,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -10027,7 +10330,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.057010785824345156,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -10049,7 +10352,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.012618296529968487,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -10070,7 +10373,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.014037985136250986,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -10092,7 +10395,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.16418604651162794,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -10304,7 +10607,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.01851851851851849,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -10582,7 +10885,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -10624,7 +10927,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -10645,7 +10948,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -10838,7 +11141,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -10881,7 +11184,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -10944,7 +11247,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -10965,7 +11268,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.01851851851851849,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -10986,7 +11289,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3517305893358279,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11007,7 +11310,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11513,7 +11816,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.16005176876617777,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11534,7 +11837,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017391304347826098,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "Asia"
@@ -11556,7 +11859,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.7619047619047619,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11708,7 +12011,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8095238095238095,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11729,7 +12032,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.013212221304706895,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -11796,7 +12099,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9523809523809523,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -11817,7 +12120,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.30086877000457246,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -11839,7 +12142,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.018181818181818188,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -11860,7 +12163,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.5351032448377582,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -11883,7 +12186,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.46194926568758343,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -11905,7 +12208,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.4334177215189874,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -11928,7 +12231,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.2711348057882711,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -11950,7 +12253,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.04020100502512558,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -12125,7 +12428,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.06317411402157169,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -12147,7 +12450,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8823529411764706,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -12169,7 +12472,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-02T08:13:42.892388+00:00",
+      "updated_at": "2026-10-02T15:36:30.635859+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -12191,7 +12494,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.6023255813953489,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -12213,7 +12516,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.16018423746161714,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -12235,7 +12538,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -12361,7 +12664,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -12382,7 +12685,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -12727,7 +13030,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -13026,8 +13329,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -13070,7 +13373,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -13110,7 +13413,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -13131,7 +13434,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -13152,7 +13455,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.01246719160104992,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -13660,7 +13963,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -13681,7 +13984,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.025155011380582404,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -13768,7 +14071,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.326271186440678,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -13791,7 +14094,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.024390243902439046,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -13835,7 +14138,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.5632111251580278,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -13858,7 +14161,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.5944253686124015,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -13881,7 +14184,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.41163793103448276,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -13903,7 +14206,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.4295600593178448,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -13926,7 +14229,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3181039406053684,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -13948,7 +14251,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.20880503144654083,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -14124,7 +14427,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -14145,7 +14448,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.2856583838779104,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -14167,7 +14470,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.4137931034482759,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -14189,7 +14492,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.2993630573248408,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -14211,7 +14514,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.2868900646678424,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -14380,7 +14683,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -14401,7 +14704,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.423728813559322,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -14487,7 +14790,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -14867,7 +15170,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -15041,7 +15344,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -15128,7 +15431,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -15170,7 +15473,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.4,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -15298,7 +15601,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -15871,7 +16174,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -15892,7 +16195,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -15913,7 +16216,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -15977,7 +16280,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.22484076433121014,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -15999,7 +16302,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -16130,7 +16433,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010048278839737801,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -16152,7 +16455,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.16080402010050254,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -16173,7 +16476,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -16194,7 +16497,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3101668673662481,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -16216,7 +16519,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010204882643849555,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -16366,7 +16669,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.20335191145301834,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -16388,7 +16691,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "medium",
       "severity_score": 0.010036963321012227,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -16409,7 +16712,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "medium",
       "severity_score": 0.010036963321012227,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -16430,7 +16733,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.25045240680419834,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -16452,7 +16755,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "medium",
       "severity_score": 0.010036963321012227,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -16473,7 +16776,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.21127475876079227,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -16495,7 +16798,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -16667,7 +16970,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -16883,7 +17186,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -16927,7 +17230,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -17099,7 +17402,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -17144,7 +17447,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -17165,7 +17468,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -17226,7 +17529,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -17756,7 +18059,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010752688172043001,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -17777,7 +18080,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.01179451043554125,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -17798,7 +18101,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -17819,7 +18122,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.1306990881458967,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -17950,7 +18253,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.0326797385620915,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -17971,7 +18274,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.724025974025974,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -17993,7 +18296,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.7523809523809524,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -18015,7 +18318,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "low",
       "severity_score": 0.6,
-      "updated_at": "2026-10-02T08:13:42.892388+00:00",
+      "updated_at": "2026-10-02T15:36:30.635859+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -18126,7 +18429,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010322631289740203,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -18148,7 +18451,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.24244604316546758,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -18170,7 +18473,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.16080402010050254,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18191,7 +18494,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012589626148054034,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -18301,7 +18604,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.15852390852390852,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -18322,7 +18625,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.012453441755992167,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -18343,7 +18646,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18364,7 +18667,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.2857142857142857,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18385,7 +18688,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18494,7 +18797,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.20046620046620045,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -18516,7 +18819,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18537,7 +18840,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.20650584795321636,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -18559,7 +18862,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.2182103610675039,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -18581,7 +18884,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.1839572192513369,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -18603,7 +18906,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.24813100747597006,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -18625,7 +18928,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010729613733905574,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18646,7 +18949,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18667,7 +18970,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.0326797385620915,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18688,7 +18991,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.015075376884422065,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18814,7 +19117,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -18963,7 +19266,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -19155,7 +19458,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -19176,7 +19479,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -19351,7 +19654,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -19373,7 +19676,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Africa"
       ]
@@ -19415,7 +19718,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -19544,7 +19847,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -19563,7 +19866,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -19585,7 +19888,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -19606,7 +19909,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -19627,7 +19930,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.02999254112197225,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -19649,7 +19952,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.26811852909675116,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -19670,7 +19973,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.24445124751262814,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20158,7 +20461,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.010428335743528083,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20179,7 +20482,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.012640835394339134,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -20267,7 +20570,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017391304347826098,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "Asia"
@@ -20310,7 +20613,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.045454545454545414,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -20332,7 +20635,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.022346368715083775,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -20354,7 +20657,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.03356386640007869,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20375,7 +20678,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.20430107526881724,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -20398,7 +20701,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.3213457076566125,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -20531,7 +20834,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.03726520927379651,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -20552,7 +20855,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.2620087336244541,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20722,7 +21025,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.2521636506687648,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -20744,7 +21047,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "medium",
       "severity_score": 0.014564975395595092,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -20766,7 +21069,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.10118577075098811,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20787,7 +21090,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.24875444839857652,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -20809,7 +21112,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.014340871483728646,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -20830,7 +21133,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.045454545454545414,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -20852,7 +21155,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -21043,7 +21346,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -21216,7 +21519,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -21279,7 +21582,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -21344,7 +21647,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -21410,7 +21713,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -21496,7 +21799,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.35,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -21539,7 +21842,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -21560,7 +21863,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -22216,7 +22519,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.13373860182370823,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -22238,7 +22541,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.1890135853514472,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22259,7 +22562,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3309312638580931,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Europe"
       ]
@@ -22280,7 +22583,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.1306990881458967,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -22433,7 +22736,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22454,7 +22757,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "medium",
       "severity_score": 0.24473067915690871,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22475,7 +22778,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22496,7 +22799,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.95,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22604,7 +22907,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "medium",
       "severity_score": 0.01505376344086018,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22625,7 +22928,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.3218654434250765,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22646,7 +22949,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.07407407407407407,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22755,7 +23058,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.019704433497536922,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -22776,7 +23079,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.022151898734177222,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -22797,7 +23100,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.16155419222903888,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -22818,7 +23121,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.4768946395563771,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -22884,7 +23187,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.23173681664247703,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -22907,7 +23210,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -23080,7 +23383,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23145,7 +23448,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23187,7 +23490,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23572,7 +23875,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23680,7 +23983,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -23702,7 +24005,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23764,7 +24067,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -23785,7 +24088,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.0326797385620915,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24213,7 +24516,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.23923590054578536,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24234,7 +24537,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.19804201509280028,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24255,7 +24558,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 1.0,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24319,7 +24622,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.045454545454545414,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -24341,7 +24644,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.055077452667814164,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24494,7 +24797,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017391304347826098,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "Asia"
@@ -24516,7 +24819,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.026234567901234573,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -24625,7 +24928,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.028391167192429068,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -24646,7 +24949,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.07954545454545459,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24667,7 +24970,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.010729613733905574,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24688,7 +24991,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.1333333333333333,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -24709,7 +25012,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -25302,7 +25605,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -25643,7 +25946,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.3,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -25728,7 +26031,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -26257,7 +26560,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.30798071772897695,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26363,7 +26666,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "high",
       "severity_score": 0.1975972178311729,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26384,7 +26687,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.3220338983050848,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26517,7 +26820,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.379746835443038,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -26539,7 +26842,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8571428571428572,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26560,7 +26863,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.9047619047619048,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26581,7 +26884,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8095238095238095,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26602,7 +26905,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8571428571428572,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26623,7 +26926,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.011645569620253204,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26644,7 +26947,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8095238095238095,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26665,7 +26968,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8095238095238095,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26686,7 +26989,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.30188679245283023,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26707,7 +27010,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.019298245614035037,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26728,7 +27031,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.012875536480686733,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26749,7 +27052,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.07407407407407407,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26770,7 +27073,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.7952380952380953,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -26793,7 +27096,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.010729613733905574,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -26814,7 +27117,7 @@
       "source_name": "IODA (merit-nt)",
       "confidence": "low",
       "severity_score": 0.8571428571428572,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -26925,7 +27228,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.01577287066246058,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -26946,7 +27249,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.01577287066246058,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Oceania"
       ]
@@ -27054,7 +27357,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27075,7 +27378,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.38983050847457623,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27096,7 +27399,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27117,7 +27420,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "high",
       "severity_score": 0.010729613733905574,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27138,7 +27441,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.017699115044247815,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27159,7 +27462,7 @@
       "source_name": "IODA (ping-slash24)",
       "confidence": "low",
       "severity_score": 0.44067796610169496,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27180,7 +27483,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.21568627450980393,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -27586,7 +27889,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -27628,7 +27931,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -27693,7 +27996,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -27955,7 +28258,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": []
     },
     {
@@ -28059,7 +28362,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "Europe"
       ]
@@ -28420,7 +28723,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.03858185610010423,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -28441,7 +28744,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.13971589803463713,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -28462,7 +28765,7 @@
       "source_name": "IODA (gtr)",
       "confidence": "low",
       "severity_score": 0.45688748685594116,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -28594,7 +28897,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.036462830677447156,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -28616,7 +28919,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.01144303797468349,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -28637,7 +28940,7 @@
       "source_name": "IODA (bgp)",
       "confidence": "low",
       "severity_score": 0.029629629629629672,
-      "updated_at": "2026-10-02T08:13:42.385900+00:00",
+      "updated_at": "2026-10-02T15:36:30.194124+00:00",
       "regions": [
         "Africa"
       ]
@@ -29366,7 +29669,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-02T08:13:42.892388+00:00",
+      "updated_at": "2026-10-02T15:36:30.635859+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -30076,8 +30379,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.2,
-      "updated_at": "2026-10-02T08:13:46.087533+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-02T15:36:34.239864+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -82071,15 +82374,15 @@
     }
   ],
   "meta": {
-    "total_events": 3830,
+    "total_events": 3844,
     "countries_count": 149,
     "causes_breakdown": {
-      "disaster": 1135,
-      "unexplained": 2680,
+      "disaster": 1141,
+      "unexplained": 2688,
       "shutdown": 15
     },
     "date_min": "2026-08-10T00:00:00+00:00",
-    "date_max": "2026-10-02T08:13:47.608274+00:00",
+    "date_max": "2026-10-02T15:36:36.225245+00:00",
     "region_options": [
       {
         "value": "all",
@@ -82147,8 +82450,8 @@
         "access": "Free, no key",
         "granularity": "Country / ASN",
         "key_required": false,
-        "contributed": 743,
-        "contributed_label": "743 outage events",
+        "contributed": 745,
+        "contributed_label": "745 outage events",
         "configured": null
       },
       {
@@ -82171,8 +82474,8 @@
         "access": "Free, no key",
         "granularity": "City / ISP",
         "key_required": false,
-        "contributed": 1588,
-        "contributed_label": "1588 outage events",
+        "contributed": 1593,
+        "contributed_label": "1593 outage events",
         "configured": null
       },
       {
@@ -82183,8 +82486,8 @@
         "access": "Free, no key (optional account for higher rate limit)",
         "granularity": "Country (aircraft registry)",
         "key_required": false,
-        "contributed": 1476,
-        "contributed_label": "1476 outage events",
+        "contributed": 1483,
+        "contributed_label": "1483 outage events",
         "configured": null
       },
       {
@@ -82195,8 +82498,8 @@
         "access": "Free, no key",
         "granularity": "Lat/lon",
         "key_required": false,
-        "contributed": 1753,
-        "contributed_label": "1753 cause records",
+        "contributed": 1759,
+        "contributed_label": "1759 cause records",
         "configured": null
       },
       {
