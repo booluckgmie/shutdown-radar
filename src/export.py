@@ -131,7 +131,7 @@ def _sources_status(conn: sqlite3.Connection, events: list[dict[str, Any]]) -> l
     return catalog
 
 
-def build_payload(conn: sqlite3.Connection) -> dict[str, Any]:
+def build_payload(conn: sqlite3.Connection, site_analytics: dict[str, Any] | None = None) -> dict[str, Any]:
     rows = db.events_to_dicts(db.fetch_all_events(conn))
     for r in rows:
         r["regions"] = _region_tags_for_event(r)
@@ -147,6 +147,7 @@ def build_payload(conn: sqlite3.Connection) -> dict[str, Any]:
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "events": rows,
+        "site_analytics": site_analytics,
         "meta": {
             "total_events": len(rows),
             "countries_count": len(countries),

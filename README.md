@@ -141,6 +141,7 @@ cp .env.example .env   # fill in whichever keys you have — all optional, see b
 | `FAA_NOTAM_CLIENT_ID` / `FAA_NOTAM_CLIENT_SECRET` | [FAA API Portal](https://developer.faa.gov) (free registration) | Phase 2 restricted-airspace attribution (US only) |
 | `GOV_SHUTDOWN_SOURCES` | No key — comma-separated `Country\|https://...` pairs pointing at official government/regulator notice pages you choose | Phase 2 shutdown attribution (direct scrape) |
 | `NOMINATIM_USER_AGENT` | none — just set a real contact per [Nominatim's usage policy](https://operations.osmfoundation.org/policies/nominatim/) | Phase 3 geocoding |
+| `VERCEL_API_TOKEN` / `VERCEL_PROJECT_ID` / `VERCEL_TEAM_ID` | [Vercel Access Token](https://vercel.com/account/tokens) (free) — project/team IDs from the project's Vercel settings | "Site analytics" dashboard section |
 
 IODA, GDACS, RIPE Atlas, and OpenSky (anonymous mode) need no key and run unconditionally.
 
@@ -281,6 +282,29 @@ but it does not export a top-level app/application/handler variable"*.
 `.vercelignore` (excluding `main.py`, `src/`, and the rest of the Python codebase
 from the deployment entirely) fix this — same static-only deployment as Netlify,
 just spelled out explicitly since Vercel's auto-detection gets it wrong here.
+
+### Site analytics
+
+The dashboard's "Site analytics" section shows traffic to the deployed dashboard
+itself (pageviews, top pages, top countries, top referrers) via
+[Vercel Web Analytics](https://vercel.com/docs/analytics) — separate from, and
+unrelated to, the disruption data everywhere else on the page. It needs two
+one-time manual steps (no API exists to do either remotely):
+
+1. **Enable it in Vercel**: Project → Analytics tab → Enable Web Analytics.
+   The dashboard's `<head>` already ships the plain-HTML tracking snippet
+   (`/_vercel/insights/script.js`) unconditionally — it's inert until this step
+   is done, so there's nothing to redeploy afterward.
+2. **Let the pipeline read it back**: create a
+   [Vercel Access Token](https://vercel.com/account/tokens) scoped to the team
+   that owns the project, and set it as the `VERCEL_API_TOKEN` GitHub secret
+   (plus `VERCEL_PROJECT_ID` / `VERCEL_TEAM_ID`, not secret — see
+   `.github/workflows/refresh.yml`). The next hourly refresh
+   (`src/site_analytics.py`, Phase 4) then bakes a 30-day summary into
+   `dist/data.json`.
+
+Until both are done, the section shows a plain "not configured" note instead of
+stats — same fail-soft pattern as every other source in this pipeline.
 
 ## Known limitations
 

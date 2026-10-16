@@ -64,6 +64,13 @@ class Settings:
     # regulator notice pages. See src/ingestion/gov_shutdown_scraper.py.
     gov_shutdown_sources: str = field(default_factory=lambda: os.environ.get("GOV_SHUTDOWN_SOURCES", ""))
 
+    # Vercel Web Analytics — pageview stats for the deployed dashboard
+    # itself (not a disruption data source, see src/site_analytics.py).
+    # project/team IDs aren't secret, only the token is.
+    vercel_api_token: str = field(default_factory=lambda: os.environ.get("VERCEL_API_TOKEN", ""))
+    vercel_project_id: str = field(default_factory=lambda: os.environ.get("VERCEL_PROJECT_ID", ""))
+    vercel_team_id: str = field(default_factory=lambda: os.environ.get("VERCEL_TEAM_ID", ""))
+
     def has_cloudflare(self) -> bool:
         return bool(self.cloudflare_api_token)
 
@@ -81,6 +88,9 @@ class Settings:
 
     def has_gov_shutdown_sources(self) -> bool:
         return bool(self.gov_shutdown_sources)
+
+    def has_vercel_analytics(self) -> bool:
+        return bool(self.vercel_api_token and self.vercel_project_id)
 
 
 SETTINGS = Settings()

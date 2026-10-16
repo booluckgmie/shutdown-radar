@@ -20,7 +20,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-from src import attribution, config, db, export, semantic
+from src import attribution, config, db, export, semantic, site_analytics
 from src.ingestion import acled, cloudflare_radar, faa_notam, gdacs, gov_shutdown_scraper, ioda, keepiton, opensky, ripe_atlas
 from src import seed_demo_data
 from dashboard.build_dashboard import render_dashboard
@@ -102,9 +102,18 @@ def cmd_semantic(args: argparse.Namespace) -> None:
 
 
 def cmd_build(args: argparse.Namespace) -> None:
+    settings = config.SETTINGS
+    try:
+        site_stats = site_analytics.fetch_summary(
+            settings.vercel_api_token, settings.vercel_project_id, settings.vercel_team_id
+        )
+    except Exception:
+        logger.exception("Site analytics fetch failed unexpectedly, continuing without it")
+        site_stats = None
+
     with db.connect() as conn:
         db.init_db(conn)
-        payload = export.build_payload(conn)
+        payload = export.build_payload(conn, site_analytics=site_stats)
 
     data_path = config.DIST_DIR / "data.json"
     data_path.write_text(json.dumps(payload, indent=2, default=str))

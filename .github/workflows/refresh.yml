@@ -50,6 +50,9 @@ jobs:
           FAA_NOTAM_CLIENT_SECRET: ${{ secrets.FAA_NOTAM_CLIENT_SECRET }}
           GOV_SHUTDOWN_SOURCES: ${{ secrets.GOV_SHUTDOWN_SOURCES }}
           NOMINATIM_USER_AGENT: ${{ vars.NOMINATIM_USER_AGENT }}
+          VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+          VERCEL_PROJECT_ID: prj_hLiACkN0ODFWZhOzGdc9FArASKVR
+          VERCEL_TEAM_ID: team_YWXoh9J5uvtJSnOIlBq2H8Rl
         run: python main.py all
 
       - name: Commit refreshed dashboard + growing historical archive

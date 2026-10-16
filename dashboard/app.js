@@ -697,6 +697,51 @@
     table.innerHTML = html;
   }
 
+  // ---------- site analytics ----------
+  function renderSiteAnalytics() {
+    var wrap = document.getElementById("analyticsBody");
+    if (!wrap) return;
+    var a = DATA.site_analytics;
+
+    if (!a) {
+      wrap.innerHTML = '<div class="card"><p class="analytics-empty">' +
+        'Not configured yet. Two one-time steps: (1) enable Web Analytics for this project in the Vercel ' +
+        'dashboard — Project → Analytics → Enable, and (2) set the <code>VERCEL_API_TOKEN</code> GitHub secret ' +
+        '(plus <code>VERCEL_PROJECT_ID</code>) so the hourly refresh can pull the numbers in. See README "Site analytics".</p></div>';
+      return;
+    }
+
+    var days = a.by_day || [];
+    var maxDay = Math.max.apply(null, days.map(function (d) { return d.value; }).concat([1]));
+    var barsHtml = days.map(function (d) {
+      var h = Math.max(2, Math.round((d.value / maxDay) * 70));
+      return '<div class="bar" style="height:' + h + 'px" title="' + escapeHtml(d.label) + ': ' + fmtNum(d.value) + '"></div>';
+    }).join("");
+
+    function rankList(rows) {
+      if (!rows || !rows.length) return '<p class="analytics-empty">No data yet.</p>';
+      var max = Math.max.apply(null, rows.map(function (r) { return r.value; }).concat([1]));
+      return '<div class="rank-list">' + rows.map(function (r) {
+        var pct = Math.max(4, Math.round((r.value / max) * 100));
+        return '<div class="rank-item"><div class="rank-bar" style="width:' + pct + '%"></div>' +
+          '<div class="rank-row"><span>' + escapeHtml(r.label) + '</span><b>' + fmtNum(r.value) + '</b></div></div>';
+      }).join("") + '</div>';
+    }
+
+    wrap.innerHTML =
+      '<div class="card">' +
+        '<div class="analytics-kpi"><span class="value">' + fmtNum(a.total_pageviews) + '</span>' +
+        '<span class="label">pageviews, last ' + a.window_days + ' days</span></div>' +
+        '<div class="day-bars">' + barsHtml + '</div>' +
+        '<p class="card-note">Fetched at build time (hourly) from Vercel Web Analytics · as of ' + fmtDateTime(a.fetched_at) + '</p>' +
+      '</div>' +
+      '<div class="analytics-grid">' +
+        '<div class="card"><h2>Top pages</h2>' + rankList(a.top_pages) + '</div>' +
+        '<div class="card"><h2>Top countries</h2>' + rankList(a.top_countries) + '</div>' +
+        '<div class="card"><h2>Top referrers</h2>' + rankList(a.top_referrers) + '</div>' +
+      '</div>';
+  }
+
   // ---------- render orchestration ----------
   function renderAll() {
     var filtered = applyFilters();
@@ -873,5 +918,6 @@
   }
 
   renderPipelineSection();
+  renderSiteAnalytics();
   renderAll();
 })();
