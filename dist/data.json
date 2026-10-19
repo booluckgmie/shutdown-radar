@@ -1,6 +1,202 @@
 {
-  "generated_at": "2026-10-19T14:30:44.592081+00:00",
+  "generated_at": "2026-10-19T20:29:14.182131+00:00",
   "events": [
+    {
+      "event_id": "opensky:Egypt:2026-10-19",
+      "lat": 26.82,
+      "lon": 30.8,
+      "region_name": "Egypt",
+      "country": "Egypt",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.5172413793103448,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "opensky:Malaysia:2026-10-19",
+      "lat": 4.21,
+      "lon": 101.98,
+      "region_name": "Malaysia",
+      "country": "Malaysia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.46341463414634143,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:South Africa:2026-10-19",
+      "lat": -30.56,
+      "lon": 22.94,
+      "region_name": "South Africa",
+      "country": "South Africa",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.6956521739130435,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Africa"
+      ]
+    },
+    {
+      "event_id": "opensky:China:2026-10-19",
+      "lat": 35.86,
+      "lon": 104.2,
+      "region_name": "China",
+      "country": "China",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "high",
+      "severity_score": 0.4330708661417323,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:India:2026-10-19",
+      "lat": 20.59,
+      "lon": 78.96,
+      "region_name": "India",
+      "country": "India",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.6144578313253012,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "South Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Japan:2026-10-19",
+      "lat": 36.2,
+      "lon": 138.25,
+      "region_name": "Japan",
+      "country": "Japan",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.576271186440678,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "East Asia",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Indonesia:2026-10-19",
+      "lat": -0.79,
+      "lon": 113.92,
+      "region_name": "Indonesia",
+      "country": "Indonesia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "high",
+      "severity_score": 0.8387096774193549,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "opensky:Greece:2026-10-19",
+      "lat": 39.07,
+      "lon": 21.82,
+      "region_name": "Greece",
+      "country": "Greece",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.45945945945945943,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "opensky:Czechia:2026-10-19",
+      "lat": 49.82,
+      "lon": 15.47,
+      "region_name": "Czechia",
+      "country": "Czechia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T20:28:10.351733+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "OpenSky Network",
+      "confidence": "low",
+      "severity_score": 0.47619047619047616,
+      "updated_at": "2026-10-19T20:28:10.370345+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
     {
       "event_id": "opensky:New Zealand:2026-10-19",
       "lat": -40.9,
@@ -63,51 +259,6 @@
       "updated_at": "2026-10-19T14:29:39.845387+00:00",
       "regions": [
         "Oceania"
-      ]
-    },
-    {
-      "event_id": "opensky:Japan:2026-10-19",
-      "lat": 36.2,
-      "lon": 138.25,
-      "region_name": "Japan",
-      "country": "Japan",
-      "asn": null,
-      "timestamp_start": "2026-10-19T14:29:39.821781+00:00",
-      "timestamp_end": null,
-      "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
-      "source_type": "structured",
-      "source_name": "OpenSky Network",
-      "confidence": "low",
-      "severity_score": 0.5847457627118644,
-      "updated_at": "2026-10-19T14:29:39.845387+00:00",
-      "regions": [
-        "East Asia",
-        "Asia"
-      ]
-    },
-    {
-      "event_id": "opensky:Indonesia:2026-10-19",
-      "lat": -0.79,
-      "lon": 113.92,
-      "region_name": "Indonesia",
-      "country": "Indonesia",
-      "asn": null,
-      "timestamp_start": "2026-10-19T14:29:39.821781+00:00",
-      "timestamp_end": null,
-      "duration_hours": null,
-      "cause": "disaster",
-      "cause_subtype": "earthquake",
-      "source_type": "structured",
-      "source_name": "OpenSky Network",
-      "confidence": "high",
-      "severity_score": 0.5161290322580645,
-      "updated_at": "2026-10-19T14:29:39.845387+00:00",
-      "regions": [
-        "Southeast Asia",
-        "ASEAN",
-        "Asia"
       ]
     },
     {
@@ -327,27 +478,6 @@
       ]
     },
     {
-      "event_id": "opensky:Greece:2026-10-19",
-      "lat": 39.07,
-      "lon": 21.82,
-      "region_name": "Greece",
-      "country": "Greece",
-      "asn": null,
-      "timestamp_start": "2026-10-19T00:59:02.838826+00:00",
-      "timestamp_end": null,
-      "duration_hours": null,
-      "cause": "disaster",
-      "cause_subtype": "earthquake",
-      "source_type": "structured",
-      "source_name": "OpenSky Network",
-      "confidence": "low",
-      "severity_score": 0.92,
-      "updated_at": "2026-10-19T00:59:02.856334+00:00",
-      "regions": [
-        "Europe"
-      ]
-    },
-    {
       "event_id": "opensky:Denmark:2026-10-19",
       "lat": 56.26,
       "lon": 9.5,
@@ -405,27 +535,6 @@
       "source_name": "OpenSky Network",
       "confidence": "low",
       "severity_score": 0.8525519848771267,
-      "updated_at": "2026-10-19T00:59:02.856334+00:00",
-      "regions": [
-        "Europe"
-      ]
-    },
-    {
-      "event_id": "opensky:Czechia:2026-10-19",
-      "lat": 49.82,
-      "lon": 15.47,
-      "region_name": "Czechia",
-      "country": "Czechia",
-      "asn": null,
-      "timestamp_start": "2026-10-19T00:59:02.838826+00:00",
-      "timestamp_end": null,
-      "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
-      "source_type": "structured",
-      "source_name": "OpenSky Network",
-      "confidence": "low",
-      "severity_score": 0.7391304347826086,
       "updated_at": "2026-10-19T00:59:02.856334+00:00",
       "regions": [
         "Europe"
@@ -684,6 +793,206 @@
       ]
     },
     {
+      "event_id": "ripe:TH:2026-10-19",
+      "lat": 15.87,
+      "lon": 100.99,
+      "region_name": "Thailand",
+      "country": "Thailand",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:MY:2026-10-19",
+      "lat": 4.21,
+      "lon": 101.98,
+      "region_name": "Malaysia",
+      "country": "Malaysia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:NO:2026-10-19",
+      "lat": 60.47,
+      "lon": 8.47,
+      "region_name": "Norway",
+      "country": "Norway",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ripe:IE:2026-10-19",
+      "lat": 53.41,
+      "lon": -8.24,
+      "region_name": "Ireland",
+      "country": "Ireland",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ripe:TR:2026-10-19",
+      "lat": 38.96,
+      "lon": 35.24,
+      "region_name": "Turkey",
+      "country": "Turkey",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Middle East",
+        "Asia",
+        "Europe"
+      ]
+    },
+    {
+      "event_id": "ripe:IR:2026-10-19",
+      "lat": 32.43,
+      "lon": 53.69,
+      "region_name": "Iran",
+      "country": "Iran",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.5,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Middle East",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:AU:2026-10-19",
+      "lat": -25.27,
+      "lon": 133.78,
+      "region_name": "Australia",
+      "country": "Australia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "high",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Oceania"
+      ]
+    },
+    {
+      "event_id": "ripe:SG:2026-10-19",
+      "lat": 1.35,
+      "lon": 103.82,
+      "region_name": "Singapore",
+      "country": "Singapore",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "unexplained",
+      "cause_subtype": null,
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "low",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
+      "event_id": "ripe:ID:2026-10-19",
+      "lat": -0.79,
+      "lon": 113.92,
+      "region_name": "Indonesia",
+      "country": "Indonesia",
+      "asn": null,
+      "timestamp_start": "2026-10-19T00:00:00+00:00",
+      "timestamp_end": null,
+      "duration_hours": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
+      "source_type": "structured",
+      "source_name": "RIPE Atlas",
+      "confidence": "high",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
+      "regions": [
+        "Southeast Asia",
+        "ASEAN",
+        "Asia"
+      ]
+    },
+    {
       "event_id": "ripe:PL:2026-10-19",
       "lat": 51.92,
       "lon": 19.15,
@@ -698,8 +1007,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.55,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -763,8 +1072,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -827,7 +1136,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -910,8 +1219,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -931,8 +1240,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -953,7 +1262,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Central Asia",
         "Asia"
@@ -974,8 +1283,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.25,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -996,7 +1305,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -1033,11 +1342,11 @@
       "timestamp_start": "2026-10-19T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "RIPE Atlas",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.1,
       "updated_at": "2026-10-19T06:01:26.190137+00:00",
       "regions": [
@@ -1061,7 +1370,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -1083,7 +1392,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -1105,7 +1414,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -1149,8 +1458,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.5,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.65,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -1171,8 +1480,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -1192,8 +1501,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.7,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.65,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -1213,8 +1522,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.45,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -1235,7 +1544,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 1.0,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -1253,8 +1562,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -1275,7 +1584,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 1.0,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -1295,8 +1604,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -1338,8 +1647,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.35,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.4,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -2515,7 +2824,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -2536,7 +2845,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -2559,7 +2868,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -2581,7 +2890,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -2775,8 +3084,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -2884,8 +3193,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.35,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -2904,7 +3213,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -3288,11 +3597,11 @@
       "timestamp_start": "2026-10-18T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "IODA (ping-slash24)",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.7426470588235294,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -4773,11 +5082,11 @@
       "timestamp_start": "2026-10-18T00:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "earthquake",
       "source_type": "structured",
       "source_name": "IODA (ping-slash24)",
-      "confidence": "low",
+      "confidence": "medium",
       "severity_score": 0.858343337334934,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -6207,8 +6516,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -6229,8 +6538,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -6250,8 +6559,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.35,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.3,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -6272,8 +6581,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.3,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.25,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -7320,6 +7629,28 @@
       ]
     },
     {
+      "event_id": "cloudflare:1724",
+      "lat": 7.87,
+      "lon": 80.77,
+      "region_name": "Sri Lanka",
+      "country": "Sri Lanka",
+      "asn": null,
+      "timestamp_start": "2026-10-17T06:15:00Z",
+      "timestamp_end": "2026-10-17T17:00:00Z",
+      "duration_hours": 10.75,
+      "cause": "disaster",
+      "cause_subtype": "power",
+      "source_type": "structured",
+      "source_name": "Cloudflare Radar",
+      "confidence": "medium",
+      "severity_score": 0.6,
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
+      "regions": [
+        "South Asia",
+        "Asia"
+      ]
+    },
+    {
       "event_id": "ioda:SR:1792213500",
       "lat": 3.92,
       "lon": -56.03,
@@ -8024,7 +8355,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -8111,8 +8442,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.5,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.45,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -8243,8 +8574,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -8266,7 +8597,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -8307,8 +8638,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.3,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.25,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -8348,7 +8679,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -9979,8 +10310,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "high",
-      "severity_score": 0.65,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.6,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -10044,7 +10375,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -10177,7 +10508,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -10196,7 +10527,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -10238,7 +10569,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -10302,7 +10633,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.45,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -10323,8 +10654,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.2,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -10345,7 +10676,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -12598,7 +12929,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Africa"
       ]
@@ -13033,7 +13364,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Oceania"
       ]
@@ -13118,7 +13449,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -13204,7 +13535,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.4,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -13266,7 +13597,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.45,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -13287,7 +13618,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "Africa"
       ]
@@ -14666,7 +14997,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -14818,7 +15149,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -14903,7 +15234,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -14946,7 +15277,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -15182,7 +15513,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -15269,7 +15600,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.3,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -15952,7 +16283,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "low",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -16791,7 +17122,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -16964,7 +17295,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -17198,7 +17529,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -17241,7 +17572,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -17263,7 +17594,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.35,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -17281,8 +17612,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "low",
-      "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.15,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -18337,7 +18668,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -18424,7 +18755,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -18531,7 +18862,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -18749,7 +19080,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -18771,7 +19102,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -18790,7 +19121,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -20182,7 +20513,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -20354,7 +20685,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -20419,7 +20750,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -21275,7 +21606,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -21700,7 +22031,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -21807,7 +22138,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -21896,7 +22227,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -22156,7 +22487,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -22586,7 +22917,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -22905,11 +23236,11 @@
       "timestamp_start": "2026-10-09T04:45:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "IODA (bgp)",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.014358974358974375,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -22926,11 +23257,11 @@
       "timestamp_start": "2026-10-09T03:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "IODA (bgp)",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.014358974358974375,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -23452,11 +23783,11 @@
       "timestamp_start": "2026-10-09T00:50:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "IODA (bgp)",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.014358974358974375,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -24087,7 +24418,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -24108,7 +24439,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -24129,7 +24460,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.3,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -24151,7 +24482,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -24170,7 +24501,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -24981,7 +25312,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -25301,7 +25632,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -25773,7 +26104,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -25794,7 +26125,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -25816,7 +26147,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -25879,7 +26210,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -25984,7 +26315,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "high",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": []
     },
     {
@@ -26835,11 +27166,11 @@
       "timestamp_start": "2026-10-07T02:35:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "IODA (bgp)",
-      "confidence": "low",
+      "confidence": "high",
       "severity_score": 0.024630541871921152,
       "updated_at": "2026-10-18T14:24:02.255731+00:00",
       "regions": [
@@ -27095,7 +27426,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -27227,7 +27558,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -27249,7 +27580,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Southeast Asia",
         "ASEAN",
@@ -27272,7 +27603,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -27314,7 +27645,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -27336,7 +27667,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Africa"
       ]
@@ -27464,7 +27795,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -27485,7 +27816,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Oceania"
       ]
@@ -27572,7 +27903,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South America",
         "Americas"
@@ -27615,7 +27946,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -27658,7 +27989,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -27679,7 +28010,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -27722,7 +28053,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.7,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -27744,7 +28075,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -27765,7 +28096,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -28919,7 +29250,7 @@
       "source_name": "Cloudflare Radar",
       "confidence": "medium",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:35.245014+00:00",
+      "updated_at": "2026-10-19T20:28:05.700393+00:00",
       "regions": [
         "Middle East",
         "Asia"
@@ -29134,7 +29465,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29349,7 +29680,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29392,7 +29723,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29434,7 +29765,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -29477,7 +29808,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29583,7 +29914,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "East Asia",
         "Asia"
@@ -29649,7 +29980,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "South Asia",
         "Asia"
@@ -29694,7 +30025,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "medium",
       "severity_score": 0.1,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29824,7 +30155,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.4,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29908,7 +30239,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.25,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -29929,7 +30260,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.2,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -29970,7 +30301,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Oceania"
       ]
@@ -29991,7 +30322,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.35,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -30012,7 +30343,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "high",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "North America",
         "Americas"
@@ -30056,7 +30387,7 @@
       "source_name": "RIPE Atlas",
       "confidence": "low",
       "severity_score": 0.6,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": [
         "Europe"
       ]
@@ -31770,8 +32101,8 @@
       "source_type": "structured",
       "source_name": "RIPE Atlas",
       "confidence": "medium",
-      "severity_score": 0.15,
-      "updated_at": "2026-10-19T14:29:38.422955+00:00",
+      "severity_score": 0.1,
+      "updated_at": "2026-10-19T20:28:08.835677+00:00",
       "regions": []
     },
     {
@@ -32753,8 +33084,8 @@
       "timestamp_start": "2026-10-04T02:00:00+00:00",
       "timestamp_end": null,
       "duration_hours": null,
-      "cause": "unexplained",
-      "cause_subtype": null,
+      "cause": "disaster",
+      "cause_subtype": "wildfire",
       "source_type": "structured",
       "source_name": "IODA (bgp)",
       "confidence": "low",
@@ -118111,15 +118442,15 @@
   ],
   "site_analytics": null,
   "meta": {
-    "total_events": 5509,
+    "total_events": 5524,
     "countries_count": 163,
     "causes_breakdown": {
-      "disaster": 1640,
-      "unexplained": 3850,
+      "unexplained": 3852,
+      "disaster": 1653,
       "shutdown": 19
     },
     "date_min": "2026-08-10T00:00:00+00:00",
-    "date_max": "2026-10-19T14:29:39.821781+00:00",
+    "date_max": "2026-10-19T20:28:10.351733+00:00",
     "region_options": [
       {
         "value": "all",
@@ -118199,8 +118530,8 @@
         "access": "Free tier, API token",
         "granularity": "Country",
         "key_required": true,
-        "contributed": 32,
-        "contributed_label": "32 outage events",
+        "contributed": 33,
+        "contributed_label": "33 outage events",
         "configured": true
       },
       {
@@ -118211,8 +118542,8 @@
         "access": "Free, no key",
         "granularity": "City / ISP",
         "key_required": false,
-        "contributed": 2181,
-        "contributed_label": "2181 outage events",
+        "contributed": 2190,
+        "contributed_label": "2190 outage events",
         "configured": null
       },
       {
@@ -118223,8 +118554,8 @@
         "access": "Free, no key (optional account for higher rate limit)",
         "granularity": "Country (aircraft registry)",
         "key_required": false,
-        "contributed": 2148,
-        "contributed_label": "2148 outage events",
+        "contributed": 2153,
+        "contributed_label": "2153 outage events",
         "configured": null
       },
       {
@@ -118235,8 +118566,8 @@
         "access": "Free, no key",
         "granularity": "Lat/lon",
         "key_required": false,
-        "contributed": 2483,
-        "contributed_label": "2483 cause records",
+        "contributed": 2500,
+        "contributed_label": "2500 cause records",
         "configured": null
       },
       {
