@@ -29,20 +29,27 @@
     try { localStorage.setItem("radar-theme", next || ""); } catch (e) {}
   });
 
-  // ---------- provenance banner ----------
-  (function banner() {
-    var el = document.getElementById("provenanceBanner");
+  // ---------- hero (plain-language headline + demoted technical caption) ----------
+  (function hero() {
+    var headlineEl = document.getElementById("heroHeadline");
+    var metaEl = document.getElementById("heroMeta");
+    var pulseLabel = document.querySelector(".hero-pulse");
     // Substring match, not an end-anchor: semantic-layer seed records look
     // like "Serper+Groq (seed; Reuters, AP)" — the marker isn't always the
     // last thing in the string. any() rather than every(): if even one
     // record in the DB is synthetic (e.g. a `demo` run on top of a prior
     // `fetch`), that's not "live pipeline data" any more.
     var isSeed = DATA.events.some(function (e) { return e.source_name && e.source_name.indexOf("(seed") !== -1; });
+    var countries = new Set(DATA.events.map(function (e) { return e.country; })).size;
+
     if (isSeed) {
-      el.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn/OpenSky/FAA-NOTAM feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
+      if (pulseLabel) { pulseLabel.innerHTML = '<span class="live-dot" style="margin-right:0;background:var(--text-muted);box-shadow:none;animation:none"></span>Demo'; }
+      headlineEl.innerHTML = "Exploring <b>" + fmtNum(DATA.meta.total_events) + "</b> synthetic demo events across <b>" + fmtNum(countries) + "</b> countries";
+      metaEl.innerHTML = "<strong>Synthetic demo data.</strong> This sandbox has no outbound network access, so the map below is seeded from realistic-but-fabricated events (src/seed_demo_data.py) rather than live IODA/GDACS/ACLED/#KeepItOn/OpenSky/FAA-NOTAM feeds. Run <code>python main.py all</code> with network access and API keys configured (see README/.env.example) to replace this with real pipeline output — the scheduled GitHub Actions workflow does exactly that.";
     } else {
       var sources = Array.from(new Set(DATA.events.map(function (e) { return e.source_name; }))).sort();
-      el.innerHTML = "<strong>Live pipeline data.</strong> " + DATA.meta.total_events + " events from " + sources.length + " source feeds. Generated " + fmtDateTime(DATA.generated_at) + ".";
+      headlineEl.innerHTML = "Tracking <b>" + fmtNum(DATA.meta.total_events) + "</b> disruption events across <b>" + fmtNum(countries) + "</b> countries, right now";
+      metaEl.innerHTML = "Live pipeline data · " + fmtNum(DATA.meta.total_events) + " events from " + sources.length + " source feeds · generated " + fmtDateTime(DATA.generated_at) + ".";
     }
   })();
 
@@ -550,6 +557,19 @@
     return '<span class="icon-badge"><svg class="ic" viewBox="0 0 24 24">' + KPI_ICONS[name] + "</svg></span>";
   }
 
+  var kpiFirstRender = true;
+  function animateCount(el2, target) {
+    var startTime = null, duration = 600;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p = Math.min(1, (ts - startTime) / duration);
+      var eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      el2.textContent = fmtNum(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   function renderKpis(filtered) {
     var el = document.getElementById("kpiRow");
     var countries = new Set(filtered.map(function (e) { return e.country; }));
@@ -561,8 +581,8 @@
     var highConfActive = state.minConf === "high";
 
     var tiles = [
-      { label: "Events in view", value: fmtNum(filtered.length), icon: "events" },
-      { label: "Countries affected", value: fmtNum(countries.size), icon: "globe" },
+      { label: "Events in view", value: fmtNum(filtered.length), raw: filtered.length, icon: "events" },
+      { label: "Countries affected", value: fmtNum(countries.size), raw: countries.size, icon: "globe" },
       { label: "Cumulative downtime", value: fmtHours(totalDowntime), icon: "clock" },
       { label: "Unexplained share", value: unexplainedPct.toFixed(0) + "%", icon: "question", click: "toggleUnexplainedOnly", active: unexplainedIsolated },
       { label: "High-confidence share", value: highConfPct.toFixed(0) + "%", icon: "shield", click: "toggleHighConfidenceOnly", active: highConfActive },
@@ -572,6 +592,18 @@
       return '<div class="' + cls + '" data-kpi-index="' + i + '"><div class="kpi-top"><span class="label">' + t.label + "</span>" + kpiIcon(t.icon) +
         '</div><div class="value">' + t.value + "</div></div>";
     }).join("");
+
+    // A one-time count-up on first paint reads as "alive" without being
+    // distracting on every filter tweak afterward (plain integers only --
+    // animating through formatted percent/hour strings mid-flight looks broken).
+    if (kpiFirstRender) {
+      tiles.forEach(function (t, i) {
+        if (t.raw == null) return;
+        var valueEl = el.querySelector('[data-kpi-index="' + i + '"] .value');
+        if (valueEl) animateCount(valueEl, t.raw);
+      });
+      kpiFirstRender = false;
+    }
 
     tiles.forEach(function (t, i) {
       if (!t.click) return;

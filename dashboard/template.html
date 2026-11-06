@@ -123,8 +123,14 @@
   .rail a:hover{background:rgba(255,255,255,.05);color:#fff}
   .rail a.active{background:var(--rail-active-bg);color:var(--rail-active-fg)}
   .rail a svg{opacity:.9}
+  .rail-label{padding:14px 14px 4px;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--rail-text-dim)}
   .rail-foot{padding:12px 14px 16px;border-top:1px solid var(--rail-border);font-size:11px;color:var(--rail-text-dim)}
-  .rail-foot .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ecf6e;margin-right:5px;box-shadow:0 0 0 3px rgba(62,207,110,.18)}
+  .live-dot,.rail-foot .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ecf6e;margin-right:5px;box-shadow:0 0 0 3px rgba(62,207,110,.18);animation:pulse-dot 2.2s ease-in-out infinite}
+  @keyframes pulse-dot{
+    0%,100%{box-shadow:0 0 0 3px rgba(62,207,110,.18)}
+    50%{box-shadow:0 0 0 6px rgba(62,207,110,.06)}
+  }
+  @media (prefers-reduced-motion: reduce){ .live-dot{animation:none} }
   .rail-toggle{
     display:none;position:fixed;top:14px;left:14px;z-index:30;background:var(--rail-bg);color:#fff;
     border:1px solid var(--rail-border);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;
@@ -160,6 +166,27 @@
     font-size:12.5px;color:var(--text-secondary);box-shadow:var(--shadow);
   }
   .banner strong{color:var(--text-primary)}
+
+  /* ---------- hero (Overview opener) ---------- */
+  .hero{
+    border:1px solid var(--border);border-radius:16px;padding:22px 26px;margin:0 0 20px;
+    background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--surface-1)), var(--surface-1) 65%);
+    box-shadow:var(--shadow);
+    animation:hero-rise .5s ease-out;
+  }
+  @keyframes hero-rise{ from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+  @media (prefers-reduced-motion: reduce){ .hero{animation:none} }
+  .hero-pulse{
+    display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:#1f9d57;background:rgba(62,207,110,.12);border-radius:999px;padding:4px 10px 4px 8px;
+  }
+  @media (prefers-color-scheme: dark){ :root:where(:not([data-theme="light"])) .hero-pulse{color:#6fe3a0} }
+  :root[data-theme="dark"] .hero-pulse{color:#6fe3a0}
+  .hero-headline{font-size:22px;font-weight:700;margin:14px 0 6px;line-height:1.25;max-width:70ch}
+  .hero-headline b{color:var(--accent)}
+  .hero-sub{font-size:13px;color:var(--text-secondary);margin:0 0 12px;max-width:68ch}
+  .hero-meta{font-size:11.5px;color:var(--text-muted)}
+  .hero-meta code{background:var(--surface-2);border-radius:4px;padding:1px 5px;font-size:11px}
   .card{
     background:var(--surface-1);border:1px solid var(--border);border-radius:14px;
     padding:18px;box-shadow:var(--shadow);
@@ -358,13 +385,10 @@
       <svg class="ic" viewBox="0 0 24 24"><path d="M4 19V9M11 19V5M18 19v-7"/><path d="M2 19h20"/></svg>
       Trends &amp; insights
     </a>
+    <div class="rail-label">For researchers</div>
     <a href="#sec-pipeline" data-target="sec-pipeline">
       <svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
-      Pipeline &amp; sources
-    </a>
-    <a href="#sec-data" data-target="sec-data">
-      <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
-      Raw data
+      Data &amp; methodology
     </a>
     <a href="#sec-analytics" data-target="sec-analytics">
       <svg class="ic" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
@@ -392,7 +416,14 @@
 
   <div class="page">
 
-    <div class="banner" id="provenanceBanner"><!-- filled by JS --></div>
+    <div class="hero" id="hero">
+      <span class="hero-pulse"><span class="live-dot" style="margin-right:0"></span>Live</span>
+      <h2 class="hero-headline" id="heroHeadline"><!-- filled by JS --></h2>
+      <p class="hero-sub">Tracking internet outages worldwide and matching each one to a likely cause —
+        natural disaster, armed conflict, cyberattack, or government-ordered shutdown — using free, open data.
+        Nothing here is paid or proprietary; dig into exactly how in <a href="#sec-pipeline">Data &amp; methodology</a>.</p>
+      <p class="hero-meta" id="heroMeta"><!-- filled by JS --></p>
+    </div>
 
     <section id="sec-overview">
       <div class="filters">
@@ -502,29 +533,29 @@
       <div class="section-head">
         <h2 class="section-title">
           <svg class="ic" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
-          Data pipeline &amp; sources
+          Data &amp; methodology
         </h2>
-        <p class="section-sub">How every record gets from a raw signal to a labeled event</p>
+        <p class="section-sub">The technical appendix — how every record gets from a raw signal to a labeled event, what it can't tell you, and the underlying rows. Nothing here changes what's shown elsewhere.</p>
       </div>
+
       <div class="card">
+        <h2>Pipeline &amp; sources</h2>
         <div id="pipelineFlow" class="pipeline-flow"></div>
         <div class="table-scroll" style="margin-top:14px">
           <table class="data-table" id="sourcesTable"></table>
         </div>
         <p class="card-note">"Contributed" counts reflect the current database, not just events currently in view (filters above don't affect this table). A source with 0 and "not configured" needs an API key — see .env.example / README.</p>
       </div>
-    </section>
 
-    <section id="sec-data">
-      <div class="section-head">
-        <h2 class="section-title">
-          <svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg>
-          Raw event data
-        </h2>
-        <p class="section-sub">Every value reachable without hovering a chart</p>
+      <div class="card" style="margin-top:14px">
+        <h2>Methodology &amp; limitations</h2>
+        <p><b>How attribution works:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas, OpenSky Network) detect connectivity/aviation disruption with no cause attached. Phase 2 joins each event to GDACS/ACLED/#KeepItOn/FAA-NOTAM/Cloudflare-DDoS records within a &plusmn;72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
+        <p><b>Known limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See the project README for the full write-up.</p>
       </div>
-      <details class="table-toggle card">
+
+      <details class="table-toggle card" style="margin-top:14px">
         <summary>View underlying event data as a table</summary>
+        <p class="card-note" style="margin-top:0">Every value reachable without hovering a chart.</p>
         <div class="table-scroll" id="rawTableWrap"></div>
       </details>
     </section>
@@ -541,8 +572,7 @@
     </section>
 
     <footer class="page-footer">
-      <p><b>Methodology:</b> Phase 1 sources (IODA, Cloudflare Radar, RIPE Atlas, OpenSky Network) detect connectivity/aviation disruption with no cause attached. Phase 2 joins each event to GDACS/ACLED/#KeepItOn/FAA-NOTAM records within a ±72h window in the same country; the closest-in-time match wins and sets the confidence tier (&le;24h = high, &le;48h = medium, &le;72h = low). Phase 3 (optional) fills remaining gaps via news search + LLM extraction, always capped at low/medium confidence and tagged "semantic".</p>
-      <p><b>Limitations:</b> correlation in time/geography is not proof of causation; country-level centroids can misattribute border-region/multi-ASN outages; semantic-layer records inherit news-coverage bias toward heavily-reported regions. See README for the full write-up.</p>
+      <p>Infrastructure Disruption Tracker — built on free, open data sources. Methodology, limitations, and raw records live in <a href="#sec-pipeline">Data &amp; methodology</a> above.</p>
     </footer>
   </div>
 </div>
