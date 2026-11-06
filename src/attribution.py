@@ -24,10 +24,16 @@ logger = logging.getLogger(__name__)
 # last: it's a raw keyword match against a live page with no per-announcement
 # date (see src/ingestion/gov_shutdown_scraper.py), the least verified
 # signal here, unlike keepiton's curated records or notam's structured API.
-# cyber_cf_radar sits right after acled/notam: it's Cloudflare's own dated
-# attack telemetry (see src/ingestion/cyber_attacks.py), a real timestamp
-# like gdacs/acled rather than a fetch-time stamp like gov_scraper.
-SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "cyber_cf_radar": 3, "gdacs": 4, "gov_scraper": 5}
+# cyber_cf_radar/ransomware_watch sit right after acled/notam: both carry
+# real dated records (Cloudflare's own attack telemetry, see
+# src/ingestion/cyber_attacks.py; ransomware group leak-site claim-publish
+# timestamps, see src/ingestion/ransomware_watch.py) rather than a
+# fetch-time stamp like gov_scraper.
+SOURCE_PRIORITY = {
+    "keepiton": 0, "notam": 1, "acled": 2,
+    "cyber_cf_radar": 3, "ransomware_watch": 4,
+    "gdacs": 5, "gov_scraper": 6,
+}
 
 
 def _parse(ts: str) -> datetime:
@@ -64,7 +70,16 @@ def _confidence_for_delta(delta_hours: float) -> str:
 # small time delta there reflects fetch timing, not evidence of a tight
 # real-world match, the way it does for every other source. Capped so it
 # can never claim "high" confidence the way a genuinely dated record can.
-MAX_CONFIDENCE_BY_SOURCE = {"gov_scraper": "medium"}
+#
+# ransomware_watch's event_date is real (a claim-publish timestamp), but
+# each record describes a breach at ONE organization -- a furniture
+# retailer, a law firm -- which is weak evidence for a COUNTRY-WIDE
+# connectivity/aviation anomaly even at a tight time match, unlike a
+# GDACS-declared national disaster or Cloudflare's own network-level DDoS
+# telemetry (cyber_cf_radar, uncapped). A tight time+country match here
+# says "a ransomware claim and an outage happened near each other," not
+# "this specific breach caused a national outage" -- capped accordingly.
+MAX_CONFIDENCE_BY_SOURCE = {"gov_scraper": "medium", "ransomware_watch": "medium"}
 _CONFIDENCE_RANK = {"low": 0, "medium": 1, "high": 2}
 
 

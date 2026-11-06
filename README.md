@@ -145,7 +145,14 @@ cp .env.example .env   # fill in whichever keys you have — all optional, see b
 | `NOMINATIM_USER_AGENT` | none — just set a real contact per [Nominatim's usage policy](https://operations.osmfoundation.org/policies/nominatim/) | Phase 3 geocoding |
 | `VERCEL_API_TOKEN` / `VERCEL_PROJECT_ID` / `VERCEL_TEAM_ID` | [Vercel Access Token](https://vercel.com/account/tokens) (free) — project/team IDs from the project's Vercel settings | "Site analytics" dashboard section |
 
-IODA, GDACS, RIPE Atlas, and OpenSky (anonymous mode) need no key and run unconditionally.
+IODA, GDACS, RIPE Atlas, OpenSky (anonymous mode), and the ransomware tracker below need no key and run unconditionally.
+
+`RANSOMWARE_WATCH` has no env var — it's a free, keyless Phase 2 cyber-attack source pulling dated,
+country-coded ransomware-group leak-site claims from [ransomware.live](https://www.ransomware.live)
+(`src/ingestion/ransomware_watch.py`). Each claim names one breached organization, which is weak
+evidence for a *country-wide* connectivity anomaly even at a tight time match, so matches through
+this source are capped at `medium` confidence (see `attribution.py::MAX_CONFIDENCE_BY_SOURCE`) —
+unlike Cloudflare's own network-level DDoS telemetry (`cyber_cf_radar`), which isn't capped.
 
 ```
 python main.py fetch       # Phase 1+2: real ingestion + attribution join

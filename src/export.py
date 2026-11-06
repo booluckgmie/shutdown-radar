@@ -79,6 +79,12 @@ SOURCE_CATALOG = [
         "cause_source_key": "cyber_cf_radar",
     },
     {
+        "name": "Ransomware tracker (ransomware.live)", "phase": 2, "category": "Cyber-attack attribution (ransomware claims)",
+        "realtime": "Real-time (claim-publish time)", "access": "Free, no key",
+        "granularity": "Country", "key_required": False,
+        "cause_source_key": "ransomware_watch",
+    },
+    {
         "name": "Serper.dev + Groq", "phase": 3, "category": "Semantic gap-filling (news + LLM)",
         "realtime": "Real-time", "access": "Free tier, 2 API keys",
         "granularity": "Geocoded via Nominatim", "key_required": True,

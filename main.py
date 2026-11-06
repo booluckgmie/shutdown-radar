@@ -21,7 +21,19 @@ import sys
 from datetime import datetime, timezone
 
 from src import attribution, config, db, export, semantic, site_analytics
-from src.ingestion import acled, cloudflare_radar, cyber_attacks, faa_notam, gdacs, gov_shutdown_scraper, ioda, keepiton, opensky, ripe_atlas
+from src.ingestion import (
+    acled,
+    cloudflare_radar,
+    cyber_attacks,
+    faa_notam,
+    gdacs,
+    gov_shutdown_scraper,
+    ioda,
+    keepiton,
+    opensky,
+    ransomware_watch,
+    ripe_atlas,
+)
 from src import seed_demo_data
 from dashboard.build_dashboard import render_dashboard
 
@@ -74,6 +86,7 @@ def cmd_fetch(args: argparse.Namespace) -> None:
             ("faa_notam", lambda: faa_notam.fetch(lookback, settings.faa_notam_client_id, settings.faa_notam_client_secret)),
             ("gov_shutdown_scraper", lambda: gov_shutdown_scraper.fetch(lookback, settings.gov_shutdown_sources)),
             ("cyber_attacks", lambda: cyber_attacks.fetch(lookback, settings.cloudflare_api_token)),
+            ("ransomware_watch", lambda: ransomware_watch.fetch(lookback)),
         ):
             try:
                 cause_events = fn()
