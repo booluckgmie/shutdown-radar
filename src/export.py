@@ -73,6 +73,12 @@ SOURCE_CATALOG = [
         "cause_source_key": "gov_scraper",
     },
     {
+        "name": "Cyber attacks (Cloudflare Radar)", "phase": 2, "category": "Cyber-attack attribution (DDoS)",
+        "realtime": "Real-time", "access": "Free tier — reuses CLOUDFLARE_API_TOKEN, no new key",
+        "granularity": "Country", "key_required": True,
+        "cause_source_key": "cyber_cf_radar",
+    },
+    {
         "name": "Serper.dev + Groq", "phase": 3, "category": "Semantic gap-filling (news + LLM)",
         "realtime": "Real-time", "access": "Free tier, 2 API keys",
         "granularity": "Geocoded via Nominatim", "key_required": True,
@@ -95,6 +101,7 @@ def _sources_status(conn: sqlite3.Connection, events: list[dict[str, Any]]) -> l
         "FAA NOTAM": settings.has_faa_notam(),
         "Gov. shutdown scraper": settings.has_gov_shutdown_sources(),
         "Serper.dev + Groq": settings.has_semantic(),
+        "Cyber attacks (Cloudflare Radar)": settings.has_cloudflare(),
     }
 
     event_counts_by_family: dict[str, int] = {}

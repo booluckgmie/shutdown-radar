@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T05:16:15.617324+00:00",
+  "generated_at": "2026-11-06T09:00:48.298348+00:00",
   "events": [
     {
       "event_id": "opensky:South Africa:2026-10-16",
@@ -108439,6 +108439,18 @@
         "realtime": "Real-time",
         "access": "Free \u2014 you supply the government page URLs",
         "granularity": "Country (page-level, no per-announcement date)",
+        "key_required": true,
+        "contributed": 0,
+        "contributed_label": "0 cause records",
+        "configured": false
+      },
+      {
+        "name": "Cyber attacks (Cloudflare Radar)",
+        "phase": 2,
+        "category": "Cyber-attack attribution (DDoS)",
+        "realtime": "Real-time",
+        "access": "Free tier \u2014 reuses CLOUDFLARE_API_TOKEN, no new key",
+        "granularity": "Country",
         "key_required": true,
         "contributed": 0,
         "contributed_label": "0 cause records",

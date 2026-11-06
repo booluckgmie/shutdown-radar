@@ -27,7 +27,8 @@ BASE_URL = "https://api.cloudflare.com/client/v4/radar/annotations/outages"
 REQUEST_TIMEOUT = 20
 
 CAUSE_KEYWORDS = {
-    "conflict": ("war", "military", "conflict", "attack", "shelling"),
+    "cyber": ("ddos", "cyberattack", "cyber attack", "cyber incident", "hack", "ransomware", "botnet", "malware"),
+    "conflict": ("war", "military", "conflict", "shelling"),
     "shutdown": ("government", "directive", "order", "censorship", "intentional", "shutdown"),
     "disaster": ("earthquake", "flood", "storm", "cyclone", "hurricane", "cable cut", "weather", "fire", "power"),
 }

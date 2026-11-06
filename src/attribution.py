@@ -24,7 +24,10 @@ logger = logging.getLogger(__name__)
 # last: it's a raw keyword match against a live page with no per-announcement
 # date (see src/ingestion/gov_shutdown_scraper.py), the least verified
 # signal here, unlike keepiton's curated records or notam's structured API.
-SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "gdacs": 3, "gov_scraper": 4}
+# cyber_cf_radar sits right after acled/notam: it's Cloudflare's own dated
+# attack telemetry (see src/ingestion/cyber_attacks.py), a real timestamp
+# like gdacs/acled rather than a fetch-time stamp like gov_scraper.
+SOURCE_PRIORITY = {"keepiton": 0, "notam": 1, "acled": 2, "cyber_cf_radar": 3, "gdacs": 4, "gov_scraper": 5}
 
 
 def _parse(ts: str) -> datetime:

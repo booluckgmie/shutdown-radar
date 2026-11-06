@@ -3,12 +3,15 @@ from __future__ import annotations
 
 import contextlib
 import json
+import logging
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Iterator
 
 from . import config
+
+logger = logging.getLogger(__name__)
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
@@ -21,7 +24,7 @@ CREATE TABLE IF NOT EXISTS events (
     timestamp_start TEXT NOT NULL,
     timestamp_end TEXT,
     duration_hours REAL,
-    cause TEXT NOT NULL CHECK (cause IN ('disaster', 'conflict', 'shutdown', 'unexplained')),
+    cause TEXT NOT NULL CHECK (cause IN ('disaster', 'conflict', 'shutdown', 'cyber', 'unexplained')),
     cause_subtype TEXT,
     source_type TEXT NOT NULL CHECK (source_type IN ('structured', 'semantic')),
     source_name TEXT NOT NULL,
@@ -39,8 +42,8 @@ CREATE INDEX IF NOT EXISTS idx_events_start ON events(timestamp_start);
 -- re-fetching the sources.
 CREATE TABLE IF NOT EXISTS cause_events (
     cause_event_id TEXT PRIMARY KEY,
-    source TEXT NOT NULL,              -- gdacs | acled | keepiton
-    cause TEXT NOT NULL,               -- disaster | conflict | shutdown
+    source TEXT NOT NULL,              -- gdacs | acled | keepiton | cyber_cf_radar
+    cause TEXT NOT NULL,               -- disaster | conflict | shutdown | cyber
     cause_subtype TEXT,
     country TEXT,
     lat REAL,
@@ -91,8 +94,34 @@ def connect(db_path: Path | None = None) -> Iterator[sqlite3.Connection]:
         conn.close()
 
 
+def _migrate_cause_check(conn: sqlite3.Connection) -> None:
+    """One-time upgrade for databases created before 'cyber' was added to the
+    cause taxonomy. SQLite can't ALTER a CHECK constraint in place, so this
+    rebuilds the events table under the new schema and copies the data over
+    -- a no-op (single cheap SELECT) once a database has already been
+    migrated, since it checks the live constraint SQL first."""
+    row = conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='events'"
+    ).fetchone()
+    if not row or not row["sql"] or "'cyber'" in row["sql"]:
+        return
+    logger.info("Migrating events table to add the 'cyber' cause (one-time schema upgrade)")
+    conn.executescript(
+        """
+        DROP INDEX IF EXISTS idx_events_country;
+        DROP INDEX IF EXISTS idx_events_cause;
+        DROP INDEX IF EXISTS idx_events_start;
+        ALTER TABLE events RENAME TO events_old;
+        """
+    )
+    conn.executescript(SCHEMA)  # recreates events (new CHECK) + its indexes; other tables are no-ops
+    conn.execute("INSERT INTO events SELECT * FROM events_old")
+    conn.execute("DROP TABLE events_old")
+
+
 def init_db(conn: sqlite3.Connection) -> None:
     conn.executescript(SCHEMA)
+    _migrate_cause_check(conn)
 
 
 def upsert_events(conn: sqlite3.Connection, events: Iterable[dict[str, Any]]) -> int:

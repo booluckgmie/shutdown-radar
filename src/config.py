@@ -17,7 +17,7 @@ DATA_DIR = ROOT_DIR / "data"
 DIST_DIR = ROOT_DIR / "dist"
 DB_PATH = DATA_DIR / "disruption_tracker.sqlite"
 
-CAUSES = ("disaster", "conflict", "shutdown", "unexplained")
+CAUSES = ("disaster", "conflict", "shutdown", "cyber", "unexplained")
 SOURCE_TYPES = ("structured", "semantic")
 CONFIDENCE_TIERS = ("high", "medium", "low")
 

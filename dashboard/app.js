@@ -1,9 +1,9 @@
 (function () {
   "use strict";
 
-  var CAUSES = ["conflict", "disaster", "shutdown", "unexplained"];
-  var CAUSE_LABEL = { conflict: "Conflict", disaster: "Disaster", shutdown: "Shutdown", unexplained: "Unexplained" };
-  var CAUSE_PRIORITY = { conflict: 0, shutdown: 1, disaster: 2, unexplained: 3 };
+  var CAUSES = ["conflict", "disaster", "shutdown", "cyber", "unexplained"];
+  var CAUSE_LABEL = { conflict: "Conflict", disaster: "Disaster", shutdown: "Shutdown", cyber: "Cyber attack", unexplained: "Unexplained" };
+  var CAUSE_PRIORITY = { conflict: 0, shutdown: 1, cyber: 2, disaster: 3, unexplained: 4 };
   var CONF_RANK = { low: 0, medium: 1, high: 2 };
 
   function causeColor(cause) {
@@ -439,7 +439,7 @@
       var d = parseDate(e.timestamp_start);
       if (!d) return;
       var wk = isoWeekKey(d);
-      if (!buckets[wk]) buckets[wk] = { conflict: 0, disaster: 0, shutdown: 0, unexplained: 0 };
+      if (!buckets[wk]) { buckets[wk] = {}; CAUSES.forEach(function (c) { buckets[wk][c] = 0; }); }
       buckets[wk][e.cause]++;
     });
     var weeks = Object.keys(buckets).sort();

@@ -1,10 +1,12 @@
 # Infrastructure Disruption Tracker
 
-Correlating internet outages with natural disasters, armed conflict, and government shutdowns.
+Correlating internet outages with natural disasters, armed conflict, cyberattacks, and
+government shutdowns.
 
 A real-data pipeline that detects internet connectivity outages worldwide and attributes
 each one to a likely cause — natural disaster, armed conflict, government-ordered
-shutdown, or unexplained/technical failure — using only free, open-access data sources.
+shutdown, cyberattack, or unexplained/technical failure — using only free, open-access
+data sources.
 The output is a single self-contained, interactive HTML dashboard: a bubble map plus
 frequency/duration/fragility charts and auto-generated insights.
 
@@ -41,7 +43,7 @@ which answers these live against whatever data is currently loaded):
 **In scope:**
 
 - Global internet outage detection at country/region/ASN level
-- Cause attribution across four categories: `disaster`, `conflict`, `shutdown`, `unexplained`
+- Cause attribution across five categories: `disaster`, `conflict`, `shutdown`, `cyber`, `unexplained`
 - Historical + near-real-time data (rolling window, accumulating into a full archive —
   see "Historical data" below)
 - Geospatial bubble-map visualization (frequency, severity, cause)
@@ -133,7 +135,7 @@ cp .env.example .env   # fill in whichever keys you have — all optional, see b
 
 | Env var | Source | Required for |
 |---|---|---|
-| `CLOUDFLARE_API_TOKEN` | [Cloudflare Radar](https://developers.cloudflare.com/radar/get-started/first-request/) (free tier) | Phase 1 Cloudflare connector |
+| `CLOUDFLARE_API_TOKEN` | [Cloudflare Radar](https://developers.cloudflare.com/radar/get-started/first-request/) (free tier) | Phase 1 Cloudflare connector + Phase 2 cyber-attack attribution (same token, no extra key) |
 | `ACLED_API_KEY` / `ACLED_EMAIL` | [ACLED registration](https://acleddata.com/register/) (free) | Phase 2 conflict attribution |
 | `KEEPITON_CSV_PATH` | Your own export of Access Now's [#KeepItOn](https://www.accessnow.org/keepiton/) data (no stable public API exists) | Phase 2 shutdown attribution |
 | `SERPER_API_KEY` / `GROQ_API_KEY` | [Serper.dev](https://serper.dev) / [Groq](https://console.groq.com) (both free tier) | Phase 3 semantic gap-filling |
@@ -189,7 +191,7 @@ as one row of the `events` table (`src/db.py`):
 ```
 event_id, lat, lon, region_name, country, asn,
 timestamp_start, timestamp_end, duration_hours,
-cause [disaster|conflict|shutdown|unexplained], cause_subtype,
+cause [disaster|conflict|shutdown|cyber|unexplained], cause_subtype,
 source_type [structured|semantic], source_name,
 confidence [high|medium|low], severity_score
 ```
@@ -235,7 +237,8 @@ can click straight through to a different week without clearing first.
 
 - **Bubble map** — one bubble per country in view; size = cumulative downtime-hours,
   color = dominant cause (red = conflict, orange = disaster, purple = shutdown,
-  gray = unexplained). Scroll-to-zoom, drag-to-pan, and a "Reset view" button; degrades
+  blue = cyber attack, gray = unexplained). Scroll-to-zoom, drag-to-pan, and a "Reset
+  view" button; degrades
   to a message (rest of the dashboard keeps working) if the Leaflet CDN is unreachable.
 - **Region filter** — country → region tags computed in `src/regions.py` (Southeast Asia,
   ASEAN, South Asia, East Asia, Central Asia, Middle East, the broad "Asia" rollup,
@@ -253,8 +256,8 @@ can click straight through to a different week without clearing first.
   `cause_events` table, not estimated).
 - A raw event table (collapsed by default) keeps every value reachable without hovering.
 - Colors were chosen and validated for colorblind-safety against the project's data-viz
-  skill (`validate_palette.js`): the conflict/disaster/shutdown hues clear both the CVD
-  and normal-vision separation floors; "unexplained" gray is deliberately desaturated
+  skill (`validate_palette.js`): the conflict/disaster/shutdown/cyber hues clear both the
+  CVD and normal-vision separation floors; "unexplained" gray is deliberately desaturated
   (a neutral/no-signal marker, not a competing identity color).
 
 ### Hosting it (Netlify, Vercel, GitHub Pages, or any static host)
