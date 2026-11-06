@@ -46,11 +46,14 @@ EXTRACTION_PROMPT = """You are extracting structured facts from news search snip
 possible internet/connectivity outage. Read the snippets and respond with ONLY a JSON object:
 {{"location_text": "<specific place name, or null if unclear>",
   "event_date": "<YYYY-MM-DD, or null>",
-  "cause": "<one of: disaster, conflict, shutdown, unexplained>",
-  "cause_subtype": "<short phrase, e.g. 'flood', 'shelling', 'govt_order', or null>",
+  "cause": "<one of: disaster, conflict, shutdown, cyber, unexplained>",
+  "cause_subtype": "<short phrase, e.g. 'flood', 'shelling', 'govt_order', 'ddos', 'ransomware', or null>",
   "confidence": "<low or medium>"}}
-Only claim disaster/conflict/shutdown if the snippets give a real reason. If nothing useful is \
-present, return cause "unexplained" with confidence "low".
+Use "cyber" when the snippets describe a DDoS attack, hacking incident, ransomware, or other \
+deliberate cyberattack as the reason for the outage -- distinct from "shutdown" (a government \
+order) and "conflict" (physical/military action). Only claim disaster/conflict/shutdown/cyber if \
+the snippets give a real reason. If nothing useful is present, return cause "unexplained" with \
+confidence "low".
 
 Country: {country}
 Approximate date: {date}
@@ -154,7 +157,7 @@ def run(conn: sqlite3.Connection, settings: config.Settings) -> dict[str, int]:
     updates = []
     for event in unexplained:
         date_str = (event["timestamp_start"] or "")[:10]
-        query = f"internet outage OR internet disruption {event['country']} {date_str}"
+        query = f"internet outage OR internet disruption OR cyberattack OR DDoS attack {event['country']} {date_str}"
         try:
             snippets, domains = _gather_coverage(query, settings.serper_api_key)
             extraction = _extract_with_groq(event["country"], date_str, snippets, settings.groq_api_key)
