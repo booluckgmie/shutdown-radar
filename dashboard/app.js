@@ -774,6 +774,40 @@
       '</div>';
   }
 
+  // ---------- threat landscape (background context, not attributed) ----------
+  function renderThreatLandscape() {
+    var wrap = document.getElementById("threatLandscapeBody");
+    if (!wrap) return;
+    var t = DATA.threat_landscape;
+
+    if (!t) {
+      wrap.innerHTML = '<div class="card"><p class="analytics-empty">' +
+        'Not available this run. Pulled from Cloudflare Radar\'s attack-traffic-share endpoints using the same ' +
+        '<code>CLOUDFLARE_API_TOKEN</code> as the base outage signal — if that\'s configured and this is still ' +
+        'empty, the endpoint shape didn\'t match what this was built against; check the pipeline run\'s logs.</p></div>';
+      return;
+    }
+
+    function rankList(rows) {
+      if (!rows || !rows.length) return '<p class="analytics-empty">No data yet.</p>';
+      var max = Math.max.apply(null, rows.map(function (r) { return r.value; }).concat([1]));
+      return '<div class="rank-list">' + rows.map(function (r) {
+        var pct = Math.max(4, Math.round((r.value / max) * 100));
+        return '<div class="rank-item"><div class="rank-bar" style="width:' + pct + '%"></div>' +
+          '<div class="rank-row"><span>' + escapeHtml(r.label) + '</span><b>' + fmtNum(r.value) + '</b></div></div>';
+      }).join("") + '</div>';
+    }
+
+    wrap.innerHTML =
+      '<div class="analytics-grid" style="grid-template-columns:1fr 1fr">' +
+        '<div class="card"><h2>Most-targeted countries</h2>' + rankList(t.top_countries) + '</div>' +
+        '<div class="card"><h2>Most-targeted industries</h2>' + rankList(t.top_industries) + '</div>' +
+      '</div>' +
+      '<p class="card-note" style="margin-top:10px">Window: ' + escapeHtml(t.window) + ' · Cloudflare Radar attack-traffic share, ' +
+      'combined L3 (network) + L7 (application) for countries. This is raw traffic volume, not a dated incident — ' +
+      'it doesn\'t feed cause attribution above.</p>';
+  }
+
   // ---------- render orchestration ----------
   function renderAll() {
     var filtered = applyFilters();
@@ -951,5 +985,6 @@
 
   renderPipelineSection();
   renderSiteAnalytics();
+  renderThreatLandscape();
   renderAll();
 })();

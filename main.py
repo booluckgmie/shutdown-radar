@@ -20,7 +20,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-from src import attribution, config, db, export, semantic, site_analytics
+from src import attribution, config, db, export, semantic, site_analytics, threat_landscape
 from src.ingestion import (
     acled,
     cloudflare_radar,
@@ -125,9 +125,15 @@ def cmd_build(args: argparse.Namespace) -> None:
         logger.exception("Site analytics fetch failed unexpectedly, continuing without it")
         site_stats = None
 
+    try:
+        threat_stats = threat_landscape.fetch_summary(settings.cloudflare_api_token)
+    except Exception:
+        logger.exception("Threat landscape fetch failed unexpectedly, continuing without it")
+        threat_stats = None
+
     with db.connect() as conn:
         db.init_db(conn)
-        payload = export.build_payload(conn, site_analytics=site_stats)
+        payload = export.build_payload(conn, site_analytics=site_stats, threat_landscape=threat_stats)
 
     data_path = config.DIST_DIR / "data.json"
     data_path.write_text(json.dumps(payload, indent=2, default=str))
