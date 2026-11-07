@@ -92,6 +92,11 @@ def _fetch_ranked(path: str, token: str, metric_name: str) -> list[dict[str, Any
             metric_name, raw,
         )
         return None
+    if rows and all(r["value"] == 0 for r in normalized):
+        logger.warning(
+            "Threat landscape (%s): all values normalized to 0, likely a field-shape mismatch. First raw row: %s",
+            metric_name, rows[0],
+        )
     return normalized
 
 
