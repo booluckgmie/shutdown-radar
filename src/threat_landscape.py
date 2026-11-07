@@ -52,9 +52,12 @@ def _get(path: str, token: str) -> dict:
 
 
 def _normalize_rows(data: Any) -> list[dict[str, Any]] | None:
-    """Generic extraction, same approach as site_analytics.py: first string
-    field in a row = label, first numeric field = value. Doesn't assume
-    Cloudflare's exact key names (e.g. targetCountryName vs target_country)."""
+    """Generic extraction, same approach as site_analytics.py: first
+    non-numeric string field in a row = label, first numeric field = value.
+    Doesn't assume Cloudflare's exact key names (e.g. targetCountryName vs
+    target_country) -- and Cloudflare Radar returns the share value as a
+    numeric string (e.g. "21.019118"), not a JSON number, so a string is
+    only treated as the label once it fails to parse as a float."""
     if not isinstance(data, list):
         return None
     out = []
@@ -63,10 +66,20 @@ def _normalize_rows(data: Any) -> list[dict[str, Any]] | None:
             return None
         label, value = None, None
         for v in row.values():
-            if isinstance(v, str) and label is None:
-                label = v
-            elif isinstance(v, (int, float)) and not isinstance(v, bool) and value is None:
-                value = v
+            if isinstance(v, bool):
+                continue
+            if isinstance(v, (int, float)) and value is None:
+                value = float(v)
+                continue
+            if isinstance(v, str):
+                try:
+                    parsed = float(v)
+                except ValueError:
+                    if label is None:
+                        label = v
+                else:
+                    if value is None:
+                        value = parsed
         out.append({"label": label if label is not None else "(unknown)", "value": value or 0})
     return out
 
@@ -92,11 +105,6 @@ def _fetch_ranked(path: str, token: str, metric_name: str) -> list[dict[str, Any
             metric_name, raw,
         )
         return None
-    if rows and all(r["value"] == 0 for r in normalized):
-        logger.warning(
-            "Threat landscape (%s): all values normalized to 0, likely a field-shape mismatch. First raw row: %s",
-            metric_name, rows[0],
-        )
     return normalized
 
 
