@@ -37,6 +37,8 @@ from typing import Any
 
 import requests
 
+from . import geo
+
 logger = logging.getLogger(__name__)
 
 BASE_URL = "https://api.cloudflare.com/client/v4/radar/attacks"
@@ -123,11 +125,17 @@ def fetch_summary(token: str) -> dict[str, Any] | None:
 
     # Combine L3 + L7 target-country rankings into one list by summing
     # matching labels, since the dashboard shows one "most targeted
-    # countries" ranking rather than splitting by attack layer.
+    # countries" ranking rather than splitting by attack layer. Cloudflare's
+    # row dicts carry both an ISO alpha-2 code and a full name field (e.g.
+    # clientCountryAlpha2 + clientCountryName) -- _normalize_rows just takes
+    # the first non-numeric string it sees, which in production is the
+    # 2-letter code, so map through geo.name_for here to match how every
+    # other country in this dashboard is displayed (full name, not code).
     combined: dict[str, float] = {}
     for rows in (top_targets_l3 or [], top_targets_l7 or []):
         for r in rows:
-            combined[r["label"]] = combined.get(r["label"], 0) + r["value"]
+            label = geo.name_for(r["label"])
+            combined[label] = combined.get(label, 0) + r["value"]
     top_countries = sorted(
         ({"label": k, "value": v} for k, v in combined.items()), key=lambda r: r["value"], reverse=True
     )[:TOP_N]
